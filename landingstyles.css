@@ -431,9 +431,15 @@ body, html {
 .social-container a:hover {
   border: 1px solid #00008B;
 }
-.form-container .register-container .login-container .close .close1 {
+.form-container .register-container .login-container{
     position: absolute;
     cursor: pointer;
+}
+.close{
+  position: absolute;
+  cursor: pointer;
+  top: 0%;
+  left: 5%;
 }
 .course {
   position:inherit;
@@ -447,7 +453,7 @@ body, html {
   font-size: 15px;
 
 }
-.checkbox {
+.checkbox1 {
   display: block;
   position: relative;
   padding-left: 35px;
@@ -457,7 +463,7 @@ body, html {
   -ms-user-select: none;
   user-select: none;
 }
-.checkbox input {
+.checkbox1 input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -474,10 +480,10 @@ body, html {
   background-color: #eee;
 }
 
-.checkbox:hover input ~ .checkmark {
+.checkbox1:hover input ~ .checkmark {
   background-color: #ccc;
 }
-.checkbox input:checked ~ .checkmark {
+.checkbox1 input:checked ~ .checkmark {
   background-color: #2196F3;
 }
 
@@ -486,11 +492,11 @@ body, html {
   position: absolute;
   display: none;
 }
-.checkbox input:checked ~ .checkmark:after {
+.checkbox1 input:checked ~ .checkmark:after {
   display: block;
 }
 
-.checkbox .checkmark:after {
+.checkbox1 .checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;
