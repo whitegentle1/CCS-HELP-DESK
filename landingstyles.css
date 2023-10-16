@@ -128,7 +128,7 @@ body, html {
   width: 100%;
   backdrop-filter: blur(10px);
   z-index: 1;
-  transition: display 0.5s ease;
+  animation: show1 0.3s;
 }
 
 .container h1 {
@@ -330,6 +330,16 @@ body, html {
     z-index: 5;
   }
 }
+@keyframes show1 {
+  0% {
+    opacity: 0;
+    transform: translateX(100%) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%) scale(1);
+  }
+}
 
 .overlay-container {
   position: absolute;
@@ -440,6 +450,7 @@ body, html {
   cursor: pointer;
   top: 0%;
   left: 5%;
+  transition: 0.5 ease-in-out;
 }
 .course {
   position:inherit;
