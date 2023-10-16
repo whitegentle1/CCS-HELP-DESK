@@ -435,7 +435,7 @@ body, html {
     position: absolute;
     cursor: pointer;
 }
-.close{
+.close, .close1{
   position: absolute;
   cursor: pointer;
   top: 0%;
