@@ -13,17 +13,24 @@
           <div class="form-container register-container">
             <form action="#">
               <h1>Register Here.</h1>
-              <input type="text" placeholder="Name">
-              <input type="email" placeholder="Email">
-              <input type="password" placeholder="Password">
+              <select name="course" id="course" class="course">
+                <option>Course</option>
+                <option value="BSIT">BSIT</option>
+                <option value="BSCS">BSCS</option>
+                <option value="BSIS">BSIS</option>
+                <option value="ACT">ACT</option>
+              </select>
+              <input type="text" placeholder="First Name">
+              <input type="text" placeholder="Last Name">
+              <input type="text" placeholder="Middle Name">
+              <input type="email" placeholder="DHVSU Email">
+              <input type="password" placeholder="Password" id="npassword">
+              <input type="password" placeholder="Re-type Password" id="conpassword">
+              <label class="checkbox">I agree to the <a href="#">terms and conditions</a> and <a href=""> data privacy policy</a>
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
               <button>Register</button>
-              <span>Register using</span>
-              <div class="social-container">
-                <a href="#" class="social"><i class="lni lni-facebook-fill"></i></a>
-                <a href="#" class="social"><i class="lni lni-google"></i></a>
-                <a href="#" class="social"><i class="lni lni-linkedin-original"></i></a>
-              </div>
-              <a href="#" class="close"><i class="lni lni-close"></i></a>
             </form>
           </div>
       
@@ -48,7 +55,7 @@
                 <a href="#" class="social"><i class="lni lni-google"></i></a>
                 <a href="#" class="social"><i class="lni lni-linkedin-original"></i></a>
               </div>
-              <a href="#" class="close1"><i class="lni lni-close"></i></a>
+              <a href="#" class="close"><i class="lni lni-close"></i></a>
             </form>
           </div>
       
