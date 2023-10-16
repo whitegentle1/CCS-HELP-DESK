@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url("imgs/RegisterBG.png");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+.left_contents{
+    float: left;
+    width: 50%;
+}
+.right_contents{
+    float: right;
+    width: 50%;
+    position: relative;
+}
+.profile_pic{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: rgb(91, 91, 91);
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    overflow: hidden;
+}
+.profile_pic img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.studname{
+    position: absolute;
+    top: 10px;
+    left: 100px;
+    font-size: 20px;
+    font-weight: bold;
+}
+.menu_containers{
+    flex-direction: column;
+    margin-top: 100px;;
+}
+.homepage, .ai_ass, .req, .setting, .help {
+    width: 500px;
+    height: 100px;
+    background-color: rgb(192, 192, 192);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+.homepage h2, .ai_ass h2, .req h2, .setting h2, .help h2{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    margin: 0;
+}
+.menu_containers a {
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+.homepage:hover, .ai_ass:hover, .req:hover, .setting:hover, .help:hover {
+    background-color: rgb(86, 86, 86);
+}
+
+  .chat-container {
+    display: grid;
+    flex-direction: column;
+    max-width: 100%;
+    margin: 5% auto;
+    width: 100%;
+  }
+  
+  .chat-box {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    max-height: 520px;
+    overflow-y: auto;
+  }
+  
+  .message {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  
+  .message .profile-picture {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background-color: #ccc;
+    margin-right: 10px;
+    display: flex;
+  }
+  
+  .received .profile-picture {
+    float: left;
+  }
+  
+  .sent .profile-picture {
+    float: right;
+    justify-content: flex-end;
+    text-align: right;
+  }
+  
+  .received {
+    background-color: #f0f0f0;
+  }
+  
+  .sent {
+    background-color: #e5f5fd;
+    text-align: right;
+    justify-content: flex-end;
+  }
+  
+  .user-input {
+    display: flex;
+  }
+  
+  .user-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-right: 10px;
+  }
+  
+  .user-input button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #676767;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+  }
+  
+  .user-input button:hover {
+    background-color: #7b7b7b;
+    transition: background-color 0.3s ease;
+  }
