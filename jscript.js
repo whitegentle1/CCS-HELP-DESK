@@ -11,13 +11,21 @@ loginButton.addEventListener("click", () => {
 });
 
 document.getElementById("get-started").addEventListener("click", function(){
-    document.getElementById("popup_body").style.display = "flex";
+  document.getElementById("popup_body").style.display = "flex";
+});
+
+document.getElementById("forgot-pass1").addEventListener("click", function(){
+  document.getElementById("fbody").style.display = "flex";
 });
 
 document.querySelector(".close").addEventListener("click", function(){
-    document.getElementById("popup_body").style.display = "none";
+  document.getElementById("popup_body").style.display = "none";
 });
 
 document.querySelector(".close1").addEventListener("click", function(){
   document.getElementById("popup_body").style.display = "none";
+});
+
+document.querySelector(".close3").addEventListener("click", function(){
+  document.getElementById("fbody").style.display = "none";
 });

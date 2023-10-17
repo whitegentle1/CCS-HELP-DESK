@@ -8,6 +8,7 @@ body, html {
     background-attachment: fixed;
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 .inv_container{
     width: 100%;
@@ -28,7 +29,6 @@ body, html {
   align-items: center;
   margin-top: 10px;
   margin-left: 56px;
-  
 }
 .head_container .c_pic img {
     max-height: 100%;
@@ -334,14 +334,19 @@ body, html {
 @keyframes show1 {
   0% {
     opacity: 0;
-    transform: translateX(100%) scale(0.9);
   }
   100% {
     opacity: 1;
-    transform: translateX(0%) scale(1);
   }
 }
-
+@keyframes show2 {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 .overlay-container {
   position: absolute;
   top: 0;
@@ -446,7 +451,7 @@ body, html {
     position: absolute;
     cursor: pointer;
 }
-.close, .close1{
+.close, .close1, .close3{
   position: absolute;
   cursor: pointer;
   top: 0%;
@@ -518,4 +523,85 @@ body, html {
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+.forgot-pass {
+  z-index: 0;
+  position: absolute;
+  display: flex;
+  top: 50%;
+}
+.fbody {
+  position: absolute;
+  text-align: center;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  overflow: hidden;
+  height: 100vh;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  z-index: 3;
+  animation: show1 0.3s;
+}
+.fbody form {
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+}
+.fbody form input {
+  background-color: #eee;
+  border-radius: 10px;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+}
+.fbody form button {
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid #00008B;
+  background-color: #00008B;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 10px;
+  padding: 12px 80px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  transition: 0.3s ease-in-out;
+}
+.fbody form button:hover {
+  letter-spacing: 3px;
+  background-color: #101967;
+}
+.fbody h1 {
+  font-size: 20px;
+  line-height: 50px;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(16, 64, 74, 0.5);
+}
+.fbody p {
+  font-size: 14px;
+  font-weight: 100;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin: 20px 0 30px;
+}
+.fbody a {
+  color: #00008B;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+  transition: 0.3s ease-in-out;
+}
+.fbody a:hover {
+  color: #101967;
 }
