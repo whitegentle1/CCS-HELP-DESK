@@ -21,8 +21,8 @@ body, html {
   width: 90%;
   height: 70%;
   background: rgb(44,44,118);
-  background: linear-gradient(90deg, rgba(44,44,118,1) 0%, rgba(28,28,67,1) 100%);
-  border-radius: 40px;
+  background: linear-gradient(90deg, rgba(44,44,118,0.8431232) 0%, rgba(28,28,67,0.3421343413) 100%);
+  border-radius: 50px;
   border: 3px solid #3e4a9e;
   display: flex;
   align-items: center;
@@ -75,21 +75,22 @@ body, html {
     align-items: center;
 }
 .left_container .welcome h1{
-    font-size: 30px;
+    font-size: 50px;
     text-align: center;
-    margin-left: 500px;
+    left: 50%;
+    margin-left: 600px;
     font-weight: bold;
     color: white;
 }
 .get-started{
-    width: 500px;
+    width: 600px;
     height: 100px;
-    background-color: rgb(25, 75, 255);
-    border-radius: 17px;
+    background-color: rgb(25, 75, 255, 0.76524323);
+    border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 50%;
+    margin-left: 60%;
     transition: background-color 0.3s ease;
     text-decoration: none;
 }
