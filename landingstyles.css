@@ -2,7 +2,7 @@
 
 body, html {
     font-family: Arial, Helvetica, "Poppins", sans-serif;
-    background-image: url("imgs/RegisterBG.png");
+    background-image: url("imgs/RegisterBG.jpg");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -21,8 +21,8 @@ body, html {
   width: 90%;
   height: 70%;
   background: rgb(44,44,118);
-  background: linear-gradient(90deg, rgba(44,44,118,1) 0%, rgba(28,28,67,1) 100%);
-  border-radius: 40px;
+  background: linear-gradient(90deg, rgba(44,44,118,0.8431232) 0%, rgba(28,28,67,0.3421343413) 100%);
+  border-radius: 50px;
   border: 3px solid #3e4a9e;
   display: flex;
   align-items: center;
@@ -75,21 +75,22 @@ body, html {
     align-items: center;
 }
 .left_container .welcome h1{
-    font-size: 30px;
+    font-size: 50px;
     text-align: center;
-    margin-left: 500px;
+    left: 50%;
+    margin-left: 600px;
     font-weight: bold;
     color: white;
 }
 .get-started{
-    width: 500px;
+    width: 600px;
     height: 100px;
-    background-color: rgb(25, 75, 255);
-    border-radius: 17px;
+    background-color: rgb(25, 75, 255, 0.76524323);
+    border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 50%;
+    margin-left: 60%;
     transition: background-color 0.3s ease;
     text-decoration: none;
 }
@@ -128,7 +129,7 @@ body, html {
   width: 100%;
   backdrop-filter: blur(10px);
   z-index: 1;
-  transition: display 0.5s ease;
+  animation: show1 0.3s;
 }
 
 .container h1 {
@@ -330,6 +331,16 @@ body, html {
     z-index: 5;
   }
 }
+@keyframes show1 {
+  0% {
+    opacity: 0;
+    transform: translateX(100%) scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0%) scale(1);
+  }
+}
 
 .overlay-container {
   position: absolute;
@@ -431,9 +442,16 @@ body, html {
 .social-container a:hover {
   border: 1px solid #00008B;
 }
-.form-container .register-container .login-container .close .close1 {
+.form-container .register-container .login-container{
     position: absolute;
     cursor: pointer;
+}
+.close, .close1{
+  position: absolute;
+  cursor: pointer;
+  top: 0%;
+  left: 5%;
+  transition: 0.5 ease-in-out;
 }
 .course {
   position:inherit;
@@ -447,7 +465,7 @@ body, html {
   font-size: 15px;
 
 }
-.checkbox {
+.checkbox1 {
   display: block;
   position: relative;
   padding-left: 35px;
@@ -457,7 +475,7 @@ body, html {
   -ms-user-select: none;
   user-select: none;
 }
-.checkbox input {
+.checkbox1 input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
@@ -474,10 +492,10 @@ body, html {
   background-color: #eee;
 }
 
-.checkbox:hover input ~ .checkmark {
+.checkbox1:hover input ~ .checkmark {
   background-color: #ccc;
 }
-.checkbox input:checked ~ .checkmark {
+.checkbox1 input:checked ~ .checkmark {
   background-color: #2196F3;
 }
 
@@ -486,11 +504,11 @@ body, html {
   position: absolute;
   display: none;
 }
-.checkbox input:checked ~ .checkmark:after {
+.checkbox1 input:checked ~ .checkmark:after {
   display: block;
 }
 
-.checkbox .checkmark:after {
+.checkbox1 .checkmark:after {
   left: 9px;
   top: 5px;
   width: 5px;
