@@ -20,5 +20,4 @@ document.querySelector(".close").addEventListener("click", function(){
 
 document.querySelector(".close1").addEventListener("click", function(){
   document.getElementById("popup_body").style.display = "none";
-
 });
