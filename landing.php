@@ -44,12 +44,12 @@ include("func/func.php");
               <input type="text" placeholder="Middle Name" name="middlename">
               <input type="email" placeholder="DHVSU Email" name="email">
               <input type="password" placeholder="Password" id="npassword" name="password">
-              <input type="password" placeholder="Re-type Password" id="conpassword">
+              <input type="password" placeholder="Re-type Password" id="conpassword" name="repassword">
               <label class="checkbox1"><p>I agree to the <a href="#">terms and conditions</a> and <a href=""> data privacy policy</a></p>
                 <input type="checkbox">
                 <span class="checkmark"></span>
               </label>
-              <button>Register</button>
+              <button id="reg">Register</button>
             </form>
           </div>
       
