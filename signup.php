@@ -14,8 +14,9 @@ session_start();
         $middle_name = $_POST['middlename'];
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $repassword = $_POST['repassword'];
         
-		if(!empty($email) && !empty($first_name) && !empty($last_name) && !empty($middle_name) && !empty($email) && !empty($password))
+		if((strcmp($course, "Course") !== 0) && !empty($email) && !empty($first_name) && !empty($last_name) && !empty($middle_name) && !empty($email) && !empty($password) && !empty($repassword))
         try{
 
 			//save to database
@@ -45,6 +46,7 @@ session_start();
         else
 		{
 			echo "Please enter some valid information!";
+            header("location: landing.php?error=emptyInput");
 		}
 	}
 ?>
