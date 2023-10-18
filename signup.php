@@ -18,6 +18,8 @@ session_start();
         
 		if((strcmp($course, "Course") !== 0) && !empty($email) && !empty($first_name) && !empty($last_name) && !empty($middle_name) && !empty($email) && !empty($password) && !empty($repassword))
         {
+            //check user if already exists
+            
             //check if password and repassword match
             if(strcmp($password, $repassword) == 0)
             {
