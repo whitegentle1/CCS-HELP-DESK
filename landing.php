@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+include("connection/db.php");
+include("func/func.php");
+
+//required etong php na 'to sa lahat ng mga pages
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +30,7 @@
         <div class="container" id="container">
           <div class="form-container register-container">
             <a href="#" class="close1"><i class="lni lni-close"></i></a>
-            <form action="#">
+            <form method="post" action="signup.php">
               <h1>Register Here.</h1>
               <select name="course" id="course" class="course">
                 <option>Course</option>
@@ -31,11 +39,11 @@
                 <option value="BS Information Systems">BS Information Systems</option>
                 <option value="Associate in Computer Technology">Associate in Computer Technology</option>
               </select>
-              <input type="text" placeholder="First Name">
-              <input type="text" placeholder="Last Name">
-              <input type="text" placeholder="Middle Name">
-              <input type="email" placeholder="DHVSU Email">
-              <input type="password" placeholder="Password" id="npassword">
+              <input type="text" placeholder="First Name" name="firstname">
+              <input type="text" placeholder="Last Name" name="lastname">
+              <input type="text" placeholder="Middle Name" name="middlename">
+              <input type="email" placeholder="DHVSU Email" name="email">
+              <input type="password" placeholder="Password" id="npassword" name="password">
               <input type="password" placeholder="Re-type Password" id="conpassword">
               <label class="checkbox1"><p>I agree to the <a href="#">terms and conditions</a> and <a href=""> data privacy policy</a></p>
                 <input type="checkbox">
