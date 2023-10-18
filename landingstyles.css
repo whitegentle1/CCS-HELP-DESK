@@ -474,12 +474,16 @@ body, html {
   display: block;
   position: relative;
   padding-left: 35px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  font-size: 15px;
+  top: 30px;
 }
+
+
 .checkbox1 input {
   position: absolute;
   opacity: 0;
