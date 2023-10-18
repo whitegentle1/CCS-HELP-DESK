@@ -81,14 +81,16 @@ include("func/func.php");
                   password == "" ||
                   confirmPassword == ""
                   ){
-                  alert("Please fill the empty form/s.");
+                    alert("Please fill the empty form/s.");
                   } else if (!email.endsWith("@dhvsu.edu.ph")) {
-                  alert("Please use your DHVSU account (example@dhvsu.edu.ph)."); 
+                    alert("Please use your DHVSU account (example@dhvsu.edu.ph)."); 
                   } else if (!agreeCheckbox.checked) {
-                  alert("Please agree to the terms and conditions.");
+                    alert("Please agree to the terms and conditions.");
+                  } else if (password != confirmPassword){
+                    alert("The Password and Re-type Password does not match up.");
                   } else {
-                  alert("Registration successful!");
-                  this.submit();
+                    alert("Registration successful!");
+                    this.submit();
                   }
               });
             </script>
@@ -132,9 +134,9 @@ include("func/func.php");
                   Email == "" ||
                   Pass == ""
                   ){
-                  alert("Please fill the empty form/s.");
+                    alert("Please fill the empty form/s.");
                   } else if (!Email.endsWith("@dhvsu.edu.ph")) {
-                  alert("Please use your DHVSU account (example@dhvsu.edu.ph)."); 
+                    alert("Please use your DHVSU account (example@dhvsu.edu.ph)."); 
                   } else {
                     document.getElementById("signIn").submit();
                   }
