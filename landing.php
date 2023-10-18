@@ -30,46 +30,116 @@ include("func/func.php");
         <div class="container" id="container">
           <div class="form-container register-container">
             <a href="#" class="close1"><i class="lni lni-close"></i></a>
-            <form method="post" action="signup.php">
+            <!-- for signup -->
+            <form action="#" id="signIn">
               <h1>Register Here.</h1>
               <select name="course" id="course" class="course">
-                <option>Course</option>
-                <option value="BS Computer Science">BS Computer Science</option>
-                <option value="BS Information Technology">BS Information Technology</option>
-                <option value="BS Information Systems">BS Information Systems</option>
-                <option value="Associate in Computer Technology">Associate in Computer Technology</option>
+                  <option>Course</option>
+                  <option value="BSIT">BSIT</option>
+                  <option value="BSCS">BSCS</option>
+                  <option value="BSIS">BSIS</option>
+                  <option value="ACT">ACT</option>
               </select>
-              <input type="text" placeholder="First Name" name="firstname">
-              <input type="text" placeholder="Last Name" name="lastname">
-              <input type="text" placeholder="Middle Name" name="middlename">
-              <input type="email" placeholder="DHVSU Email" name="email">
-              <input type="password" placeholder="Password" id="npassword" name="password">
-              <input type="password" placeholder="Re-type Password" id="conpassword" name="repassword">
-              <label class="checkbox1"><p>I agree to the <a href="#">terms and conditions</a> and <a href=""> data privacy policy</a></p>
-                <input type="checkbox">
-                <span class="checkmark"></span>
+              <input type="text" placeholder="First Name" id="fname">
+              <input type="text" placeholder="Last Name" id="lname">
+              <input type="text" placeholder="Middle Name" id="mname">
+              <input type="email" placeholder="DHVSU Email" id="email">
+              <input type="password" placeholder="Password" id="npassword">
+              <input type="password" placeholder="Re-type Password" id="conpassword">
+              <label class="checkbox1">I agree to the <a href="#">terms and conditions</a> and <a href=""> data privacy policy</a>
+                  <input type="checkbox" id="checkBox">
+                  <span class="checkmark"></span>
               </label>
               <button>Register</button>
             </form>
+
+            <script>
+              document.querySelector(".close1").addEventListener("click", function () {
+                if (confirm("Are you sure you want to exit?")) {
+                  document.getElementById("popup_body").style.display = "none";
+                }
+              });
+            </script>
+
+            <script>
+              document.getElementById("signIn").addEventListener("submit", function(event) {
+                  event.preventDefault();
+                  
+                  var fname = document.getElementById("fname").value;
+                  var lname = document.getElementById("lname").value;
+                  var mname = document.getElementById("mname").value;
+                  var email = document.getElementById("email").value;
+                  var password = document.getElementById("npassword").value;
+                  var confirmPassword = document.getElementById("conpassword").value;
+                  var agreeCheckbox = document.getElementById("checkBox");
+
+                  if (
+                  fname == "" ||
+                  lname == "" ||
+                  mname == "" ||
+                  email == "" ||
+                  password == "" ||
+                  confirmPassword == ""
+                  ){
+                  alert("Please fill the empty form/s.");
+                  } else if (!email.endsWith("@dhvsu.edu.ph")) {
+                  alert("Please use your DHVSU account (example@dhvsu.edu.ph)."); 
+                  } else if (!agreeCheckbox.checked) {
+                  alert("Please agree to the terms and conditions.");
+                  } else {
+                  alert("Registration successful!");
+                  this.submit();
+                  }
+              });
+            </script>
           </div>
       
           <div class="form-container login-container">
             <a href="#" class="close"><i class="lni lni-close"></i></a>
-            <form action="#">
+            <!-- for login -->
+            <form action="#" id="logIns">
               <h1>Login Here.</h1>
-              <input type="email" placeholder="Email">
-              <input type="password" placeholder="Password">
+              <input type="email" placeholder="Email" id="Email">
+              <input type="password" placeholder="Password" id="Pass">
               <div class="content">
-                <div class="checkbox">
+                  <div class="checkbox">
                   <input type="checkbox" name="checkbox" id="checkbox">
                   <label>Remember me</label>
-                </div>
-                <div class="pass-link">
-                  <a href="#" id = "forgot-pass1">Forgot password?</a>
-                </div>
+                  </div>
+                  <div class="pass-link">
+                  <a href="#">Forgot password?</a>
+                  </div>
               </div>
               <button>Login</button>
             </form>
+
+            <script>
+              document.querySelector(".close").addEventListener("click", function () {
+                if (confirm("Are you sure you want to exit?")) {
+                  document.getElementById("popup_body").style.display = "none";
+                }
+              });
+            </script>
+
+            <script>
+              document.getElementById("logIns").addEventListener("submit", function(event) {
+                  event.preventDefault();
+
+                  var Email = document.getElementById("Email").value;
+                  var Pass = document.getElementById("Pass").value;
+
+                  if (
+                  Email == "" ||
+                  Pass == ""
+                  ){
+                  alert("Please fill the empty form/s.");
+                  } else if (!Email.endsWith("@dhvsu.edu.ph")) {
+                  alert("Please use your DHVSU account (example@dhvsu.edu.ph)."); 
+                  } else {
+                    document.getElementById("signIn").submit();
+                  }
+              });
+            </script>
           </div>
 
           <div class="overlay-container">
