@@ -1,5 +1,11 @@
 <?php
-require_once ('connection.php')
+session_start();
+
+include("connection/db.php");
+include("func/func.php");
+
+$user_data = check_login($conn);
+//yung purpose ni user_id sa database kanino dito yon
 ?>
 <!DOCTYPE html>
 <html lang="en">
