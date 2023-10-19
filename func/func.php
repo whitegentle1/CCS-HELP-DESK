@@ -22,7 +22,7 @@ function check_login($conn)
 	die;
 
 }
-
+//check if user is logged in or not then redirect to landing.php
 function random_num($length)
 {
 

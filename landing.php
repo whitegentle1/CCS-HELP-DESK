@@ -12,6 +12,7 @@ include("func/func.php");
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="landingstyles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
     <title>Document</title>
 </head>
@@ -50,7 +51,7 @@ include("func/func.php");
                   <input type="checkbox" id="checkBox">
                   <span class="checkmark"></span>
               </label>
-              <button>Register</button>
+              <button id="reg">Register</button>
             </form>
 
             <script>
@@ -167,7 +168,7 @@ include("func/func.php");
         </div>
       </div>
     <div class="inv_container">
-        <div class="head_container">
+        <div class="head_container" id="head_container">
             <div class ="c_pic">
                 <img src="imgs/dv.png" alt="dabsu-logo">
             </div>
@@ -180,23 +181,24 @@ include("func/func.php");
     
     <div class="right_container">
         <div class="ccs_pic">
-            <img src="imgs/ccs.png" alt="CCS-logo">
+            <img id="ccs_pic1" src="imgs/ccs.png" alt="CCS-logo">
         </div>
     </div>
     <div class="left_container">
         <div class="welcome">
-            <h1>Welcome to the CCS HELP DESK, CODE-HEARTED FOXES!</h1>
+            <h1 id="welText">Welcome to the CCS HELP DESK, CODE-HEARTED FOXES!</h1>
         </div>
         <a href="#" class ="get-started" id="get-started">
-            <h2>Get Started</h2>
+            <h2 id="h2get">Get Started</h2>
         </a>
     </div>
-
+    
 </body>
 <footer>
     <div class="footer">
         <p>www.ccshelpdesk.com | ©2023 DHVSU CCS HELP DESK | @ccshelpdesksite</p>
         <a href="#" class ="footer2"> About Us</a>
+        <i class="bi bi-moon-fill" class="dl_mode" id="toggleDark" placeholder="Toggle Dark"></i>
     </div>
 </footer>
 <script src="jscript.js"></script>

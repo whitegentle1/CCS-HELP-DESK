@@ -1,7 +1,9 @@
 <?php
-require_once ('connection/db.php')
+include("connection/db.php");
 include ("landing.php");
+include("func/func.php");
 
+$user_data = check_login($conn);
 ?>
 <!DOCTYPE html>
 <html lang="en">
