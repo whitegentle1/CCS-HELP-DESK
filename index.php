@@ -1,4 +1,5 @@
 <?php
+session_start();
 include("connection/db.php");
 include("func/func.php");
 
@@ -93,9 +94,8 @@ $user_data = check_login($conn);
           <button>Send</button>
         </div>
       </div>
+      <div><a href="logout.php">Logout</a></div>
 </div>
-<script>
-
-</script>
+<script src="jscript.js"></script>
 </body>
 </html>

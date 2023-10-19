@@ -4,7 +4,10 @@ session_start();
 include("connection/db.php");
 include("func/func.php");
 
-//required etong php na 'to sa lahat ng mga pages
+if(isset($_SESSION['user_id'])) {
+  header("Location: index.php");
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -50,16 +53,16 @@ include("func/func.php");
                 <input type="checkbox">
                 <span class="checkmark"></span>
               </label>
-              <button id="reg">Register</button>
+              <button type="submit"id="reg">Register</button>
             </form>
           </div>
       
           <div class="form-container login-container">
             <a href="#" class="close" id="close"><i class="lni lni-close"></i></a>
-            <form action="#">
+            <form action=login.php method="post">
               <h1>Login Here.</h1>
-              <input type="email" placeholder="Email">
-              <input type="password" placeholder="Password">
+              <input type="email" placeholder="Email" name="email">
+              <input type="password" placeholder="Password" name="password">
               <div class="content">
                 <div class="checkbox">
                   <input type="checkbox" name="checkbox" id="checkbox">
@@ -69,7 +72,7 @@ include("func/func.php");
                   <a href="#" id = "forgot-pass1">Forgot password?</a>
                 </div>
               </div>
-              <button>Login</button>
+              <button type="submit">Login</button>
             </form>
           </div>
 
