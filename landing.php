@@ -31,7 +31,7 @@ include("func/func.php");
           <div class="form-container register-container">
             <a href="#" class="close1"><i class="lni lni-close"></i></a>
             <!-- for signup -->
-            <form action="#" id="signIn">
+            <form method="post" action="signup.php" id="signIn">
               <h1>Register Here.</h1>
               <select name="course" id="course" class="course">
                   <option>Course</option>
@@ -40,10 +40,10 @@ include("func/func.php");
                   <option value="BS Information Systems">BS Information Systems</option>
                   <option value="Associate in Computer Technology">Associate in Computer Technology</option>
               </select>
-              <input type="text" placeholder="First Name" id="firstname">
-              <input type="text" placeholder="Last Name" id="lastname">
-              <input type="text" placeholder="Middle Name" id="middlename">
-              <input type="email" placeholder="DHVSU Email" id="email">
+              <input type="text" placeholder="First Name" id="fname" name="firstname">
+              <input type="text" placeholder="Last Name" id="lname" name="lastname">
+              <input type="text" placeholder="Middle Name" id="mname" name="middlename">
+              <input type="email" placeholder="DHVSU Email" id="email" name="email">
               <input type="password" placeholder="Password" id="npassword" name="password">
               <input type="password" placeholder="Re-type Password" id="conpassword" name="repassword">
               <label class="checkbox1">I agree to the <a href="#">terms and conditions</a> and <a href=""> data privacy policy</a>
@@ -99,7 +99,7 @@ include("func/func.php");
           <div class="form-container login-container">
             <a href="#" class="close"><i class="lni lni-close"></i></a>
             <!-- for login -->
-            <form action="#" id="logIns">
+            <form action="login.php" id="logIns">
               <h1>Login Here.</h1>
               <input type="email" placeholder="Email" id="Email">
               <input type="password" placeholder="Password" id="Pass">
