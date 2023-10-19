@@ -34,7 +34,7 @@ if(isset($_SESSION['user_id'])) {
         <div class="container" id="container">
           <div class="form-container register-container">
             <a href="#" class="close1" id="close1"><i class="lni lni-close"></i></a>
-            <form method="post" action="signup.php">
+            <form method="post" action="signup.php" id="registrationForm">
               <h1>Register Here.</h1>
               <select name="course" id="course" class="course">
                 <option>Course</option>
@@ -43,17 +43,17 @@ if(isset($_SESSION['user_id'])) {
                 <option value="BS Information Systems">BS Information Systems</option>
                 <option value="Associate in Computer Technology">Associate in Computer Technology</option>
               </select>
-              <input type="text" placeholder="First Name" name="firstname">
-              <input type="text" placeholder="Last Name" name="lastname">
-              <input type="text" placeholder="Middle Name" name="middlename">
-              <input type="email" placeholder="DHVSU Email" name="email">
+              <input type="text" placeholder="First Name" name="firstname" id="firstname">
+              <input type="text" placeholder="Last Name" name="lastname" id="lastname">
+              <input type="text" placeholder="Middle Name" name="middlename" id="middlename">
+              <input type="email" placeholder="DHVSU Email" name="email" id="email">
               <input type="password" placeholder="Password" id="npassword" name="password">
               <input type="password" placeholder="Re-type Password" id="conpassword" name="repassword">
               <label class="checkbox1"><p>I agree to the <a href="#">terms and conditions</a> and <a href=""> data privacy policy</a></p>
-                <input type="checkbox">
+                <input type="checkbox" id="checkmark12">
                 <span class="checkmark"></span>
               </label>
-              <button type="submit"id="reg">Register</button>
+              <button type="submit" id="reg">Register</button>
             </form>
           </div>
       
@@ -65,8 +65,8 @@ if(isset($_SESSION['user_id'])) {
               <input type="password" placeholder="Password" name="password">
               <div class="content">
                 <div class="checkbox">
-                  <input type="checkbox" name="checkbox" id="checkbox">
-                  <label>Remember me</label>
+                  <input type="checkbox" name="checkbox" id="rememberMeCheckbox">
+                  <label for="rememberMeCheckbox">Remember me</label>
                 </div>
                 <div class="pass-link">
                   <a href="#" id = "forgot-pass1">Forgot password?</a>
@@ -123,7 +123,13 @@ if(isset($_SESSION['user_id'])) {
             <h2 id="h2get">Get Started</h2>
         </a>
     </div>
-    
+    <div id="popup12" class="popup12">
+        <div class="popup12-content">
+        <a href="#" class="popupclose"><i class="lni lni-close"></i></a>
+        <p id="popup-message"></p>
+    </div>
+</div>
+</div>
 </body>
 <footer>
     <div class="footer">

@@ -18,19 +18,44 @@ document.getElementById("forgot-pass1").addEventListener("click", function(){
   document.getElementById("fbody").style.display = "flex";
 });
 
-document.querySelector(".close").addEventListener("click", function(){
+document.querySelector(".close3").addEventListener("click", function () {
+    document.getElementById("popup_body").style.display = "none";
+});
+document.querySelector(".close1").addEventListener("click", function () {
   document.getElementById("popup_body").style.display = "none";
 });
-
-document.querySelector(".close1").addEventListener("click", function(){
+document.querySelector(".close").addEventListener("click", function () {
   document.getElementById("popup_body").style.display = "none";
 });
-
-document.querySelector(".close3").addEventListener("click", function(){
-  document.getElementById("fbody").style.display = "none";
+//Remember me funtion------------------------------------------------------
+/*const rememberMeCheckbox = document.getElementById("rememberMeCheckbox");
+const loginForm = document.querySelector(".login-container form");
+window.addEventListener("load", function () {
+  const rememberMeToken = getRememberMeToken();
+  if (rememberMeToken) {
+    const emailInput = loginForm.querySelector('input[name="email"]');
+    const passwordInput = loginForm.querySelector('input[name="password"]');
+    emailInput.value = rememberMeToken;
+    passwordInput.value = "********";
+    rememberMeCheckbox.checked = true;
+  }
 });
 
-
+loginForm.addEventListener("submit", function (event) {
+  event.preventDefault();
+  const email = loginForm.querySelector('input[name="email"]').value;
+  const password = loginForm.querySelector('input[name="password"]').value;
+  if (rememberMeCheckbox.checked) {
+    setRememberMeToken(email);
+  }
+});
+function getRememberMeToken() {
+  return Cookies.get("rememberMeToken");
+}
+function setRememberMeToken(token) {
+  Cookies.set("rememberMeToken", token, { expires: 30 });
+}*/
+//dark mode function-------------------------------------------------------------------
 let canToggle = true;
 const toggle = document.getElementById('toggleDark');
 const body = document.querySelector('body');
@@ -82,4 +107,75 @@ toggle.addEventListener('click', function(){
             canToggle = true;
         }, 1000);
     }
+});
+//registration function-------------------------------------------------------
+document.getElementById("registrationForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  var course = document.getElementById("course").value;
+  var fname = document.getElementById("firstname").value;
+  var lname = document.getElementById("lastname").value;
+  var mname = document.getElementById("middlename").value;
+  var email = document.getElementById("email").value;
+  var password = document.getElementById("npassword").value;
+  var confirmPassword = document.getElementById("conpassword").value;
+  var agreeCheckbox = document.getElementById("checkmark12");
+
+  var modalMessage = document.getElementById("popup-message");
+
+  var modal = document.getElementById("popup12");
+  if (!modal) {
+    // Create the modal element if it doesn't exist
+    modal = document.createElement("div");
+    modal.id = "popup12";
+    modal.className = "popup12";
+    modal.innerHTML = `
+      <div class="popup12-content">
+        <a href="#" class="popupclose"><i class="lni lni-close"></i></a>
+        <p id="popup-message"></p>
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  if (fname == "" || lname == "" || mname == "" || email == "" || password == ""){
+    modalMessage.innerText = "Please fill the empty form/s.";
+  } 
+  else if (!email.endsWith("@dhvsu.edu.ph")) {
+    modalMessage.innerText = "Please use your DHVSU account (2000123456@dhvsu.edu.ph).";
+  } 
+  else if (!agreeCheckbox.checked) {
+    modalMessage.innerText = "You must agree to the terms and conditions, and data privacy policy.";
+  } 
+  else if (password != confirmPassword) {
+    modalMessage.innerText = "Passwords do not match.";
+  } 
+  else if (password.length < 8) {
+    modalMessage.innerText = "Password must be at least 8 characters long.";
+  } 
+  else if (course === "Course") {
+    modalMessage.innerText = "Please select a course.";
+  }
+  else {
+    modalMessage.innerText = "Registration successful!";
+    this.submit();
+  }
+  
+  modal.style.display = "flex";
+});
+
+// Close the modal when the close button is clicked
+document.querySelector(".popupclose").addEventListener("click", function() {
+  var modal = document.getElementById("popup12");
+  if (modal) {
+    modal.style.display = "none";
+  }
+});
+
+// Close the modal when the user clicks outside the modal
+window.addEventListener("click", function(event) {
+  var modal = document.getElementById("popup12");
+  if (modal && event.target == modal) {
+    modal.style.display = "none";
+  }
 });
