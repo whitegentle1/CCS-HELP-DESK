@@ -35,17 +35,17 @@ include("func/func.php");
               <h1>Register Here.</h1>
               <select name="course" id="course" class="course">
                   <option>Course</option>
-                  <option value="BSIT">BSIT</option>
-                  <option value="BSCS">BSCS</option>
-                  <option value="BSIS">BSIS</option>
-                  <option value="ACT">ACT</option>
+                  <option value="BS Computer Science">BS Computer Science</option>
+                  <option value="BS Information Technology">BS Information Technology</option>
+                  <option value="BS Information Systems">BS Information Systems</option>
+                  <option value="Associate in Computer Technology">Associate in Computer Technology</option>
               </select>
-              <input type="text" placeholder="First Name" id="fname">
-              <input type="text" placeholder="Last Name" id="lname">
-              <input type="text" placeholder="Middle Name" id="mname">
+              <input type="text" placeholder="First Name" id="firstname">
+              <input type="text" placeholder="Last Name" id="lastname">
+              <input type="text" placeholder="Middle Name" id="middlename">
               <input type="email" placeholder="DHVSU Email" id="email">
-              <input type="password" placeholder="Password" id="npassword">
-              <input type="password" placeholder="Re-type Password" id="conpassword">
+              <input type="password" placeholder="Password" id="npassword" name="password">
+              <input type="password" placeholder="Re-type Password" id="conpassword" name="repassword">
               <label class="checkbox1">I agree to the <a href="#">terms and conditions</a> and <a href=""> data privacy policy</a>
                   <input type="checkbox" id="checkBox">
                   <span class="checkmark"></span>
