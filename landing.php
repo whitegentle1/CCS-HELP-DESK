@@ -89,6 +89,8 @@ include("func/func.php");
                     alert("Please agree to the terms and conditions.");
                   } else if (password != confirmPassword){
                     alert("The Password and Re-type Password does not match up.");
+                  }else if (email === email){
+                    alert("The same email already exists.");
                   } else {
                     alert("Registration successful!");
                     this.submit();
