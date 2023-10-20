@@ -1,20 +1,18 @@
-<?php 
+<?php
 session_start();
 
 include("connection/db.php");
 include("func/func.php");
 
-if($_SERVER['REQUEST_METHOD'] == "POST")
-{
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $course = $_POST['course'];
     $first_name = $_POST['firstname'];
     $last_name = $_POST['lastname'];
-    $middle_name = $_POST['middlename'];
+    $middle_name = empty($_POST['middlename']) ? '' : $_POST['middlename'];
     $email = $_POST['email'];
     $password = $_POST['password'];
 
-    if(!empty($email) && !empty($first_name) && !empty($last_name) && !empty($middle_name) && !empty($email) && !empty($password))
-    {
+    if (!empty($email) && !empty($first_name) && !empty($last_name) && !empty($email) && !empty($password)) {
         try {
             $query = "SELECT email FROM users WHERE email = :email";
             $stmt = $conn->prepare($query);
@@ -46,9 +44,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
-    }
-    else
-    {
+    } else {
         echo "Please enter some valid information!";
     }
 }
