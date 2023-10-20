@@ -45,7 +45,7 @@ if(isset($_SESSION['user_id'])) {
               </select>
               <input type="text" placeholder="First Name" name="firstname" id="firstname" required>
               <input type="text" placeholder="Last Name" name="lastname" id="lastname" required>
-              <input type="text" placeholder="Middle Name" name="middlename" id="middlename">
+              <input type="text" placeholder="Middle Name(Optional)" name="middlename" id="middlename">
               <input type="email" placeholder="DHVSU Email" name="email" id="email" required>
               <input type="password" placeholder="Password" id="npassword" name="password" required>
               <input type="password" placeholder="Re-type Password" id="conpassword" name="repassword" required>
