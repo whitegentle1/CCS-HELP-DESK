@@ -118,7 +118,6 @@ document.getElementById("registrationForm").addEventListener("submit", function(
   var course = document.getElementById("course").value;
   var fname = document.getElementById("firstname").value;
   var lname = document.getElementById("lastname").value;
-  var mname = document.getElementById("middlename").value;
   var email = document.getElementById("email").value;
   var password = document.getElementById("npassword").value;
   var confirmPassword = document.getElementById("conpassword").value;
@@ -127,7 +126,7 @@ document.getElementById("registrationForm").addEventListener("submit", function(
   var modalMessage = document.getElementById("popup-message");
   var modal = document.getElementById("popup12");
 
-  if (fname == "" || lname == "" || mname == "" || email == "" || password == ""){
+  if (fname == "" || lname == "" || email == "" || password == ""){
     modalMessage.innerText = "Please fill the empty form/s.";
   } 
   else if (!email.endsWith("@dhvsu.edu.ph")) {

@@ -42,7 +42,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
                 sleep(3);
                 header("Location: landing.php?RegistrationSuccessful");
                 die;
-            
+            }
         } catch (PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
@@ -51,6 +51,5 @@ if($_SERVER['REQUEST_METHOD'] == "POST")
     {
         echo "Please enter some valid information!";
     }
-}
 }
 ?>
