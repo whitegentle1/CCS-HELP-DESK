@@ -58,6 +58,7 @@ function setRememberMeToken(token) {
   Cookies.set("rememberMeToken", token, { expires: 30 });
 }*/
 //dark mode function-------------------------------------------------------------------
+//INITIAL SETUP -- HINDI PA KUMPLETO
 let canToggle = true;
 const toggle = document.getElementById('toggleDark');
 const body = document.querySelector('body');
@@ -110,7 +111,7 @@ toggle.addEventListener('click', function(){
         }, 1000);
     }
 });
-//registration function-------------------------------------------------------
+//registration error handling function-------------------------------------------------------
 document.getElementById("registrationForm").addEventListener("submit", function(event) {
   event.preventDefault();
 
@@ -157,13 +158,13 @@ document.getElementById("registrationForm").addEventListener("submit", function(
           modalMessage.innerText = "Registration successful!";
           document.getElementById("registrationForm").submit();
         }
-        modal.style.display = "block";
+        modal.style.display = "flex";
       }
     };
     xhr.send("email=" + email);
   }
   
-  modal.style.display = "block";
+  modal.style.display = "flex";
 });
 
 
@@ -176,7 +177,7 @@ window.addEventListener("click", function(event) {
     document.getElementById("popup12").style.display = "none";
   }
 });
-//login function----------------------------------------------------------------
+//login error handling function----------------------------------------------------------------
 function loginUser(form) {
     var email = form.email.value;
     var password = form.password.value;

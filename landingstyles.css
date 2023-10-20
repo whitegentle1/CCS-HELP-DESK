@@ -14,11 +14,9 @@ body, html {
   overflow: hidden;
 }
 
-
-.popup12, .popup12-content {
-  display:none;
+.popup12 {
+  display: none;
   position: fixed;
-  font-family: Arial, Helvetica, "Poppins", sans-serif;
   z-index: 5;
   background: linear-gradient(
     to top,
@@ -30,15 +28,17 @@ body, html {
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  padding: 20px;
-  color:#dddddd;
-  font-size: 15px;
-  font-weight: bold;
+  padding: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
 }
-
+.popup12-content{
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, "Poppins", sans-serif;
+  color:#dddddd;
+}
 .popupclose {
-  color: #0e082e;
+  color: #170e49;
   float: right;
   cursor: pointer;
 }
