@@ -16,10 +16,12 @@ document.getElementById("get-started").addEventListener("click", function(){
 
 document.getElementById("forgot-pass1").addEventListener("click", function(){
   document.getElementById("fbody").style.display = "flex";
+  document.getElementById("forgot-pass").style.display = "flex";
 });
 
 document.querySelector(".close3").addEventListener("click", function () {
-    document.getElementById("popup_body").style.display = "none";
+    document.getElementById("forgot-pass").style.display = "none";
+    document.getElementById("fbody").style.display = "none";
 });
 document.querySelector(".close1").addEventListener("click", function () {
   document.getElementById("popup_body").style.display = "none";
@@ -122,27 +124,13 @@ document.getElementById("registrationForm").addEventListener("submit", function(
   var agreeCheckbox = document.getElementById("checkmark12");
 
   var modalMessage = document.getElementById("popup-message");
-
   var modal = document.getElementById("popup12");
-  if (!modal) {
-    // Create the modal element if it doesn't exist
-    modal = document.createElement("div");
-    modal.id = "popup12";
-    modal.className = "popup12";
-    modal.innerHTML = `
-      <div class="popup12-content">
-        <a href="#" class="popupclose"><i class="lni lni-close"></i></a>
-        <p id="popup-message"></p>
-      </div>
-    `;
-    document.body.appendChild(modal);
-  }
 
   if (fname == "" || lname == "" || mname == "" || email == "" || password == ""){
     modalMessage.innerText = "Please fill the empty form/s.";
   } 
   else if (!email.endsWith("@dhvsu.edu.ph")) {
-    modalMessage.innerText = "Please use your DHVSU account (2000123456@dhvsu.edu.ph).";
+    modalMessage.innerText = "Please use your DHVSU account (ex. 2000123456@dhvsu.edu.ph).";
   } 
   else if (!agreeCheckbox.checked) {
     modalMessage.innerText = "You must agree to the terms and conditions, and data privacy policy.";
@@ -157,25 +145,64 @@ document.getElementById("registrationForm").addEventListener("submit", function(
     modalMessage.innerText = "Please select a course.";
   }
   else {
-    modalMessage.innerText = "Registration successful!";
-    this.submit();
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "check-email.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        var response = xhr.responseText;
+        if (response === "exists") {
+          modalMessage.innerText = "Email already exists";
+        } else if (response === "ok") {
+          modalMessage.innerText = "Registration successful!";
+          document.getElementById("registrationForm").submit();
+        }
+        modal.style.display = "block";
+      }
+    };
+    xhr.send("email=" + email);
   }
   
-  modal.style.display = "flex";
+  modal.style.display = "block";
 });
 
-// Close the modal when the close button is clicked
+
 document.querySelector(".popupclose").addEventListener("click", function() {
-  var modal = document.getElementById("popup12");
-  if (modal) {
-    modal.style.display = "none";
-  }
+  document.getElementById("popup12").style.display = "none";
 });
 
-// Close the modal when the user clicks outside the modal
 window.addEventListener("click", function(event) {
-  var modal = document.getElementById("popup12");
-  if (modal && event.target == modal) {
-    modal.style.display = "none";
+  if (event.target == document.getElementById("popup12")) {
+    document.getElementById("popup12").style.display = "none";
   }
 });
+//login function----------------------------------------------------------------
+function loginUser(form) {
+    var email = form.email.value;
+    var password = form.password.value;
+    var errorDiv = document.getElementById("error-messages");
+
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "login.php", true);
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            var response = xhr.responseText;
+            if (response === "success") {
+                errorDiv.style.color = "green";
+                errorDiv.innerHTML = "Login successful. Redirecting...";
+                errorDiv.style.display = "block";
+                setTimeout(function() {
+                    window.location.href = "index.php";
+                }, 2000);
+            } else {
+                errorDiv.style.color = "red";
+                errorDiv.innerHTML = response;
+                errorDiv.style.display = "block";
+            }
+        }
+    };
+
+    xhr.send("email=" + email + "&password=" + password);
+    return false;
+}

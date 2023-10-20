@@ -18,13 +18,14 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         if ($user_data) {
             if ($password === $user_data['password']) {
                 $_SESSION['user_id'] = $user_data['user_id'];
-                header("Location: index.php");
+
+                echo "success";
                 die;
             } else {
-                echo "Password verification failed.";
+                echo "Email or Password is incorrect";
             }
         } else {
-            echo "User not found.";
+            echo "Email or Password is incorrect";
         }
     } else {
         echo "Invalid input.";

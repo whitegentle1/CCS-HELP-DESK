@@ -43,12 +43,12 @@ if(isset($_SESSION['user_id'])) {
                 <option value="BS Information Systems">BS Information Systems</option>
                 <option value="Associate in Computer Technology">Associate in Computer Technology</option>
               </select>
-              <input type="text" placeholder="First Name" name="firstname" id="firstname">
-              <input type="text" placeholder="Last Name" name="lastname" id="lastname">
+              <input type="text" placeholder="First Name" name="firstname" id="firstname" required>
+              <input type="text" placeholder="Last Name" name="lastname" id="lastname" required>
               <input type="text" placeholder="Middle Name" name="middlename" id="middlename">
-              <input type="email" placeholder="DHVSU Email" name="email" id="email">
-              <input type="password" placeholder="Password" id="npassword" name="password">
-              <input type="password" placeholder="Re-type Password" id="conpassword" name="repassword">
+              <input type="email" placeholder="DHVSU Email" name="email" id="email" required>
+              <input type="password" placeholder="Password" id="npassword" name="password" required>
+              <input type="password" placeholder="Re-type Password" id="conpassword" name="repassword" required>
               <label class="checkbox1"><p>I agree to the <a href="#">terms and conditions</a> and <a href=""> data privacy policy</a></p>
                 <input type="checkbox" id="checkmark12">
                 <span class="checkmark"></span>
@@ -58,23 +58,26 @@ if(isset($_SESSION['user_id'])) {
           </div>
       
           <div class="form-container login-container">
-            <a href="#" class="close" id="close"><i class="lni lni-close"></i></a>
-            <form action=login.php method="post">
-              <h1>Login Here.</h1>
-              <input type="email" placeholder="Email" name="email">
-              <input type="password" placeholder="Password" name="password">
-              <div class="content">
-                <div class="checkbox">
-                  <input type="checkbox" name="checkbox" id="rememberMeCheckbox">
-                  <label for="rememberMeCheckbox">Remember me</label>
-                </div>
-                <div class="pass-link">
-                  <a href="#" id = "forgot-pass1">Forgot password?</a>
-                </div>
-              </div>
-              <button type="submit">Login</button>
-            </form>
+              <a href="#" class="close" id="close"><i class="lni lni-close"></i></a>
+              <form action="login.php" method="post" onsubmit="return loginUser(this);">
+                  <h1>Login Here.</h1>
+                  <div id="error-messages" style="display: none;" class="error-messages"></div>
+                  <input type="email" placeholder="Email" name="email" id="email" required>
+                  <input type="password" placeholder="Password" name="password" id="password" required>
+                  <div class="content">
+                      <div class="checkbox">
+                          <input type="checkbox" name="checkbox" id="rememberMeCheckbox">
+                          <label for="rememberMeCheckbox">Remember me</label>
+                      </div>
+                      <div class="pass-link">
+                          <a href="#" id="forgot-pass1">Forgot password?</a>
+                      </div>
+                  </div>
+                  <button name="login" type="submit" id="loginForm">Login</button>
+              </form>
           </div>
+
+
 
           <div class="overlay-container">
             <div class="overlay">
