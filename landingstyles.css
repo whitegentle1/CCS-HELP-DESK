@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins");
 
+body::-webkit-scrollbar {
+  display: none;
+}
 
 body, html {
     font-family: Arial, Helvetica, "Poppins", sans-serif;
@@ -11,7 +14,7 @@ body, html {
     padding: 0;
     height: 1080px;
     width: 1920px;
-;
+
 }
 .inv_container{
     width: 100%;
