@@ -51,13 +51,13 @@ body, html {
 
 .inv_container{
     width: 100%;
-    height: 15vhmin;
+    height: 15%;
     padding: 1%;
     background: rgb(255,255,255);
     background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(28,36,90,0.5606617647058824) 100%);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
   }
-  .inv_container .head_container{
+.inv_container .head_container{
   width: 90%;
   height: 10vh;
   background: linear-gradient(90deg, rgba(44,44,118,0.8431232) 0%, rgba(28,28,67,0.3421343413) 100%);
@@ -101,6 +101,45 @@ body, html {
     margin-left: 2%;
     position: relative;
 }
+@media (max-width: 768px) {
+  .page-container {
+    flex-direction: column;
+  }
+
+  .right_container,
+  .left_container {
+    flex: 1; 
+    margin: 10px;
+    text-align: center;
+  }
+
+  .right_container .ccs_pic img,
+  .left_container .welcome h1 {
+    max-width: 100%; 
+    margin-top: 10px; 
+  }
+
+  .page-container {
+    width: 100%;
+    max-width: none;
+    height: auto;
+    margin: 10px auto;
+  }
+
+  .get-started h2 {
+    font-size: 5vw; 
+  }
+
+  .right_container .ccs_pic img {
+    max-width: 80%; 
+  }
+  .inv_container {
+    height: 10%;
+  }
+  .inv_container .head_container {
+    height: 5vh; 
+  }
+}
 .page-container {
   display: flex;
   justify-content: space-between;
@@ -112,7 +151,7 @@ body, html {
   align-items: center;
 }
 
-.right_container .ccs_pic img {
+ .right_container .ccs_pic img {
   width: 100%;
   max-width: 400px;
   height: auto;
@@ -154,13 +193,13 @@ body, html {
     font-weight: bold;
     color: white;
 }
-.get-started.dark-mode {
-  background-color: rgb(10, 29, 102, 0.76524323);
-}
 .get-started:hover{
     background-color: rgba(22, 125, 221);
 }
 
+.get-started.dark-mode {
+  background-color: rgb(10, 29, 102, 0.76524323);
+}
 .footer ,.footer2{
     position: fixed;
     bottom: 0;
@@ -171,6 +210,7 @@ body, html {
 .container * {
   box-sizing: border-box;
 }
+
 @media (max-width: 768px) {
   .container {
     border-radius: 0;
