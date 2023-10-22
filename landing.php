@@ -49,10 +49,11 @@ if(isset($_SESSION['user_id'])) {
               <input type="email" placeholder="DHVSU Email" name="email" id="email" required>
               <input type="password" placeholder="Password" id="npassword" name="password" required>
               <input type="password" placeholder="Re-type Password" id="conpassword" name="repassword" required>
-              <label class="checkbox1"><p>I agree to the <a href="#">terms and conditions</a> and <a href=""> data privacy policy</a></p>
+              <label class="checkbox1">
+                <p>I agree to the <a href="#" class="tooltip" data-tooltip="View the terms and conditions">terms and conditions</a> and <a href="#" class="tooltip" data-tooltip="Read our data privacy policy">data privacy policy</a></p>
                 <input type="checkbox" id="checkmark12">
                 <span class="checkmark"></span>
-              </label>
+            </label>
               <button type="submit" id="reg">Register</button>
             </form>
           </div>
@@ -112,7 +113,7 @@ if(isset($_SESSION['user_id'])) {
             <h2>College of Computing Studies</h2>
         </div>
     </div>
-    
+    <div class="page-container">
     <div class="right_container">
         <div class="ccs_pic">
             <img id="ccs_pic1" src="imgs/ccs.png" alt="CCS-logo">
@@ -120,11 +121,12 @@ if(isset($_SESSION['user_id'])) {
     </div>
     <div class="left_container">
         <div class="welcome">
-            <h1 id="welText">Welcome to the CCS HELP DESK, CODE-HEARTED FOXES!</h1>
+            <h1 id="welText">Welcome to the CCS HELP DESK,<br> CODE-HEARTED FOXES!</h1>
         </div>
         <a href="#" class ="get-started" id="get-started">
             <h2 id="h2get">Get Started</h2>
         </a>
+      </div>
     </div>
     <div id="popup12" class="popup12">
         <div class="popup12-content">
