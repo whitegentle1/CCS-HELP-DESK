@@ -1,18 +1,54 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body, html {
-    font-family: Arial, Helvetica, "Poppins", sans-serif;
-    background-image: url("imgs/RegisterBG.jpg");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    margin: 0;
-    padding: 0;
-    height: 1080px;
-    width: 1920px;
-;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
+  background-image: url("imgs/RegisterBG.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
 }
+
+.popup12 {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  background: linear-gradient(
+    to top,
+    rgba(29,66,230,1) 11%,
+    rgba(21,29,79,1) 100%
+  );
+  border-radius: 20px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  padding: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.9);
+}
+.popup12-content{
+  font-size: 15px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, "Poppins", sans-serif;
+  color:#dddddd;
+}
+.popupclose {
+  color: #170e49;
+  float: right;
+  cursor: pointer;
+}
+
+
 .inv_container{
     width: 100%;
     height: 130px;
@@ -30,7 +66,7 @@ body, html {
 }
 .head_container{
   width: 90%;
-  height: 70%;
+  height: 80%;
   background: linear-gradient(90deg, rgba(44,44,118,0.8431232) 0%, rgba(28,28,67,0.3421343413) 100%);
   border-radius: 50px;
   border: 3px solid #3e4a9e;
@@ -46,11 +82,12 @@ body, html {
 }
 .head_container h1 {
     color: #ffffff;
+    font-size: 3vw;
 
 }
 .head_container h2 {
     color: #ffffff;
-    font-size: 20px;
+    font-size: 2vw;
     margin-left: auto;
     margin-right: 10px;
 }
@@ -62,50 +99,56 @@ body, html {
     margin-left: 2%;
     position: relative;
 }
-.right_container{
-    float: left;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 50vh;
+.page-container {
+  display: flex;
+  justify-content: space-between;
 }
-.right_container .ccs_pic img {
-    width: 400px;
-    margin-top: 30%;
-    margin-left: 50%;
+.right_container {
+  flex:0.75;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.left_container{
-    float: left;
-    width: 50%;
-    margin-top: 100px;
-    margin-left: 100px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.right_container .ccs_pic img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  max-height: 500px;
+  margin-top: 30%;
 }
-.left_container .welcome h1{
-    font-size: 50px;
-    text-align: center;
-    left: 50%;
-    margin-left: 600px;
-    font-weight: bold;
-    color: white;
+
+.left_container {
+  flex: 1.25;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.left_container .welcome h1 {
+  font-size: 3vw;
+  text-align: center;
+  font-weight: bold;
+  color: white;
 }
 .get-started{
-    width: 600px;
-    height: 100px;
+    width: 100%;
+    max-width: 600px;
+    height: 15%;
     background-color: rgba(25, 75, 255, 0.76524323);
     border-radius: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 60%;
+    margin-left: auto;
     transition: background-color 0.3s ease;
     text-decoration: none;
+    margin: 0;
 }
 .get-started h2{
-    font-size: 40px;
+    font-size: 2.5vw;
     font-weight: bold;
     color: white;
 }
@@ -126,7 +169,12 @@ body, html {
 .container * {
   box-sizing: border-box;
 }
-
+@media (max-width: 768px) {
+  .container {
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
 .popup_body {
   position: absolute;
   text-align: center;
@@ -485,7 +533,7 @@ body, html {
   display: block;
   position: relative;
   padding-left: 35px;
-  margin-bottom: 50px;
+  margin-bottom: 10px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -527,7 +575,9 @@ body, html {
 .checkbox1 input:checked ~ .checkmark:after {
   display: block;
 }
-
+.error-messages {
+  color: red;
+}
 .checkbox1 .checkmark:after {
   left: 9px;
   top: 5px;
@@ -619,4 +669,29 @@ body, html {
 }
 .fbody a:hover {
   color: #101967;
+}
+.tooltip {
+  position: relative;
+  cursor: pointer;
+}
+
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  top: 100%;
+  left: 80%;
+  transform: translateX(-50%);
+  padding: 5px 10px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 5px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.tooltip:hover::after {
+  opacity: 1;
+  visibility: visible;
 }

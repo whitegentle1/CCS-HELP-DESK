@@ -4,7 +4,10 @@ session_start();
 include("connection/db.php");
 include("func/func.php");
 
-//required etong php na 'to sa lahat ng mga pages
+if(isset($_SESSION['user_id'])) {
+  header("Location: index.php");
+  exit();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,122 +33,52 @@ include("func/func.php");
     <div class="popup_body" id="popup_body">
         <div class="container" id="container">
           <div class="form-container register-container">
-            <a href="#" class="close1"><i class="lni lni-close"></i></a>
-            <!-- for signup -->
-            <form method="post" action="signup.php" id="signIn">
+            <a href="#" class="close1" id="close1"><i class="lni lni-close"></i></a>
+            <form method="post" action="signup.php" id="registrationForm">
               <h1>Register Here.</h1>
               <select name="course" id="course" class="course">
-                  <option>Course</option>
-                  <option value="BS Computer Science">BS Computer Science</option>
-                  <option value="BS Information Technology">BS Information Technology</option>
-                  <option value="BS Information Systems">BS Information Systems</option>
-                  <option value="Associate in Computer Technology">Associate in Computer Technology</option>
+                <option>Course</option>
+                <option value="BS Computer Science">BS Computer Science</option>
+                <option value="BS Information Technology">BS Information Technology</option>
+                <option value="BS Information Systems">BS Information Systems</option>
+                <option value="Associate in Computer Technology">Associate in Computer Technology</option>
               </select>
-              <input type="text" placeholder="First Name" id="fname" name="firstname">
-              <input type="text" placeholder="Last Name" id="lname" name="lastname">
-              <input type="text" placeholder="Middle Name" id="mname" name="middlename">
-              <input type="email" placeholder="DHVSU Email" id="email" name="email">
-              <input type="password" placeholder="Password" id="npassword" name="password">
-              <input type="password" placeholder="Re-type Password" id="conpassword" name="repassword">
-              <label class="checkbox1">I agree to the <a href="#">terms and conditions</a> and <a href=""> data privacy policy</a>
-                  <input type="checkbox" id="checkBox">
-                  <span class="checkmark"></span>
-              </label>
-              <button id="reg">Register</button>
+              <input type="text" placeholder="First Name" name="firstname" id="firstname" required>
+              <input type="text" placeholder="Last Name" name="lastname" id="lastname" required>
+              <input type="text" placeholder="Middle Name(Optional)" name="middlename" id="middlename">
+              <input type="email" placeholder="DHVSU Email" name="email" id="email" required>
+              <input type="password" placeholder="Password" id="npassword" name="password" required>
+              <input type="password" placeholder="Re-type Password" id="conpassword" name="repassword" required>
+              <label class="checkbox1">
+                <p>I agree to the <a href="#" class="tooltip" data-tooltip="View the terms and conditions">terms and conditions</a> and <a href="#" class="tooltip" data-tooltip="Read our data privacy policy">data privacy policy</a></p>
+                <input type="checkbox" id="checkmark12">
+                <span class="checkmark"></span>
+            </label>
+              <button type="submit" id="reg">Register</button>
             </form>
-
-            <script>
-              document.querySelector(".close1").addEventListener("click", function () {
-                if (confirm("Are you sure you want to exit?")) {
-                  document.getElementById("popup_body").style.display = "none";
-                }
-              });
-            </script>
-
-            <script>
-              document.getElementById("signIn").addEventListener("submit", function(event) {
-                  event.preventDefault();
-                  
-                  var fname = document.getElementById("fname").value;
-                  var lname = document.getElementById("lname").value;
-                  var mname = document.getElementById("mname").value;
-                  var email = document.getElementById("email").value;
-                  var password = document.getElementById("npassword").value;
-                  var confirmPassword = document.getElementById("conpassword").value;
-                  var agreeCheckbox = document.getElementById("checkBox");
-
-                  if (
-                  fname == "" ||
-                  lname == "" ||
-                  mname == "" ||
-                  email == "" ||
-                  password == "" ||
-                  confirmPassword == ""
-                  ){
-                    alert("Please fill the empty form/s.");
-                  } else if (!email.endsWith("@dhvsu.edu.ph")) {
-                    alert("Please use your DHVSU account (example@dhvsu.edu.ph)."); 
-                  } else if (!agreeCheckbox.checked) {
-                    alert("Please agree to the terms and conditions.");
-                  } else if (password != confirmPassword){
-                    alert("The Password and Re-type Password does not match up.");
-                  }else if (email === email){
-                    alert("The same email already exists.");
-                  } else {
-                    alert("Registration successful!");
-                    this.submit();
-                  }
-              });
-            </script>
           </div>
       
           <div class="form-container login-container">
-            <a href="#" class="close"><i class="lni lni-close"></i></a>
-            <!-- for login -->
-            <form action="login.php" id="logIns">
-              <h1>Login Here.</h1>
-              <input type="email" placeholder="Email" id="Email">
-              <input type="password" placeholder="Password" id="Pass">
-              <div class="content">
-                  <div class="checkbox">
-                  <input type="checkbox" name="checkbox" id="checkbox">
-                  <label>Remember me</label>
+              <a href="#" class="close" id="close"><i class="lni lni-close"></i></a>
+              <form action="login.php" method="post" onsubmit="return loginUser(this);">
+                  <h1>Login Here.</h1>
+                  <div id="error-messages" style="display: none;" class="error-messages"></div>
+                  <input type="email" placeholder="Email" name="email" id="email" required>
+                  <input type="password" placeholder="Password" name="password" id="password" required>
+                  <div class="content">
+                      <div class="checkbox">
+                          <input type="checkbox" name="checkbox" id="rememberMeCheckbox">
+                          <label for="rememberMeCheckbox">Remember me</label>
+                      </div>
+                      <div class="pass-link">
+                          <a href="#" id="forgot-pass1">Forgot password?</a>
+                      </div>
                   </div>
-                  <div class="pass-link">
-                  <a href="#">Forgot password?</a>
-                  </div>
-              </div>
-              <button>Login</button>
-            </form>
-
-            <script>
-              document.querySelector(".close").addEventListener("click", function () {
-                if (confirm("Are you sure you want to exit?")) {
-                  document.getElementById("popup_body").style.display = "none";
-                }
-              });
-            </script>
-
-            <script>
-              document.getElementById("logIns").addEventListener("submit", function(event) {
-                  event.preventDefault();
-
-                  var Email = document.getElementById("Email").value;
-                  var Pass = document.getElementById("Pass").value;
-
-                  if (
-                  Email == "" ||
-                  Pass == ""
-                  ){
-                    alert("Please fill the empty form/s.");
-                  } else if (!Email.endsWith("@dhvsu.edu.ph")) {
-                    alert("Please use your DHVSU account (example@dhvsu.edu.ph)."); 
-                  } else {
-                    document.getElementById("signIn").submit();
-                  }
-              });
-            </script>
+                  <button name="login" type="submit" id="loginForm">Login</button>
+              </form>
           </div>
+
+
 
           <div class="overlay-container">
             <div class="overlay">
@@ -180,7 +113,7 @@ include("func/func.php");
             <h2>College of Computing Studies</h2>
         </div>
     </div>
-    
+    <div class="page-container">
     <div class="right_container">
         <div class="ccs_pic">
             <img id="ccs_pic1" src="imgs/ccs.png" alt="CCS-logo">
@@ -188,13 +121,20 @@ include("func/func.php");
     </div>
     <div class="left_container">
         <div class="welcome">
-            <h1 id="welText">Welcome to the CCS HELP DESK, CODE-HEARTED FOXES!</h1>
+            <h1 id="welText">Welcome to the CCS HELP DESK,<br> CODE-HEARTED FOXES!</h1>
         </div>
         <a href="#" class ="get-started" id="get-started">
             <h2 id="h2get">Get Started</h2>
         </a>
+      </div>
     </div>
-    
+    <div id="popup12" class="popup12">
+        <div class="popup12-content">
+        <a href="#" class="popupclose"><i class="lni lni-close"></i></a>
+        <p id="popup-message"></p>
+    </div>
+</div>
+</div>
 </body>
 <footer>
     <div class="footer">
