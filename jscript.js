@@ -176,33 +176,44 @@ window.addEventListener("click", function(event) {
     document.getElementById("popup12").style.display = "none";
   }
 });
-//login error handling function----------------------------------------------------------------
+//login error handling function with animation----------------------------------------------------------------
 function loginUser(form) {
-    var email = form.email.value;
-    var password = form.password.value;
-    var errorDiv = document.getElementById("error-messages");
+  var email = form.email.value;
+  var password = form.password.value;
+  var errorDiv = document.getElementById("error-messages");
+  var loginContainer = document.querySelector('.popup_body');
+  var pageContainer = document.querySelector('.page-container');
 
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "login.php", true);
-    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            var response = xhr.responseText;
-            if (response === "success") {
-                errorDiv.style.color = "green";
-                errorDiv.innerHTML = "Login successful. Redirecting...";
-                errorDiv.style.display = "block";
-                setTimeout(function() {
-                    window.location.href = "index.php";
-                }, 2000);
-            } else {
-                errorDiv.style.color = "red";
-                errorDiv.innerHTML = response;
-                errorDiv.style.display = "block";
-            }
-        }
-    };
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", "login.php", true);
+  xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState == 4 && xhr.status == 200) {
+          var response = xhr.responseText;
+          if (response === "success") {
+              errorDiv.style.color = "green";
+              errorDiv.innerHTML = "Login successful. Redirecting...";
+              errorDiv.style.display = "block";
+              setTimeout(function() {
+                loginContainer.style.visibility = "hidden";
+                loginContainer.style.opacity = "0";
+                loginContainer.style.transition ="visibility 0s 0.5s, opacity 0.5s linear";
+              }, 1000);
 
-    xhr.send("email=" + email + "&password=" + password);
-    return false;
+              pageContainer.addEventListener('animationend', function() {
+                window.location.href = "Home.php";
+            }, {once: true});
+              setTimeout(function() {
+                  pageContainer.style.animation = "slide-left 1s forwards";
+              }, 1000);
+          } else {
+              errorDiv.style.color = "red";
+              errorDiv.innerHTML = response;
+              errorDiv.style.display = "block";
+          }
+      }
+  };
+
+  xhr.send("email=" + email + "&password=" + password);
+  return false;
 }

@@ -18,7 +18,6 @@ body, html {
   margin: 0;
   padding: 0;
 }
-
 .popup12 {
   display: none;
   position: fixed;
@@ -48,6 +47,17 @@ body, html {
   cursor: pointer;
 }
 
+@keyframes slide-left {
+  0% {
+      transform: translateX(0);
+  }
+  100% {
+      transform: translateX(-100%);
+  }
+}
+.no-animation {
+  animation: none;
+}
 
 .inv_container{
     width: 100%;
@@ -143,6 +153,7 @@ body, html {
 .page-container {
   display: flex;
   justify-content: space-between;
+  animation: none;
 }
 .right_container {
   flex:0.75;
@@ -491,8 +502,9 @@ body, html {
   );
 }
 
-
-
+.container11 {
+  animation: none;
+}
 .container.right-panel-active .overlay {
   transform: translateX(50%);
 }

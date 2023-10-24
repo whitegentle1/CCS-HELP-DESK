@@ -5,7 +5,7 @@ include("connection/db.php");
 include("func/func.php");
 
 if(isset($_SESSION['user_id'])) {
-  header("Location: index.php");
+  header("Location: home.php");
   exit();
 }
 ?>
@@ -17,9 +17,12 @@ if(isset($_SESSION['user_id'])) {
     <link rel="stylesheet" type="text/css" href="landingstyles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
-    <title>Document</title>
+    <title>WELCOME:CCS - DHVSU HELP DESK</title>
+	  <link href="imgs/ccslogo.png" type="image/png" rel="icon">
 </head>
 <body>
+  
+<!-- Forgot password popup -->
     <div class ="fbody" id="fbody">
       <div class="forgot-pass" id="forgot-pass">
         <form action="#">
@@ -30,6 +33,7 @@ if(isset($_SESSION['user_id'])) {
         </form>
       </div>
     </div>
+<!-- Register popup -->
     <div class="popup_body" id="popup_body">
         <div class="container" id="container">
           <div class="form-container register-container">
@@ -57,7 +61,7 @@ if(isset($_SESSION['user_id'])) {
               <button type="submit" id="reg">Register</button>
             </form>
           </div>
-      
+<!-- Login container popup -->
           <div class="form-container login-container">
               <a href="#" class="close" id="close"><i class="lni lni-close"></i></a>
               <form action="login.php" method="post" onsubmit="return loginUser(this);">
@@ -77,9 +81,7 @@ if(isset($_SESSION['user_id'])) {
                   <button name="login" type="submit" id="loginForm">Login</button>
               </form>
           </div>
-
-
-
+<!-- Overlay Container -->
           <div class="overlay-container">
             <div class="overlay">
               <div class="overlay-panel overlay-left">
@@ -102,10 +104,13 @@ if(isset($_SESSION['user_id'])) {
           </div>
         </div>
       </div>
+<!-- Header Container -->
     <div class="inv_container">
         <div class="head_container" id="head_container">
-            <div class ="c_pic">
-                <img src="imgs/dv.png" alt="dabsu-logo">
+            <div class="c_pic">
+                <a href="#" id="imageLink">
+                    <img src="imgs/dv.png" alt="dabsu-logo">
+                </a>
             </div>
             <header>
                 <h1>DHVSU CCS HELP DESK</h1>
@@ -113,7 +118,8 @@ if(isset($_SESSION['user_id'])) {
             <h2>College of Computing Studies</h2>
         </div>
     </div>
-    <div class="page-container">
+<!-- Landing Page -->
+    <div class="page-container landing-page" id="pageContainer">
     <div class="right_container">
         <div class="ccs_pic">
             <img id="ccs_pic1" src="imgs/ccs.png" alt="CCS-logo">
@@ -128,11 +134,13 @@ if(isset($_SESSION['user_id'])) {
         </a>
       </div>
     </div>
+<!-- Popup Contents -->
     <div id="popup12" class="popup12">
         <div class="popup12-content">
         <a href="#" class="popupclose"><i class="lni lni-close"></i></a>
         <p id="popup-message"></p>
     </div>
+
 </div>
 </div>
 </body>
@@ -143,5 +151,5 @@ if(isset($_SESSION['user_id'])) {
         <i class="bi bi-moon-fill" class="dl_mode" id="toggleDark" placeholder="Toggle Dark"></i>
     </div>
 </footer>
-<script src="jscript.js"></script>
+<script defer src="jscript.js"></script>
 </html>

@@ -1,4 +1,4 @@
-<!-- <?php
+<?php
 session_start();
 include("connection/db.php");
 include("func/func.php");
@@ -9,7 +9,6 @@ $user_data = check_login($conn);
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from wpkixx.com/html/talkshak/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 03 Aug 2023 07:53:07 GMT -->
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,7 +16,6 @@ $user_data = check_login($conn);
     <meta name="keywords" content="" />
 	<title>CCS - DHVSU HELP DESK</title>
 	<link href="imgs/ccslogo.png" type="image/png" rel="icon">
-	
 	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="dist/css/perfect-scrollbar.min.css" >
 	<link rel="stylesheet" href="dist/css/themify-icons.css">
@@ -1231,5 +1229,7 @@ $user_data = check_login($conn);
 		<script src="dist/js/bootstrap.min.js"></script>
 		<script src="dist/js/perfect-scrollbar.min.js"></script>
 		<script src="dist/js/script.js"></script>
+		<script defer src="jscript.js"></script>
+		<script defer src="https://unpkg.com/swup@4"></script>
 	</body>
 </html>
