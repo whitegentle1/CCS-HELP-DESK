@@ -15,8 +15,8 @@ $user_data = check_login($conn);
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="" />
     <meta name="keywords" content="" />
-	<title>Talkshak – chat messenger</title>
-	<link href="dist/img/favicon.png" type="image/png" rel="icon">
+	<title>CCS - DHVSU HELP DESK</title>
+	<link href="imgs/ccslogo.png" type="image/png" rel="icon">
 	
 	<link rel="stylesheet" href="dist/css/bootstrap.min.css">
 	<link rel="stylesheet" href="dist/css/perfect-scrollbar.min.css" >
