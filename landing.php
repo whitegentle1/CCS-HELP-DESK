@@ -120,12 +120,12 @@ if(isset($_SESSION['user_id'])) {
     </div>
 <!-- Landing Page -->
     <div class="page-container landing-page" id="pageContainer">
-    <div class="right_container">
+    <div class="left_container">
         <div class="ccs_pic">
             <img id="ccs_pic1" src="imgs/ccs.png" alt="CCS-logo">
         </div>
     </div>
-    <div class="left_container">
+    <div class="right_container">
         <div class="welcome">
             <h1 id="welText">Welcome to the CCS HELP DESK,<br> CODE-HEARTED FOXES!</h1>
         </div>
