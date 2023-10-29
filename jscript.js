@@ -58,59 +58,42 @@ function setRememberMeToken(token) {
   Cookies.set("rememberMeToken", token, { expires: 30 });
 }*/
 //dark mode function-------------------------------------------------------------------
-//INITIAL SETUP -- HINDI PA KUMPLETO
 let canToggle = true;
 const toggle = document.getElementById('toggleDark');
 const body = document.querySelector('body');
-const getStarted = document.getElementById('get-started');
-const h2get = document.getElementById('h2get');
-const welText = document.getElementById('welText');
-const imgElement = document.getElementById('ccs_pic1');
-const head = document.getElementById('head_container');
 
-toggle.addEventListener('click', function(){
+toggle.addEventListener('click', function() {
   if (!canToggle) {
     return;
-}
-    this.classList.toggle('bi-moon-fill');
-    if(this.classList.toggle('bi-brightness-high-fill')){
-        body.style.backgroundImage = 'url("imgs/BG_DHVSU_DARKMODE.jpg")';
-        body.style.transition = '1s';
-        getStarted.classList.add('dark-mode');
-        getStarted.style.transition = '1s';
-        h2get.style.color = '#6E6E6E';
-        h2get.style.transition = '1s';
-        welText.style.color = '#6E6E6E';
-        welText.style.transition = '1s';
-        imgElement.src = 'imgs/ccs-dm.png';
-        head.style.background = 'linear-gradient(90deg, rgba(11,11,28,0.5) 0%, rgba(30,30,81,1) 100%);'
-        head.style.border = '3px solid #160c38'
-        head.style.transition = '1s';
+  }
 
-        canToggle = false;
-        setTimeout(() => {
-            canToggle = true;
-        }, 1000);
-    }else{
-        body.style.backgroundImage = 'url("imgs/RegisterBG.jpg")';
-        body.style.transition = '1s';
-        getStarted.classList.remove('dark-mode');
-        getStarted.style.transition = '1s';
-        h2get.style.color = 'white';
-        h2get.style.transition = '1s';
-        welText.style.color = 'white';
-        welText.style.transition = '1s';
-        imgElement.src = 'imgs/ccs.png';
-        head.style.background = 'linear-gradient(90deg, rgba(44,44,118,0.8431232) 0%, rgba(28,28,67,0.3421343413) 100%)'
-        head.style.border = '3px solid #3e4a9e'
-        head.style.transition = '1s';
+  if (this.classList.contains('bi-moon-fill')) {
+    this.classList.remove('bi-moon-fill');
+    this.classList.add('bi-brightness-high-fill');
 
-        canToggle = false;
-        setTimeout(() => {
-            canToggle = true;
-        }, 1000);
-    }
+    body.style.transition = 'background-image 0.5s ease';
+    body.style.backgroundImage = 'url("imgs/BG_DHVSU_DARKMODE.jpg")';
+    document.body.classList.add('darkmode');
+
+    canToggle = false;
+    setTimeout(() => {
+      canToggle = true;
+    }, 1000);
+  } else {
+    this.classList.remove('bi-brightness-high-fill');
+    this.classList.add('bi-moon-fill');
+
+    body.style.transition = 'background-image 0.5s ease';
+    body.style.backgroundImage = 'url("imgs/RegisterBG.jpg")';
+    document.body.classList.remove('darkmode');
+
+    canToggle = false;
+    setTimeout(() => {
+      canToggle = true;
+    }, 1000);
+  }
 });
+
 //registration error handling function-------------------------------------------------------
 document.getElementById("registrationForm").addEventListener("submit", function(event) {
   event.preventDefault();

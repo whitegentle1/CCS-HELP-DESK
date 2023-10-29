@@ -148,7 +148,7 @@ if(isset($_SESSION['user_id'])) {
     <div class="footer">
         <p>www.ccshelpdesk.com | ©2023 DHVSU CCS HELP DESK | @ccshelpdesksite</p>
         <a href="#" class ="footer2"> About Us</a>
-        <i class="bi bi-moon-fill" class="dl_mode" id="toggleDark" placeholder="Toggle Dark"></i>
+        <i class="bi bi-moon-fill dl_mode" id="toggleDark" placeholder="Toggle Dark"></i>
     </div>
 </footer>
 <script defer src="jscript.js"></script>

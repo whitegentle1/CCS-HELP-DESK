@@ -17,7 +17,7 @@ function check_login($conn)
 
 
     // Redirect to login
-    header("Location: ../CCS-HELP-DESK/landing.php");
+    header("Location: ../landing.php");
     die;
 }
 
