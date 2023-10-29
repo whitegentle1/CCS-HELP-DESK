@@ -36,7 +36,7 @@
   );
   /* input color */
   --nonary-color: #ececec;
-  --textcolor: 
+  --textcolor: ;
 }
 /* dark mode implementation */
 .darkmode {
