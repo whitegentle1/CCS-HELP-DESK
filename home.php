@@ -18,8 +18,6 @@ $user_data = check_login($conn);
 </head>
 <body>
 
-
-    </div>
     <!-- Create your own design here, tignan niyo nalang yung class name sa css or create your own css file dedicated para sa home.php na 'to -->
     <div class="inv_container">
         <div class="head_container" id="head_container">
@@ -36,21 +34,30 @@ $user_data = check_login($conn);
     </div>
     <!-- page container para lang mahati sa dalawa ang container -->
     <div class="page-container">
-    <div class="right_container">
-    <a href="process/logout.php">LOGOUT</a>
-        <div class="container11">
-            <button class="b1">Button1</button>
-            <button class="b2">Button2</button>
-            <button class="b3">Button3</button>
-            <button class="b4">Button4</button>
-            <button class="b5">Button5</button>
-        </div>
-    <div class="left_container">
+        <div class="home-left-container">
+
+     <!-- <a href="logout.php">LOGOUT</a> -->
+            <div class="navbar-container">
+                <div class="navbar-contents">
+                <div class="navitem"> 
+                    <a class="usersubmenu">User's Name<i class="bi bi-caret-down-fill dropdown"></i></a>
+                    <div class="submenu">
+                        <a href="#" class="subitem"><i class="bi bi-person-circle"></i> My Profile </a>
+                        <a href="#" class="subitem"><i class="bi bi-power"></i> Log out </a>
+                </div>
+                    <div class="navitem"> <a href="#"> <i class="bi bi-house-fill"></i>Home</a></div>
+                    <div class="navitem"> <a href="#"> <i class="bi bi-envelope-fill"></i>Desk Chatbot</a></div>
+                    <div class="navitem"> <a href="#"> <i class="bi bi-person-fill-add"></i>Request</a></div>
+                    <div class="navitem"> <a href="#"> <i class="bi bi-cash-coin"></i>Payments and Transactions</a></div>
+                    <div class="navitem"> <a href="#"> <i class="bi bi-gear-fill"></i>Settings</a></div>
+                    <div class="navitem"> <a href="#"> <i class="bi bi-question-circle-fill"></i>Help</a></div>
+                </div>
+            </div>
+        <div class="home-right-container">
         <!-- Button Containers -->
-      </div>
+        </div>
+        </div>
     </div>
-</div>
-</div>
 </body>
 <!-- Pwede niyong palitan yung footer contents it's up to you -->
 <footer>
@@ -59,6 +66,6 @@ $user_data = check_login($conn);
         <a href="#" class ="footer2"> About Us</a>
         <i class="bi bi-moon-fill" class="dl_mode" id="toggleDark" placeholder="Toggle Dark"></i>
     </div>
-</footer>
+</footer> 
 <script defer src="jscript.js"></script>
 </html>
