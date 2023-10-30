@@ -24,6 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 echo "Email already exists";
             } else {
                 $user_id = random_num(20);
+                $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                 $query = "INSERT INTO users (user_id, course, firstname, lastname, middlename, email, password) 
                           VALUES (:user_id, :course, :firstname, :lastname, :middlename, :email, :password)";
                 $stmt = $conn->prepare($query);
@@ -33,8 +34,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $stmt->bindParam(':lastname', $last_name);
                 $stmt->bindParam(':middlename', $middle_name);
                 $stmt->bindParam(':email', $email);
-                $stmt->bindParam(':password', $password);
+                $stmt->bindParam(':password', $hashed_password);
                 $stmt->execute();
+
+                $_SESSION['user_id'] = $user_id;
+                $_SESSION['email'] = $email;
 
                 echo "Registration successful!";
                 sleep(3);

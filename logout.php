@@ -1,12 +1,12 @@
 <?php
-
 session_start();
 
-if(isset($_SESSION['user_id']))
-{
-	unset($_SESSION['user_id']);
+include("connection/db.php");
 
+if (isset($_SESSION['user_id'])) {
+    unset($_SESSION['user_id']);
 }
 
 header("Location: landing.php");
 die;
+?>
