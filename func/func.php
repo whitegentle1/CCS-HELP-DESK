@@ -17,11 +17,11 @@ function check_login($conn)
 
 
     // Redirect to login
-    header("Location: ../landing.php");
+    header("Location: /");
     die;
 }
 
-// Check if the user is logged in or not, then redirect to landing.php
+// Check if the user is logged in or not, then redirect to index
 function random_num($length)
 {
     $text = "";

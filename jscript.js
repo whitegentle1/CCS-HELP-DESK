@@ -29,34 +29,7 @@ document.querySelector('.close1').addEventListener('click', function () {
 document.querySelector('.close').addEventListener('click', function () {
   document.getElementById('popup_body').style.display = 'none'
 })
-//Remember me funtion------------------------------------------------------
-/*const rememberMeCheckbox = document.getElementById("rememberMeCheckbox");
-const loginForm = document.querySelector(".login-container form");
-window.addEventListener("load", function () {
-  const rememberMeToken = getRememberMeToken();
-  if (rememberMeToken) {
-    const emailInput = loginForm.querySelector('input[name="email"]');
-    const passwordInput = loginForm.querySelector('input[name="password"]');
-    emailInput.value = rememberMeToken;
-    passwordInput.value = "********";
-    rememberMeCheckbox.checked = true;
-  }
-});
 
-loginForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  const email = loginForm.querySelector('input[name="email"]').value;
-  const password = loginForm.querySelector('input[name="password"]').value;
-  if (rememberMeCheckbox.checked) {
-    setRememberMeToken(email);
-  }
-});
-function getRememberMeToken() {
-  return Cookies.get("rememberMeToken");
-}
-function setRememberMeToken(token) {
-  Cookies.set("rememberMeToken", token, { expires: 30 });
-}*/
 //dark mode function-------------------------------------------------------------------
 let canToggle = true
 const toggle = document.getElementById('toggleDark')
@@ -139,7 +112,7 @@ document
       modalMessage.innerText = 'Please select a course.'
     } else {
       var xhr = new XMLHttpRequest()
-      xhr.open('POST', 'check-email.php', true)
+      xhr.open('POST', 'process/check-email.php', true)
       xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4 && xhr.status === 200) {
@@ -177,7 +150,7 @@ function loginUser (form) {
   var pageContainer = document.querySelector('.page-container')
 
   var xhr = new XMLHttpRequest()
-  xhr.open('POST', 'login.php', true)
+  xhr.open('POST', 'process/login.php', true)
   xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
@@ -195,7 +168,7 @@ function loginUser (form) {
         pageContainer.addEventListener(
           'animationend',
           function () {
-            window.location.href = 'Home.php'
+            window.location.href = 'Home'
           },
           { once: true }
         )

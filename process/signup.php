@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include("connection/db.php");
-include("func/func.php");
+include("../connection/db.php");
+include("../func/func.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $course = $_POST['course'];
@@ -42,7 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
                 echo "Registration successful!";
                 sleep(3);
-                header("Location: landing.php?RegistrationSuccessful");
+                header("Location: ../RegistrationSuccessful");
                 die;
             }
         } catch (PDOException $e) {

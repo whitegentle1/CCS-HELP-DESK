@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-include("connection/db.php");
-include("func/func.php");
+include("../connection/db.php");
+include("../func/func.php");
 
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $email = $_POST['email'];
