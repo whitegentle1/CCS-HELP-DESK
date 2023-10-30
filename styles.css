@@ -115,7 +115,7 @@ html {
   color: #dddddd;
   overflow-y: auto;
   max-height: 100%;
-
+  margin-left: 15px;
   scrollbar-width: thin;
   scrollbar-color: #211bd7 #1da8ed;
   &::-webkit-scrollbar {
@@ -135,7 +135,7 @@ html {
   color: #ffffff;
   cursor: pointer;
   position: absolute;
-  border-radius: 50px;
+  left: 8px;
 }
 /* animations */
 

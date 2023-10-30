@@ -152,5 +152,4 @@ if (isset($_SESSION['user_id'])) {
   </div>
 </footer>
 <script defer src="jscript.js"></script>
-
 </html>

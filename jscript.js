@@ -181,8 +181,6 @@ document.addEventListener('DOMContentLoaded', function () {
   `
     showModal(termsContent)
   }
-
-  // Function to show data privacy policy
   function showDataPrivacyPolicy () {
     var privacyContent = `
     Don Honorio Ventura State University Data Privacy Policy
@@ -212,7 +210,6 @@ document.addEventListener('DOMContentLoaded', function () {
     showModal(privacyContent)
   }
 
-  // Function to display the popup with the content
   function showModal (content) {
     var modalMessage = document.getElementById('popup-message')
     var modal = document.getElementById('popup12')
@@ -220,7 +217,6 @@ document.addEventListener('DOMContentLoaded', function () {
     modal.style.display = 'flex'
   }
 
-  // Event listeners for terms and privacy policy links
   document
     .querySelector('a[href="#terms"]')
     .addEventListener('click', function (event) {
@@ -281,3 +277,5 @@ function loginUser (form) {
   xhr.send('email=' + email + '&password=' + password)
   return false
 }
+
+//SPA---------------------------------------------------------------

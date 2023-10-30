@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($existingUser) {
                 echo "Email already exists";
             } else {
-                $user_id = random_num(20);
+                $user_id = random_num(10);
                 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
                 $query = "INSERT INTO users (user_id, course, firstname, lastname, middlename, email, password) 
                           VALUES (:user_id, :course, :firstname, :lastname, :middlename, :email, :password)";
@@ -41,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $_SESSION['email'] = $email;
 
                 echo "Registration successful!";
-                sleep(3);
-                header("Location: ../RegistrationSuccessful");
+                sleep(1);
+                header("Location: ../");
                 die;
             }
         } catch (PDOException $e) {
