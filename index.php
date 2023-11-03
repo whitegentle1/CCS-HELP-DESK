@@ -15,6 +15,7 @@ if (isset($_SESSION['user_id'])) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" description="dhvsu, don honorio ventura state university, ccshelpdesk">
   <link rel="stylesheet" type="text/css" href="styles.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
   <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
@@ -56,7 +57,7 @@ if (isset($_SESSION['user_id'])) {
           <input type="password" placeholder="Password" id="npassword" name="password" required>
           <input type="password" placeholder="Re-type Password" id="conpassword" name="repassword" required>
           <label class="checkbox1">
-            <p>I agree to the <a href="#terms">terms and conditions</a> and <a href="#privacy">data privacy policy</a></p>
+            <p>I agree to the <a href="#terms"> <acronym title="View Terms and Condition"> terms and conditions</acronym></a> and <a href="#privacy"> <acronym title="View Data Privacy Policy">data privacy policy</acronym></a></p>
             <input type="checkbox" id="checkmark12">
             <span class="checkmark"></span>
           </label>
@@ -152,4 +153,5 @@ if (isset($_SESSION['user_id'])) {
   </div>
 </footer>
 <script defer src="jscript.js"></script>
+
 </html>
