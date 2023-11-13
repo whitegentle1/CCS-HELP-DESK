@@ -74,7 +74,7 @@
         </x-dropdown>
     </div>
 
-    <div class="flex-col whitespace-nowrap text-white p-2">
+    <div class="flex-col whitespace-nowrap text-white p-2 group-hover:block hidden">
         <p>{{ ucfirst(Auth::user()->firstname) }} {{ ucfirst(Auth::user()->lastname) }}</p>
         </p>
         <p>{{ substr(Auth::user()->email, 0, strpos(Auth::user()->email, '@')) }}</p>

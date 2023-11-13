@@ -1,7 +1,9 @@
 <hr class="w-full text-white" />
 
 <!-- Main Menu -->
-<div class="px-2 mt-4 items-center font-mono whitespace-nowrap">
+<div
+    class="px-2 mt-4 items-center font-mono whitespace-nowrap transition-all duration-200"
+>
     <button
         class="flex items-center w-full text-white px-2 py-1 mt-5 space-x-6 hover:bg-blue-800"
     >
@@ -10,7 +12,7 @@
             alt=""
             class="h-12 flex-shrink-0"
         />
-        <p>Home</p>
+        <p class="group-hover:block hidden transition-all duration-200">Home</p>
     </button>
 
     <button
@@ -21,7 +23,9 @@
             alt=""
             class="h-12 flex-shrink-0"
         />
-        <p>Chat-Bot</p>
+        <p class="group-hover:block hidden transition-all duration-200">
+            Chat-Bot
+        </p>
     </button>
 
     <div class="group">
@@ -33,10 +37,12 @@
                 alt=""
                 class="h-12 flex-shrink-0"
             />
-            <p>Payments</p>
+            <p class="group-hover:block hidden transition-all duration-200">
+                Payments
+            </p>
         </button>
 
-        <div class="flex-col hidden group-hover:flex">
+        <div class="flex-col group-hover:flex hidden">
             <button class="text-white w-full py-1 hover:bg-blue-800">
                 <p class="text-left ml-12">Request</p>
             </button>
@@ -55,7 +61,9 @@
             alt=""
             class="h-12 flex-shrink-0"
         />
-        <p>Setting</p>
+        <p class="group-hover:block hidden transition-all duration-200">
+            Setting
+        </p>
     </button>
 
     <button
@@ -66,6 +74,6 @@
             alt=""
             class="h-12 flex-shrink-0"
         />
-        <p>Help</p>
+        <p class="group-hover:block hidden transition-all duration-200">Help</p>
     </button>
 </div>

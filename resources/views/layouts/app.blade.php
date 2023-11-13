@@ -20,29 +20,30 @@
         <!-- Styles -->
         @livewireStyles
     </head>
-    <body class="font-sans antialiased">
+    <body
+        class="flex flex-col h-screen"
+        style="background-image: url('{{ asset('assets/imgs/BG.jpg') }}');"
+    >
         <x-banner />
         <div class="flex flex-col">
+            <!-- header -->
             @include('layouts.auth.components.header')
             <div class="flex-1 flex flex-row mt-1">
                 <!-- left Drawer -->
-
                 <div
-                    class="bg-blue-950 h-[88vh] relative duration-200 drawer w-20"
+                    class="group w-20 bg-blue-950 h-[88vh] rounded-md relative transition-all duration-200 transform hover:w-60"
                 >
                     @include('layouts.auth.components.usermenu')
                     @include('layouts.auth.components.mainmenu')
                 </div>
-                <div class="flex 1">
+                <div
+                    class="flex 1 content-center justify-center items-center object-center"
+                >
                     {{ $slot }}
                 </div>
             </div>
         </div>
-        <main class="bg-gray-400 flex-1 ml-1">
-            <div class="grid grid-cols-4 h-full"></div>
-        </main>
 
         @stack('modals') @livewireScripts
-        <script src="{{ asset('assets/js/js.js') }}"></script>
     </body>
 </html>
