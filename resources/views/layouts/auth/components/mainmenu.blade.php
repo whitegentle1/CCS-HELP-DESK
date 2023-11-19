@@ -29,6 +29,7 @@
     </button>
 
     <div class="group">
+        <!-- Payments button -->
         <button
             class="flex items-center w-full text-white px-2 py-1 mt-8 space-x-6 hover:bg-blue-800"
         >
@@ -42,11 +43,14 @@
             </p>
         </button>
 
+        <!-- Dropdown for Request and Transaction History -->
         <div class="flex-col group-hover:flex hidden">
+            <!-- Request button -->
             <button class="text-white w-full py-1 hover:bg-blue-800">
                 <p class="text-left ml-12">Request</p>
             </button>
 
+            <!-- Transaction History button -->
             <button class="text-white w-full py-1 hover:bg-blue-800">
                 <p class="text-left ml-12">Transaction History</p>
             </button>

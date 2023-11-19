@@ -134,6 +134,9 @@
                     wire:click.prevent="sendEmailVerification"
                 >
                     {{ __("Click here to re-send the verification email.") }}
+                    <span wire:loading wire:target="sendEmailVerification">
+                        <i class="fas fa-spinner fa-spin"></i>
+                    </span>
                 </button>
             </p>
 
@@ -158,6 +161,9 @@
 
         <x-button wire:loading.attr="disabled" wire:target="photo">
             {{ __("Save") }}
+            <span wire:loading wire:target="photo">
+                <i class="fas fa-spinner fa-spin"></i>
+            </span>
         </x-button>
     </x-slot>
 </x-form-section>
