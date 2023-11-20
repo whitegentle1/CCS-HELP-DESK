@@ -1,5 +1,5 @@
 <div
-    class="sidebar hidden sm:block w-[3.35rem] overflow-hidden border-r bg-blue-800 hover:w-56 hover:bg-blue-600 hover:shadow-lg"
+    class="sidebar p-4 relative hidden h-full sm:block w-[5rem] overflow-hidden border-r bg-blue-800 hover:w-56 hover:bg-blue-600 hover:shadow-lg"
 >
     <div class="flex h-screen flex-col justify-between pb-6 pt-2">
         <div>

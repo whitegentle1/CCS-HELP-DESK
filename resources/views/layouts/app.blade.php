@@ -17,16 +17,10 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         />
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
-            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        ></script>
         @vite(['resources/css/app.css', 'resources/js/app.js']) @livewireStyles
     </head>
     <body
-        class="bg-light-mode dark:bg-dark-mode bg-cover bg-no-repeat bg-fixed fixed"
+        class="bg-light-mode dark:bg-dark-mode min-h-screen items-center justify-center bg-cover bg-no-repeat bg-fixed"
     >
         <x-banner />
 
@@ -35,9 +29,10 @@
             @include('layouts.auth.components.mainmenu')
             <main class="flex-1 overflow-auto flex items-center justify-center">
                 {{ $slot }}
+                @livewireScripts
             </main>
         </div>
 
-        @stack('modals') @livewireScripts
+        @stack('modals')
     </body>
 </html>

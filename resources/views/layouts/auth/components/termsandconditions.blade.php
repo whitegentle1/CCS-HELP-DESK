@@ -1,6 +1,7 @@
 <x-app-layout>
     <x-tosnpriv>
-        <p class="text-4xl my-2 underline">Terms of Use</p>
+        <div class="m-5 overflow-auto" >
+        <p class="text-xl my-2 ml-2underline">Terms of Use</p>
         <p>Last Update: Nov. 16, 2023</p>
         <p class="ml-3 mb-3">
             Welcome to the DHVSU-CCS HELP DESK website ("the Website"). This
@@ -75,5 +76,6 @@
             <br>10. Amendments and Updates<br>
             <br>•	DHVSU reserves the right to revise, update, or modify these terms and conditions when deemed necessary. Users will be duly informed of any changes, and their continued use of the service will imply their acceptance of the updated terms.<br>
         </p>
+    </div>
     </x-tosnpriv>
 </x-app-layout>

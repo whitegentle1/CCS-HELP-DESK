@@ -1,7 +1,7 @@
-<ul class="mt-6 space-y-2 tracking-wide">
+<ul class="mt-6 space-y-3 tracking-wide">
     <li class="min-w-max">
         <a href="/home" wire:navigate aria-label="dashboard"
-            class="relative flex items-center space-x-4 bg-gradient-to-r px-4 py-3 text-gray-600 hover:from-sky-600 hover:to-cyan-400">
+            class="relative  flex items-center space-x-10 bg-gradient-to-r px-2.5 py-3 text-gray-600 hover:text-white hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
             <svg width="20px" height="20px" viewBox="-2.4 -2.4 28.80 28.80" fill="none"
                 transform="matrix(-1, 0, 0, 1, 0, 0)rotate(0)" stroke-width="0.00024000000000000003">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -32,7 +32,7 @@
     </li>
     <li class="min-w-max">
         <a href="/chatbot" wire:navigate aria-label="Chat"
-            class="relative flex items-center space-x-4 bg-gradient-to-r px-4 py-3 text-gray-600 hover:from-sky-600 hover:to-cyan-400">
+        class="relative  flex items-center space-x-10 bg-gradient-to-r px-2.5 py-3 text-gray-600 hover:text-white hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -57,7 +57,7 @@
     </li>
     <li class="group relative min-w-max">
         <a aria-label="payments"
-            class="relative flex items-center space-x-4 bg-gradient-to-r px-4 py-3 text-gray-600 hover:from-sky-600 hover:to-cyan-400">
+        class="relative  flex items-center space-x-10 bg-gradient-to-r px-2.5 py-3 text-gray-600 hover:text-white hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -81,7 +81,7 @@
         </a>
         <ul
             class="hidden space-y-2 border-gray-200 bg-blue-800 text-sm shadow-lg duration-300 ease-in-out group-hover:block group-hover:transition-opacity">
-            <li class="flex items-center">
+            <li class="flex items-center hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" class="ml-8"
                     xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -102,7 +102,7 @@
                     class="block px-4 py-2 text-gray-600 hover:text-sky-600">Transaction
                     History</a>
             </li>
-            <li class="flex items-center">
+            <li class="flex items-center hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" class="ml-8"
                     xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -124,7 +124,7 @@
     </li>
     <li class="min-w-max">
         <a href="#" aria-label="settings"
-            class="relative flex items-center space-x-4 bg-gradient-to-r px-4 py-3 text-gray-600 hover:from-sky-600 hover:to-cyan-400">
+        class="relative  flex items-center space-x-10 bg-gradient-to-r px-2.5 py-3 text-gray-600 hover:text-white hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -143,7 +143,7 @@
     </li>
     <li class="group relative min-w-max">
         <a href="#" aria-label="help"
-            class="relative flex items-center space-x-4 bg-gradient-to-r px-4 py-3 text-gray-600 hover:from-sky-600 hover:to-cyan-400">
+        class="relative  flex items-center space-x-10 bg-gradient-to-r px-2.5 py-3 text-gray-600 hover:text-white hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
             <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
                 <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -170,7 +170,7 @@
         </a>
         <ul
             class="hidden space-y-2 border-gray-200 bg-blue-800 text-sm shadow-lg duration-300 ease-in-out group-hover:block group-hover:transition-opacity">
-            <li class="flex items-center">
+            <li class="flex items-center hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" class="ml-8"
                     xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -191,7 +191,7 @@
                 <a href="/termsandconditions" wire:navigate class="block px-4 py-2 text-gray-600 hover:text-sky-600">Terms of
                     Use</a>
             </li>
-            <li class="flex items-center">
+            <li class="flex items-center hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" class="ml-8"
                     xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -218,7 +218,7 @@
                     class="block px-4 py-2 text-gray-600 hover:text-sky-600">Privacy
                     Policy</a>
             </li>
-            <li class="flex items-center">
+            <li class="flex items-center hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" class="ml-8"
                     xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>

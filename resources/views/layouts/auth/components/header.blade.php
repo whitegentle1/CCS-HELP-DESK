@@ -1,4 +1,6 @@
-<nav class="border-blue-950 bg-blue-800 dark:bg-blue-900 w-screen">
+<nav
+    class="h-24 relative border-blue-950 bg-blue-800 dark:bg-blue-900 w-full"
+>
     <div
         class="flex max-w-screen-xl flex-wrap items-center justify-between p-4"
     >
@@ -9,7 +11,7 @@
         >
             <img
                 src="{{ asset('assets/imgs/logo.png') }}"
-                class="h-8"
+                class="h-16"
                 alt="Dhvsu Logo"
             />
             <span

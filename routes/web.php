@@ -35,7 +35,6 @@ Route::middleware([
     Route::get('/chatbot', function () {
         return view('layouts.auth.components.chatbot');
     })->name('chatbot');
-    Route::post('/chatbot', 'App\Http\Controllers\BotController@reply');
     Route::get('/help', function () {
         return view('layouts.auth.components.help');
     })->name('help');
