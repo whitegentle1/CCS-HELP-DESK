@@ -14,18 +14,28 @@
         />
         <script src="https://cdn.tailwindcss.com"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.1.1/flowbite.min.js"></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"
+        ></script>
         <link
             rel="stylesheet"
             href="{{ asset('assets/css/styles.css') }}"
             class="styles"
         />
+        @livewireStyles
     </head>
     <body>
+        @include('auth.register') @include('auth.login')
+        @include('auth.forgot-password') @include('auth.confirm-password')
+        @include('auth.two-factor-challenge') @if (auth()->user() &&
+        !auth()->user()->hasVerifiedEmail()) @include('auth.verify-email')
+        @endif
         <!-- Header Container -->
         <div class="inv_container">
             <div class="head_container" id="head_container">
                 <div class="c_pic">
-                    <a href="#" id="imageLink">
+                    <a href="/" wire:navigate>
                         <img
                             src="{{ asset('assets/imgs/dv.png') }}"
                             alt="dabsu-logo"
@@ -212,20 +222,34 @@
                         CODE-HEARTED FOXES!
                     </h1>
                 </div>
+                @if (Route::has('login')) @auth
                 <a
                     class="w-full max-w-[600px] h-10 sm:h-[15%] bg-[rgba(25,_75,_255,_0.76524323)] rounded-[50px] flex justify-center items-center no-underline m-0 hover:bg-blue-500 [transition:background-color_0.3s_ease] dark:bg-[rgba(12, 29, 91, 0.76524323)]"
-                    href="/register"
-                    wire:navigate="register"
+                    wire:navigate
+                    href="{{ url('/dashboard') }}"
                 >
                     <h2 class="text-[2.5vw] font-bold text-[white]">
                         Get Started
                     </h2>
                 </a>
+
+                @else
+                <a
+                    class="w-full max-w-[600px] h-10 sm:h-[15%] bg-[rgba(25,_75,_255,_0.76524323)] rounded-[50px] flex justify-center items-center no-underline m-0 hover:bg-blue-500 [transition:background-color_0.3s_ease] dark:bg-[rgba(12, 29, 91, 0.76524323)]"
+                    x-data
+                    @click="$dispatch('open-modal',{name:'register'})"
+                >
+                    <h2 class="text-[2.5vw] font-bold text-[white]">
+                        Get Started
+                    </h2>
+                </a>
+                @endauth @endif
             </div>
         </div>
 
         <div class="absolute bottom-0 text-white">
             <p>www.csshelpdesksite.com | @csshelpdesksite</p>
         </div>
+        @livewireScripts
     </body>
 </html>

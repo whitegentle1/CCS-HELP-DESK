@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BotController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -15,9 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 Route::middleware([
     'auth:sanctum',
@@ -27,12 +29,32 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/home', function () {
+        return view('layouts.auth.components.home');
+    })->name('home');
+    Route::get('/chatbot', function () {
+        return view('layouts.auth.components.chatbot');
+    })->name('chatbot');
+    Route::post('/chatbot', 'App\Http\Controllers\BotController@reply');
+    Route::get('/help', function () {
+        return view('layouts.auth.components.help');
+    })->name('help');
+    Route::get('/settings', function () {
+        return view('layouts.auth.components.settings');
+    })->name('settings');
+    Route::get('privacypolicy', function () {
+        return view('layouts.auth.components.privacypolicy');
+    })->name('privacypolicy');
+    Route::get('termsandconditions', function () {
+        return view('layouts.auth.components.termsandconditions');
+    })->name('termsandconditions');
+    Route::get('transactionhistory', function () {
+        return view('layouts.auth.components.transactionhistory');
+    })->name('transactionhistory');
+    Route::get('request', function () {
+        return view('layouts.auth.components.request');
+    })->name('request');
+    Route::get('aboutus', function () {
+        return view('layouts.auth.components.aboutus');
+    })->name('aboutus');
 });
-
-Route::get('/register', function () {
-    return view('auth.register');
-})->name('register');
-
-Route::get('/login', function () {
-    return view('auth.login');
-})->name('login');

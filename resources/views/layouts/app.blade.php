@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="csrf-token" content="{{ csrf_token() }}" />
 
-        <title>{{ config("app.name", "Laravel") }}</title>
+        <title>DHVSU CCS Help Desk</title>
 
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net" />
@@ -17,35 +17,25 @@
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         />
-
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
-
-        <!-- Styles -->
-        @livewireStyles
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+        ></script>
+        @vite(['resources/css/app.css', 'resources/js/app.js']) @livewireStyles
     </head>
     <body
-        class="flex flex-col h-screen"
-        style="background-image: url('{{ asset('assets/imgs/BG.jpg') }}')"
+        class="bg-light-mode dark:bg-dark-mode bg-cover bg-no-repeat bg-fixed fixed"
     >
         <x-banner />
-        <div class="flex flex-col">
-            <!-- header -->
-            @include('layouts.auth.components.header')
-            <div class="flex-1 flex flex-row mt-1">
-                <!-- left Drawer -->
-                <div
-                    class="group w-20 bg-blue-950 h-[88vh] rounded-md relative transition-all duration-200 transform hover:w-60"
-                >
-                    @include('layouts.auth.components.usermenu')
-                    @include('layouts.auth.components.mainmenu')
-                </div>
-                <div
-                    class="flex 1 content-center justify-center items-center object-center"
-                >
-                    {{ $slot }}
-                </div>
-            </div>
+
+        @include('layouts.auth.components.header')
+        <div class="flex">
+            @include('layouts.auth.components.mainmenu')
+            <main class="flex-1 overflow-auto flex items-center justify-center">
+                {{ $slot }}
+            </main>
         </div>
 
         @stack('modals') @livewireScripts

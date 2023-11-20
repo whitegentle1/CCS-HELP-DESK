@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-authentication-card>
+    <x-popmodal name="twofactor" title="twofactor">
         <x-slot name="logo">
             <x-authentication-card-logo />
         </x-slot>

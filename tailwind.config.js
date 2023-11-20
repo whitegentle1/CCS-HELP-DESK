@@ -16,8 +16,18 @@ export default {
             fontFamily: {
                 sans: ["Figtree", ...defaultTheme.fontFamily.sans],
             },
+            backgroundImage: {
+                "light-mode": "url('/public/assets/imgs/BG.jpg')",
+                "dark-mode": "url('/public/assets/imgs/BG_DHVSU_DARKMODE.jpg')",
+            },
         },
+        variants: {
+            extend: {
+                backgroundImage: ["dark"],
+            },
+        },
+        plugins: [],
     },
 
-    plugins: [forms, typography],
+    plugins: [forms, typography, require("flowbite/plugin")],
 };

@@ -1,83 +1,64 @@
-<hr class="w-full text-white" />
-
-<!-- Main Menu -->
 <div
-    class="px-2 mt-4 items-center font-mono whitespace-nowrap transition-all duration-200"
+    class="sidebar hidden sm:block w-[3.35rem] overflow-hidden border-r bg-blue-800 hover:w-56 hover:bg-blue-600 hover:shadow-lg"
 >
-    <button
-        class="flex items-center w-full text-white px-2 py-1 mt-5 space-x-6 hover:bg-blue-800"
-    >
-        <img
-            src="{{ asset('assets/imgs/home.png') }}"
-            alt=""
-            class="h-12 flex-shrink-0"
-        />
-        <p class="group-hover:block hidden transition-all duration-200">Home</p>
-    </button>
+    <div class="flex h-screen flex-col justify-between pb-6 pt-2">
+        <div>
+            <div
+                class="align-center -m-2 mt-2 flex w-max justify-between space-x-4 p-2"
+            >
+                <x-dropdown align="left" width="48">
+                    <x-slot name="trigger">
+                        <button
+                            class="flex rounded-full border-2 border-transparent text-sm transition focus:border-gray-300 focus:outline-none"
+                        >
+                            <img
+                                class="flex h-12 w-12 rounded-full object-cover"
+                                src="{{ Auth::user()->profile_photo_url }}"
+                                alt="{{ Auth::user()->name }}"
+                            />
+                        </button>
+                    </x-slot>
 
-    <button
-        class="flex items-center w-full text-white px-2 py-1 mt-8 space-x-6 hover:bg-blue-800"
-    >
-        <img
-            src="{{ asset('assets/imgs/chatbot.png') }}"
-            alt=""
-            class="h-12 flex-shrink-0"
-        />
-        <p class="group-hover:block hidden transition-all duration-200">
-            Chat-Bot
-        </p>
-    </button>
+                    <x-slot name="content">
+                        <div class="block px-4 py-2 text-xs text-gray-400">
+                            {{ __("Manage Account") }}
+                        </div>
 
-    <div class="group">
-        <!-- Payments button -->
-        <button
-            class="flex items-center w-full text-white px-2 py-1 mt-8 space-x-6 hover:bg-blue-800"
-        >
-            <img
-                src="{{ asset('assets/imgs/wallet.png') }}"
-                alt=""
-                class="h-12 flex-shrink-0"
-            />
-            <p class="group-hover:block hidden transition-all duration-200">
-                Payments
-            </p>
-        </button>
+                        <x-dropdown-link href="{{ route('profile.show') }}">
+                            {{ __("Profile") }}
+                        </x-dropdown-link>
 
-        <!-- Dropdown for Request and Transaction History -->
-        <div class="flex-col group-hover:flex hidden">
-            <!-- Request button -->
-            <button class="text-white w-full py-1 hover:bg-blue-800">
-                <p class="text-left ml-12">Request</p>
-            </button>
+                        <div
+                            class="border-t border-gray-200 dark:border-gray-600"
+                        ></div>
+                        <form
+                            method="POST"
+                            action="{{ route('logout') }}"
+                            x-data
+                        >
+                            @csrf
+                            <x-dropdown-link
+                                href="{{ route('logout') }}"
+                                @click.prevent="$root.submit();"
+                            >
+                                {{ __("Log Out") }}
+                            </x-dropdown-link>
+                        </form>
+                    </x-slot>
+                </x-dropdown>
 
-            <!-- Transaction History button -->
-            <button class="text-white w-full py-1 hover:bg-blue-800">
-                <p class="text-left ml-12">Transaction History</p>
-            </button>
+                <span class="text-xl font-bold text-white">
+                    <p>
+                        {{ ucfirst(Auth::user()->firstname) }}
+                        {{ ucfirst(Auth::user()->lastname) }}
+                    </p>
+                    <p>
+                        {{ substr(Auth::user()->email, 0, strpos(Auth::user()->email, '@')) }}
+                    </p>
+                </span>
+            </div>
+            <hr class="my-4 border-gray-200 dark:border-gray-600" />
+            @include('layouts.auth.components.buttons')
         </div>
     </div>
-
-    <button
-        class="flex items-center w-full text-white px-2 py-1 mt-8 space-x-6 hover:bg-blue-800"
-    >
-        <img
-            src="{{ asset('assets/imgs/settings.png') }}"
-            alt=""
-            class="h-12 flex-shrink-0"
-        />
-        <p class="group-hover:block hidden transition-all duration-200">
-            Setting
-        </p>
-    </button>
-
-    <button
-        class="flex items-center w-full text-white px-2 py-1 mt-8 space-x-6 hover:bg-blue-800"
-    >
-        <img
-            src="{{ asset('assets/imgs/question.png') }}"
-            alt=""
-            class="h-12 flex-shrink-0"
-        />
-        <p class="group-hover:block hidden transition-all duration-200">Help</p>
-    </button>
 </div>
