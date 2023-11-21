@@ -10,3 +10,25 @@
         transition: all 0.4s ease-in-out;
     }
 }
+
+@layer utilities {
+    .scrollbar::-webkit-scrollbar {
+        width: 20px;
+        height: 20px;
+    }
+
+    .scrollbar::-webkit-scrollbar-track {
+        border-radius: 100vh;
+        background: #96969625;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb {
+        background: #252d72;
+        border-radius: 100vh;
+        border: 3px solid #06273d;
+    }
+
+    .scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #292a75;
+    }
+}

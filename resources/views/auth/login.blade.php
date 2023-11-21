@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-popmodal name="login" title="login">
+    <x-popmodal name="Login" title="Login">
         <x-validation-errors class="mb-4" lazy />
 
         @if (session('status'))

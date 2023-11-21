@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-tosnpriv>
-        <div class="m-5 overflow-auto" >
+        <div class="m-5 h-full text-sm" >
         <p class="text-xl my-2 ml-2underline">Terms of Use</p>
         <p>Last Update: Nov. 16, 2023</p>
         <p class="ml-3 mb-3">

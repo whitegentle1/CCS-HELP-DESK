@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-tosnpriv>
-        <div class="m-5">
-        <p class="text-xl my-2 underline">Privacy Policy</p>
+        <div class="m-5 text-sm">
+        <p class="text-3xl my-2">Privacy Policy</p>
         <p>Last Update: Nov. 16, 2023</p>
         <p class="ml-3 mb-3">
             This Privacy Policy outlines the manner in which DHVSU-CCS HELP DESK

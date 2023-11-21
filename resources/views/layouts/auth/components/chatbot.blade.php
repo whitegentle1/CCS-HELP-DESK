@@ -1,7 +1,6 @@
 <x-app-layout>
-    <!-- component -->
     <div
-        class="relative h-4/5 w-4/5 antialiased text-gray-800 justify-self-center self-center"
+        class="z-0 self-center justify-self-center align-center relative h-4/5 w-4/5 antialiased text-gray-800"
     >
         <iframe
             class="w-full h-full rounded-lg shadow-le"

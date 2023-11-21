@@ -1,7 +1,7 @@
 <div
-    class="sidebar p-4 relative hidden h-full sm:block w-[5rem] overflow-hidden border-r bg-blue-800 hover:w-56 hover:bg-blue-600 hover:shadow-lg"
+    class="sidebar relative self-center min-h-min hidden sm:block w-[5rem] overflow-hidden border-r bg-blue-800 hover:w-56 hover:bg-blue-600 hover:shadow-lg z-20 shrink-0 grow-0 justify-around border-t border-gray-200 bg-white/50 p-2.5 shadow-lg backdrop-blur-lg dark:border-blue-600/60 dark:bg-blue-800/50 rounded-lg border"
 >
-    <div class="flex h-screen flex-col justify-between pb-6 pt-2">
+    <div class="flex flex-col justify-between pb-6 pt-2">
         <div>
             <div
                 class="align-center -m-2 mt-2 flex w-max justify-between space-x-4 p-2"
@@ -14,7 +14,7 @@
                             <img
                                 class="flex h-12 w-12 rounded-full object-cover"
                                 src="{{ Auth::user()->profile_photo_url }}"
-                                alt="{{ Auth::user()->name }}"
+                                alt="{{ Auth::user()->firstname }}"
                             />
                         </button>
                     </x-slot>

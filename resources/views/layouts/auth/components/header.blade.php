@@ -1,5 +1,5 @@
-<nav
-    class="h-24 relative border-blue-950 bg-blue-800 dark:bg-blue-900 w-full"
+<header
+    class="flex h-24 items-center justify-between border-2 border-blue-950/60 bg-blue-700 dark:bg-blue-900/90"
 >
     <div
         class="flex max-w-screen-xl flex-wrap items-center justify-between p-4"
@@ -15,14 +15,16 @@
                 alt="Dhvsu Logo"
             />
             <span
-                class="self-center whitespace-nowrap text-2xl font-semibold text-gray-200 dark:text-white"
-                >DHVSU CSS Help Desk</span
+                class="self-center whitespace-nowrap text-sm font-semibold text-gray-200 dark:text-white sm:text-2xl"
+                >DHVSU CCS Help Desk</span
             >
         </a>
+    </div>
+    <div class="flex">
         <button
             data-collapse-toggle="navbar-hamburger"
             type="button"
-            class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 sm:hidden"
+            class="inline-flex h-10 w-10 items-center justify-center rounded-lg p-2 text-sm text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-blue-900 dark:focus:ring-blue-800 sm:hidden"
             aria-controls="navbar-hamburger"
             aria-expanded="false"
         >
@@ -43,8 +45,11 @@
                 />
             </svg>
         </button>
-        <div class="hidden w-full" id="navbar-hamburger">
+        <div
+            class="z-50 hidden w-full rounded-md bg-blue-700 p-2 transition-opacity duration-100 ease-in dark:bg-blue-950"
+            id="navbar-hamburger"
+        >
             @include('layouts.auth.components.buttons')
         </div>
     </div>
-</nav>
+</header>

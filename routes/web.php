@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\BotController;
-use Illuminate\Support\Facades\Route;
 
+use App\Livewire\Dashboard;
+use App\Livewire\RequestBreakdown;
+use Illuminate\Support\Facades\Route;
 
 
 /*
@@ -56,4 +57,14 @@ Route::middleware([
     Route::get('aboutus', function () {
         return view('layouts.auth.components.aboutus');
     })->name('aboutus');
+    Route::get('change-profile', function () {
+        return view('layouts.auth.components.change-profile');
+    })->name('change-profile');
+    Route::get('dashboard1', Dashboard::class)->name('dashboard1');
 });
+
+Route::redirect('/dashboard', '/home',)->name('dashboard');
+
+Route::fallback(function () {
+    return view('errorhandler');
+})->name('404');

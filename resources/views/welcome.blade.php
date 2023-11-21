@@ -37,7 +37,7 @@
                 <div class="c_pic">
                     <a href="/" wire:navigate>
                         <img
-                            src="{{ asset('assets/imgs/dv.png') }}"
+                            src="{{ asset('assets/imgs/ccslogo.png') }}"
                             alt="dabsu-logo"
                         />
                     </a>
@@ -237,7 +237,7 @@
                 <a
                     class="w-full max-w-[600px] h-10 sm:h-[15%] bg-[rgba(25,_75,_255,_0.76524323)] rounded-[50px] flex justify-center items-center no-underline m-0 hover:bg-blue-500 [transition:background-color_0.3s_ease] dark:bg-[rgba(12, 29, 91, 0.76524323)]"
                     x-data
-                    @click="$dispatch('open-modal',{name:'register'})"
+                    @click="$dispatch('open-modal',{name:'Register'})"
                 >
                     <h2 class="text-[2.5vw] font-bold text-[white]">
                         Get Started

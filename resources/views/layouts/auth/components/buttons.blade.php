@@ -1,6 +1,6 @@
-<ul class="mt-6 space-y-3 tracking-wide">
+<ul class="relative mt-6 space-y-3 tracking-wide rounded-md">
     <li class="min-w-max">
-        <a href="/home" wire:navigate aria-label="dashboard"
+        <a href="/home"  aria-label="dashboard"
             class="relative  flex items-center space-x-10 bg-gradient-to-r px-2.5 py-3 text-gray-600 hover:text-white hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
             <svg width="20px" height="20px" viewBox="-2.4 -2.4 28.80 28.80" fill="none"
                 transform="matrix(-1, 0, 0, 1, 0, 0)rotate(0)" stroke-width="0.00024000000000000003">
@@ -27,7 +27,7 @@
                         fill="#1C274C"></path>
                 </g>
             </svg>
-            <span class="-mr-1 font-medium">Dashboard</span>
+            <span class="-mr-1 font-medium text-white">Dashboard</span>
         </a>
     </li>
     <li class="min-w-max">
@@ -52,7 +52,7 @@
                         fill="#1C274C"></path>
                 </g>
             </svg>
-            <span class="-mr-1 font-medium">Chat</span>
+            <span class="-mr-1 font-medium text-white">Chat</span>
         </a>
     </li>
     <li class="group relative min-w-max">
@@ -77,11 +77,11 @@
                         fill="#1C274C"></path>
                 </g>
             </svg>
-            <span class="-mr-1 font-medium">Payments</span>
+            <span class="-mr-1 font-medium text-white">Payments</span>
         </a>
         <ul
             class="hidden space-y-2 border-gray-200 bg-blue-800 text-sm shadow-lg duration-300 ease-in-out group-hover:block group-hover:transition-opacity">
-            <li class="flex items-center hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
+            <li class="flex items-center hover:from-sky-600 hover:shadow-[inset_14rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" class="ml-8"
                     xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -99,10 +99,10 @@
                     </g>
                 </svg>
                 <a href="/transactionhistory" wire:navigate
-                    class="block px-4 py-2 text-gray-600 hover:text-sky-600">Transaction
+                    class="block px-4 py-2 text-white hover:text-sky-600">Transaction
                     History</a>
             </li>
-            <li class="flex items-center hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
+            <li class="flex items-center hover:from-sky-600 hover:shadow-[inset_14rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
                 <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" class="ml-8"
                     xmlns="http://www.w3.org/2000/svg">
                     <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
@@ -117,7 +117,7 @@
                     </g>
                 </svg>
                 <a href="/request" wire:navigate
-                    class="block px-4 py-2 text-gray-600 hover:text-sky-600">Request</a>
+                    class="block px-4 py-2 text-white hover:text-sky-600">Request</a>
             </li>
         </ul>
 
@@ -138,7 +138,7 @@
                         fill="#1C274C"></path>
                 </g>
             </svg>
-            <span class="-mr-1 font-medium">Settings</span>
+            <span class="-mr-1 font-medium text-white">Settings</span>
         </a>
     </li>
     <li class="group relative min-w-max">
@@ -166,7 +166,7 @@
                         fill="#1C274C"></path>
                 </g>
             </svg>
-            <span class="-mr-1 font-medium">Help</span>
+            <span class="-mr-1 font-medium text-white">Help</span>
         </a>
         <ul
             class="hidden space-y-2 border-gray-200 bg-blue-800 text-sm shadow-lg duration-300 ease-in-out group-hover:block group-hover:transition-opacity">
@@ -188,7 +188,7 @@
                     </g>
                 </svg>
                 </svg>
-                <a href="/termsandconditions" wire:navigate class="block px-4 py-2 text-gray-600 hover:text-sky-600">Terms of
+                <a href="/termsandconditions" wire:navigate class="block px-4 py-2 text-white hover:text-sky-600">Terms of
                     Use</a>
             </li>
             <li class="flex items-center hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
@@ -215,7 +215,7 @@
                     </g>
                 </svg>
                 <a href="/privacypolicy" wire:navigate
-                    class="block px-4 py-2 text-gray-600 hover:text-sky-600">Privacy
+                    class="block px-4 py-2 text-white hover:text-sky-600">Privacy
                     Policy</a>
             </li>
             <li class="flex items-center hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
@@ -236,8 +236,8 @@
                     </g>
                 </svg>
                 <a href="/aboutus" wire:navigate
-                    class="block px-4 py-2 text-gray-600 hover:text-sky-600">About Us</a>
+                    class="block px-4 py-2 text-white hover:text-sky-600">About Us</a>
             </li>
         </ul>
     </li>
-    
+</ul>

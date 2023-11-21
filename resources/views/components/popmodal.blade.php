@@ -1,5 +1,4 @@
 @props(['name', 'title'])
-
 <div
     x-data="{ show: @json($attributes->get('show')), name: '{{ $name }}' }"
     x-show="show"
@@ -19,13 +18,15 @@
 
     {{-- Modal Body --}}
     <div
-        class="bg-white h-min rounded w-full sm:max-w-md m-auto fixed inset-0 max-w-2xl overflow-y-auto dark:bg-gray-800 dark:text-white"
+        class="bg-white dark:bg-gray-600 h-min rounded w-full sm:max-w-md m-auto fixed inset-0 max-w-2xl overflow-y-aut dark:text-white"
     >
         @if (isset($title))
         <div
-            class="px-4 py-3 flex items-center justify-between border-gray-300"
+            class="px-4 py-3 flex items-center justify-between text-white dark:border-gray-800 dark:bg-gray-800"
         >
-            <div class="text-xl text-gray-800">{{ $title }}</div>
+            <div class="text-xl text-gray-500">
+                {{ $title }}
+            </div>
             <a href="#">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -44,7 +45,7 @@
             </a>
         </div>
         @endif
-        <div class="p-4">
+        <div class="p-4 dark:bg-gray-800">
             {{ $slot }}
         </div>
     </div>

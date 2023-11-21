@@ -1,5 +1,5 @@
 <x-guest-layout>
-    <x-popmodal name="resetpassword" title="resetpassword">
+    <x-authentication-card>
         <x-slot name="logo">
             <x-authentication-card-logo />
         </x-slot>
@@ -62,5 +62,5 @@
                 </x-button>
             </div>
         </form>
-    </x-popmodal>
+    </x-authentication-card>
 </x-guest-layout>
