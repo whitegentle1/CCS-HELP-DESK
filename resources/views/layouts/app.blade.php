@@ -33,6 +33,7 @@
             href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.1.1/mapbox-gl-directions.css"
             type="text/css"
         />
+
         <script src="{{ asset('assets/js/map.js') }}"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js']) @livewireStyles
     </head>
@@ -62,7 +63,6 @@
                                 class="flex h-screen w-screen flex-col border-gray-900 text-xl text-gray-900"
                             >
                                 {{ $slot }}
-                                @livewireScripts
                             </div>
                         </div>
                     </main>
@@ -71,6 +71,6 @@
         </div>
 
         <!--  -->
-        @yield('content') @stack('modals')
+        @yield('content') @stack('modals') @livewireScripts
     </body>
 </html>

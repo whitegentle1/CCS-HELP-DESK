@@ -38,7 +38,7 @@
     >
         <!-- First item -->
         <div
-            class="relative float-left -mr-[100%] w-full h-full !transform-none opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
+            class="relative float-left -mr-[100%] w-full h-full !transform-none opacity-0 transition-opacity duration-700 ease-in-out motion-reduce:transition-none"
             data-te-carousel-fade
             data-te-carousel-item
             data-te-carousel-active
@@ -54,7 +54,7 @@
         </div>
         <!-- Second item -->
         <div
-            class="relative float-left -mr-[100%] h-full hidden w-full !transform-none opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
+            class="relative float-left -mr-[100%] h-full hidden w-full !transform-none opacity-0 transition-opacity duration-700 ease-in-out motion-reduce:transition-none"
             data-te-carousel-fade
             data-te-carousel-item
         >
@@ -69,7 +69,7 @@
         </div>
         <!-- Third item -->
         <div
-            class="relative float-left -mr-[100%] hidden h-full w-full !transform-none opacity-0 transition-opacity duration-[600ms] ease-in-out motion-reduce:transition-none"
+            class="relative float-left -mr-[100%] hidden h-full w-full !transform-none opacity-0 transition-opacity duration-700 ease-in-out motion-reduce:transition-none"
             data-te-carousel-fade
             data-te-carousel-item
         >

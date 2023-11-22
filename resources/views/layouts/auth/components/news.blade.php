@@ -2,6 +2,7 @@
     id="controls-carousel"
     class="relative w-full h-full"
     data-carousel="static"
+    wire:ignore
 >
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-full">
