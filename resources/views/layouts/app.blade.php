@@ -21,7 +21,7 @@
             href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap"
             rel="stylesheet"
         />
-
+        <!-- Map Scripts and CSS-->
         <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
         <link
             href="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css"
@@ -35,13 +35,14 @@
         />
 
         <script src="{{ asset('assets/js/map.js') }}"></script>
+
         @vite(['resources/css/app.css', 'resources/js/app.js']) @livewireStyles
     </head>
 
     <body
         class="bg-light-mode dark:bg-dark-mode items-center justify-center bg-cover bg-fixed bg-no-repeat"
     >
-        <!-- <x-banner /> -->
+        <x-banner />
         <div class="flex h-screen">
             <div class="flex flex-1 flex-col overflow-hidden">
                 @include('layouts.auth.components.header')

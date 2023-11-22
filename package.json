@@ -17,6 +17,7 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@mdi/font": "^7.3.67",
         "tw-elements": "^1.0.0"
     }
 }
