@@ -1,9 +1,7 @@
 <x-guest-layout>
-    <!-- Page Container -->
-    <div class="flex items-center justify-center min-h-screen bg-white py-48">
+    <div class="flex min-h-screen items-center justify-center bg-white py-48">
         <div class="flex flex-col">
-            <!-- Notes -->
-            <span class="text-center font-bold my-10 opacity-30">
+            <span class="my-10 text-center font-bold opacity-30">
                 This isn't the end, you can follow the path of being the most
                 dangerous person in the world!
 
@@ -18,18 +16,17 @@
                 </a>
             </span>
 
-            <!-- Error Container -->
             <div class="flex flex-col items-center">
-                <div class="text-indigo-500 font-bold text-7xl">404</div>
+                <div class="text-7xl font-bold text-indigo-500">404</div>
 
                 <div
-                    class="font-bold text-3xl xl:text-7xl lg:text-6xl md:text-5xl mt-10"
+                    class="mt-10 text-3xl font-bold md:text-5xl lg:text-6xl xl:text-7xl"
                 >
                     This page does not exist
                 </div>
 
                 <div
-                    class="text-gray-400 font-medium text-sm md:text-xl lg:text-2xl mt-8"
+                    class="mt-8 text-sm font-medium text-gray-400 md:text-xl lg:text-2xl"
                 >
                     The page you are looking for could not be found.
                 </div>

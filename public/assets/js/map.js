@@ -1,5 +1,4 @@
 function initMap() {
-    // Your existing map initialization code here
     mapboxgl.accessToken =
         "pk.eyJ1Ijoid2hpdGVnZW50bGUxIiwiYSI6ImNscDg3cmg1ODBjbTQybHVqZGQ4bmRybDMifQ.QMlyosgi_DqfSU5s7OSnnQ";
     navigator.geolocation.getCurrentPosition(successLocation, errorLocation, {

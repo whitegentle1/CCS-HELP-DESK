@@ -42,17 +42,3 @@ document.addEventListener("DOMContentLoaded", function () {
         clearInterval(interval);
     });
 });
-
-document.addEventListener("DOMContentLoaded", function () {
-    const carousel = document.getElementById("controls-carousel");
-
-    const interval = setInterval(function () {
-        const event = new Event("click");
-        const nextButton = document.querySelector("[data-carousel-next]");
-        nextButton.dispatchEvent(event);
-    }, 5000);
-
-    carousel.addEventListener("te:destroy", function () {
-        clearInterval(interval);
-    });
-});

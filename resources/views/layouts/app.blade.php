@@ -42,17 +42,16 @@
     <body
         class="bg-light-mode dark:bg-dark-mode items-center justify-center bg-cover bg-fixed bg-no-repeat"
     >
-        <x-banner />
         <div class="flex h-screen">
             <div class="flex flex-1 flex-col overflow-hidden">
-                @include('layouts.auth.components.header')
+                <livewire:components.headernav />
                 <div class="flex h-full">
                     <nav class="md:flex hidden h-full">
                         <div class="mx-auto flex w-full px-6 py-8">
                             <div
                                 class="flex h-full w-full items-center justify-center border-gray-900 text-xl text-gray-900"
                             >
-                                @include('layouts.auth.components.mainmenu')
+                                <livewire:components.sidebar />
                             </div>
                         </div>
                     </nav>

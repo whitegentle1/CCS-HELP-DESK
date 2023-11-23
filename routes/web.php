@@ -1,10 +1,8 @@
 <?php
 
-
-use App\Livewire\Dashboard;
-use App\Livewire\RequestBreakdown;
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,52 +16,64 @@ use Illuminate\Support\Facades\Route;
 */
 
 
+
 Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+    return view('livewire.landingpage');
+})->name('landingpage');
 
-Route::middleware([
-    'auth:sanctum',
-    config('jetstream.auth_session'),
-    'verified',
-])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+Route::redirect('dashboard', 'home');
+
+Route::get('/email/verify', function () {
+    return view('auth.verify-email');
+})->middleware('auth')->name('verification.notice');
+
+Route::get('/email/verify/{id}/{hash}', function (EmailVerificationRequest $request) {
+    $request->fulfill();
+    return redirect('/home');
+})->middleware(['auth', 'signed'])->name('verification.verify');
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+
+    return back()->with('message', 'Verification link sent!');
+})->middleware(['auth', 'throttle:6,1'])->name('verification.send');
+
+
+Route::view('profile', 'profile')
+    ->middleware(['auth'])
+    ->name('profile');
+
+require __DIR__ . '/auth.php';
+
+Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/home', function () {
-        return view('layouts.auth.components.home');
+        return view('livewire.pages.home');
     })->name('home');
-    Route::get('/chatbot', function () {
-        return view('layouts.auth.components.chatbot');
-    })->name('chatbot');
-    Route::get('/help', function () {
-        return view('layouts.auth.components.help');
-    })->name('help');
-    Route::get('/settings', function () {
-        return view('layouts.auth.components.settings');
-    })->name('settings');
-    Route::get('privacypolicy', function () {
-        return view('layouts.auth.components.privacypolicy');
-    })->name('privacypolicy');
-    Route::get('termsandconditions', function () {
-        return view('layouts.auth.components.termsandconditions');
-    })->name('termsandconditions');
-    Route::get('transactionhistory', function () {
-        return view('layouts.auth.components.transactionhistory');
-    })->name('transactionhistory');
-    Route::get('request', function () {
-        return view('layouts.auth.components.request');
-    })->name('request');
-    Route::get('aboutus', function () {
-        return view('layouts.auth.components.aboutus');
+    Route::get('/aboutus', function () {
+        return view('livewire.pages.aboutus');
     })->name('aboutus');
-    Route::get('change-profile', function () {
-        return view('layouts.auth.components.change-profile');
-    })->name('change-profile');
-    Route::get('dashboard1', Dashboard::class)->name('dashboard1');
+    Route::get('/chatbot', function () {
+        return view('livewire.pages.chatbot');
+    })->name('chatbot');
+    Route::get('/request', function () {
+        return view('livewire.pages.request');
+    })->name('request');
+    Route::get('/transactionhistory', function () {
+        return view('livewire.pages.transactionhistory');
+    })->name('transactionhistory');
+    Route::get('/termsandconditions', function () {
+        return view('livewire.pages.termsandconditions');
+    })->name('termsandconditions');
+    Route::get('/settings', function () {
+        return view('livewire.pages.settings');
+    })->name('settings');
+    Route::get('/privacypolicy', function () {
+        return view('livewire.pages.privacypolicy');
+    })->name('privacypolicy');
+    Route::get('/profile', function () {
+        return view('livewire.pages.profile');
+    })->name('profile');
 });
-
-Route::redirect('/dashboard', '/home',)->name('dashboard');
 
 Route::fallback(function () {
     return view('errorhandler');
