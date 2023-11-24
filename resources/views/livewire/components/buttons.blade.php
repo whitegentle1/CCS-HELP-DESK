@@ -17,6 +17,13 @@ new class extends Component
 
 
 <ul class="relative mt-6 space-y-3 tracking-wide rounded-md">
+    <li class="min-w-max lg:hidden">
+        <a href="/profile" wire:navigate aria-label="profile"
+            class="relative  flex items-center space-x-10 bg-gradient-to-r px-2.5 py-3 text-gray-600 hover:text-white hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
+            <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <circle cx="12" cy="6" r="4" fill="#1C274C"></circle> <path opacity="0.5" d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z" fill="#1C274C"></path> </g></svg>
+            <span class="-mr-1 font-medium text-white">Profile</span>
+        </a>
+    </li>
     <li class="min-w-max">
         <a href="/home" wire:navigate aria-label="dashboard"
             class="relative  flex items-center space-x-10 bg-gradient-to-r px-2.5 py-3 text-gray-600 hover:text-white hover:from-sky-600 hover:shadow-[inset_13rem_0_0_0] hover:shadow-cyan-400 duration-[400ms,700ms] transition-[color,box-shadow]">
