@@ -1,6 +1,6 @@
-<div class="min-h-auto flex flex-col justify-center items-center">
+<div class="min-h-auto flex flex-col text-xs items-center justify-center">
     Activity Log
-    <table class="border-collapse border border-gray-400 mt-4">
+    <table class="mt-4 border-collapse border border-gray-400">
         <thead>
             <tr>
                 <th class="border border-gray-400 p-2">Activity</th>
@@ -10,22 +10,24 @@
             </tr>
         </thead>
         <tbody>
+            @foreach ($activityLog as $item)
             <tr>
-                <td class="border border-gray-400 p-2">Login</td>
-                <td class="border border-gray-400 p-2">2023-11-24 08:30:00</td>
                 <td class="border border-gray-400 p-2">
-                    {{ $_SERVER["HTTP_USER_AGENT"] }}
+                    {{ $item->activity }}
                 </td>
-                <td class="border border-gray-400 p-2">192.168.1.1</td>
-            </tr>
-            <tr>
-                <td class="border border-gray-400 p-2">Logout</td>
-                <td class="border border-gray-400 p-2">2023-11-24 18:45:00</td>
                 <td class="border border-gray-400 p-2">
-                    {{ $_SERVER["HTTP_USER_AGENT"] }}
+                    {{ $item->login_time ?: $item->logout_time }}
                 </td>
-                <td class="border border-gray-400 p-2">192.168.1.2</td>
+                <td class="border border-gray-400 p-2">
+                    {{ $item->user_agent }}
+                </td>
+                <td class="border border-gray-400 p-2">
+                    {{ $item->ip_address }}
+                </td>
             </tr>
+            @endforeach
         </tbody>
     </table>
+
+    {{ $activityLog->links() }}
 </div>

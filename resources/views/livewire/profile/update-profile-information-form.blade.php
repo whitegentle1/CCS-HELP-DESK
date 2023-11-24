@@ -36,20 +36,20 @@ sendVerification(): void { $user = Auth::user(); if ($user->hasVerifiedEmail())
 $this->redirect($path); return; } $user->sendEmailVerificationNotification();
 Session::flash('status', 'verification-link-sent'); } }; ?>
 
-<div class="w-full rounded-lg bg-blue-600/70 px-6 md:px-10 dark:bg-blue-950/70">
+<div class="w-full rounded-lg bg-blue-600/70 px-6 dark:bg-blue-950/70 md:px-10">
     <div class="font-bold text-black">
         <div
-            class="flex flex-row align-center items-center justify-center w-full md:p-4 text-xl"
+            class="align-center flex w-full flex-row items-center justify-center text-xl md:p-4"
         >
-            <div class="mr-2 mb-4 hover:bg-gray-500/30 rounded-md underline">
+            <div class="mb-4 mr-2 rounded-md underline hover:bg-gray-500/30">
                 <a>User Information</a>
             </div>
 
-            <div class="mr-2 mb-4 hover:bg-gray-500/30 rounded-md">
+            <div class="mb-4 mr-2 rounded-md hover:bg-gray-500/30">
                 <a wire:navigate href="/change-profile">Change Picture</a>
             </div>
 
-            <div class="mr-2 mb-4 hover:bg-gray-500/30 rounded-md">
+            <div class="mb-4 mr-2 rounded-md hover:bg-gray-500/30">
                 <a wire:navigate href="/change-password">Change Password</a>
             </div>
         </div>
@@ -60,7 +60,7 @@ Session::flash('status', 'verification-link-sent'); } }; ?>
         </div>
         <form wire:submit="updateProfileInformation" class="mt-6 space-y-6">
             <div>
-                <div class="flex flex-col lg:flex-row p-4">
+                <div class="flex flex-col p-4 lg:flex-row">
                     <div class="mr-2">
                         <div>
                             <x-input-label
@@ -150,7 +150,7 @@ Session::flash('status', 'verification-link-sent'); } }; ?>
                     </div>
                 </div>
 
-                <div class="flex flex-col lg:flex-row p-4">
+                <div class="flex flex-col p-4 lg:flex-row">
                     <div class="mr-2">
                         <div>
                             <x-input-label for="email" :value="__('Email')" />
@@ -237,7 +237,7 @@ Session::flash('status', 'verification-link-sent'); } }; ?>
                     </div>
                 </div>
 
-                <div class="flex flex-col lg:flex-row p-4">
+                <div class="flex flex-col p-4 lg:flex-row">
                     <div class="mr-2">
                         <div>
                             <x-input-label
@@ -327,7 +327,12 @@ Session::flash('status', 'verification-link-sent'); } }; ?>
 
             <div class="flex p-2">
                 <div class="mr-2 w-32 flex-row rounded text-center text-white">
-                    <x-primary-button>{{ __("Save") }}</x-primary-button>
+                    <div>
+                        <x-primary-button>{{ __("Save") }}</x-primary-button>
+                        <x-action-message class="me-3" on="profile-updated">
+                            {{ __("Saved.") }}
+                        </x-action-message>
+                    </div>
                     <button
                         wire:navigate
                         href="{{ route('home') }}"

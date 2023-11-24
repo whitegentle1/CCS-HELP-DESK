@@ -2,8 +2,11 @@
 
 namespace App\Livewire\Forms;
 
+use Carbon\Carbon;
 use Illuminate\Auth\Events\Lockout;
+use Illuminate\Contracts\Session\Session;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
@@ -28,9 +31,33 @@ class LoginForm extends Form
      */
     public function authenticate(): void
     {
+        $dt = Carbon::now();
+        $todayDate = $dt->toDayDateTimeString();
+
+        $email = $this->email;
+        $log_history = [
+            'email' => $email,
+            'activity' => 'Login',
+            'ip_address' => request()->ip(),
+            'user_agent' => request()->userAgent(),
+            'login_time' => $todayDate
+        ];
+
         $this->ensureIsNotRateLimited();
 
-        if (!Auth::attempt($this->only(['email', 'password']), $this->remember)) {
+        if (Auth::attempt($this->only(['email', 'password']), $this->remember)) {
+            // Check if login history has already been recorded
+            if (!$this->loginHistoryRecorded()) {
+                // Successful login attempt
+                DB::table('login_history')->insert($log_history);
+
+                // Set the flag to indicate that login history has been recorded
+                $this->recordLoginHistory();
+            }
+
+            RateLimiter::clear($this->throttleKey());
+        } else {
+            // Unsuccessful login attempt
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
@@ -39,6 +66,19 @@ class LoginForm extends Form
         }
 
         RateLimiter::clear($this->throttleKey());
+    }
+    protected function loginHistoryRecorded(): bool
+    {
+        // Implement logic to check whether login history has already been recorded for the current session/user
+        // You can use a session variable, database flag, or any other method to track this
+        // Return true if recorded, false otherwise
+        return session()->has('login_history_recorded');
+    }
+
+    protected function recordLoginHistory(): void
+    {
+        // Set the flag to indicate that login history has been recorded
+        session(['login_history_recorded' => true]);
     }
 
     /**
@@ -61,6 +101,7 @@ class LoginForm extends Form
             ]),
         ]);
     }
+
 
     /**
      * Get the authentication rate limiting throttle key.

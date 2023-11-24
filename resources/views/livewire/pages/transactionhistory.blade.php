@@ -1,31 +1,89 @@
 <x-app-layout>
-    <div class="min-h-screen flex flex-col justify-center items-center">
-        <img
-            src="https://www.svgrepo.com/show/426192/cogs-settings.svg"
-            alt="Logo"
-            class="mb-8 h-40"
-        />
-        <h1
-            class="text-4xl md:text-5xl lg:text-6xl font-bold text-center text-gray-700 mb-4"
-        >
-            Site is under maintenance
-        </h1>
-        <p
-            class="text-center text-gray-500 text-lg md:text-xl lg:text-2xl mb-8"
-        >
-            We're working hard to improve the user experience. Stay tuned!
-        </p>
-        <div class="flex space-x-4">
-            <a
-                href="#"
-                class="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-6 rounded"
-                >Contact Us</a
-            >
-            <a
-                href="#"
-                class="border-2 border-gray-800 text-black font-bold py-3 px-6 rounded"
-                >Reload</a
-            >
+    <div
+        class="w-full rounded-lg bg-blue-600/70 px-6 md:px-10 dark:bg-blue-950/70"
+    >
+        <div>
+            <div>
+                <div class="ml-10 my-9 text-3xl font-bold text-blue-800">
+                    <h1>TRANSACTION HISTORY</h1>
+                </div>
+                <div class="flex columns-2">
+                    <div class="ml-20 text-xl">
+                        <p>NAME OF STUDENT</p>
+                        <p>STUDENT NUMBER</p>
+                        <p>YEAR AND SECTION</p>
+                    </div>
+                    <div class="ml-20 text-xl font-bold">
+                        <p>2020112385</p>
+                        <p>CYLIE GONZALES</p>
+                        <p>3A</p>
+                    </div>
+                </div>
+                <table class="mt-12 w-[91%] ml-20 h-10 text-2xl">
+                    <tr class="border-4 border-black">
+                        <th class="p-10 text-center border-4 border-black">
+                            DATE
+                        </th>
+                        <th class="p-10 text-center border-4 border-black">
+                            REQUEST
+                        </th>
+                        <th class="p-10 text-center border-4 border-black">
+                            AMOUNT
+                        </th>
+                        <th class="p-10 text-center border">RECEIPT</th>
+                    </tr>
+                    <tr class="border-4 border-black">
+                        <td class="p-10 text-center border-4 border-black">
+                            12/11/2023
+                        </td>
+                        <td class="p-10 text-center border-4 border-black">
+                            CERTIFICATE OF GRADES
+                        </td>
+                        <td class="p-10 text-center border-4 border-black">
+                            200
+                        </td>
+                        <td class="p-10 text-center text-blue-700">
+                            <u href="#" class="cursor-pointer">VIEW RECEIPT</u>
+                        </td>
+                    </tr>
+                    <tr class="border-4 border-black">
+                        <td class="p-10 text-center border-4 border-black">
+                            19/12/2023
+                        </td>
+                        <td class="p-10 text-center border-4 border-black">
+                            CERTIFICATE OF ENROLLMENT
+                        </td>
+                        <td class="p-10 text-center border-4 border-black">
+                            100
+                        </td>
+                        <td class="p-10 text-center text-blue-700">
+                            <u href="#" class="cursor-pointer">VIEW RECEIPT</u>
+                        </td>
+                    </tr>
+                    <tr class="border-4 border-black">
+                        <td class="p-10 text-center border-4 border-black">
+                            19/01/2024
+                        </td>
+                        <td class="p-10 text-center border-4 border-black">
+                            CCERTIFICATE OF ENROLLED
+                        </td>
+                        <td class="p-10 text-center border-4 border-black">
+                            100
+                        </td>
+                        <td class="p-10 text-center text-blue-700">
+                            <u href="#" class="cursor-pointer">VIEW RECEIPT</u>
+                        </td>
+                    </tr>
+                </table>
+                <div class="mt-10 ml-[80%]">
+                    <button
+                        type="button"
+                        class="text-white text-xl font-bold rounded-full py-2 px-12 cursor-pointer bg-indigo-900 hover:bg-indigo-950"
+                    >
+                        CONTINUE
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </x-app-layout>
