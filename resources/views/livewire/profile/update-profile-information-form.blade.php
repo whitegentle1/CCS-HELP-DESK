@@ -18,129 +18,325 @@ new class extends Component {
      */
     public function mount(): void
     {
-        $this->name = Auth::user()->name; $this->email = Auth::user()->email; }
-/** * Update the profile information for the currently authenticated user. */
-public function updateProfileInformation(): void { $user = Auth::user();
-$validated = $this->validate(['name' => ['required', 'string', 'max:255'],
-'email' => ['required', 'string', 'lowercase', 'email', 'max:255',
+        $this->firstname = Auth::user()->firstname; $this->middlename =
+Auth::user()->middlename; $this->lastname = Auth::user()->lastname; $this->email
+= Auth::user()->email; } /** * Update the profile information for the currently
+authenticated user. */ public function updateProfileInformation(): void { $user
+= Auth::user(); $validated = $this->validate(['firstname' => ['required',
+'string', 'max:255'], 'middlename' => ['nullable', 'string', 'max:255'],
+'lastname' => ['required', 'string', 'max:255'], 'email' => ['required',
+'string', 'lowercase', 'email', 'max:255',
 Rule::unique(User::class)->ignore($user->id)]]); $user->fill($validated); if
 ($user->isDirty('email')) { $user->email_verified_at = null; } $user->save();
-$this->dispatch('profile-updated', name: $user->name); } /** * Send an email
+$this->dispatch('profile-updated', firstname: $user->firstname, middlename:
+$user->middlename, lastname: $user->lastname); } /** * Send an email
 verification notification to the current user. */ public function
 sendVerification(): void { $user = Auth::user(); if ($user->hasVerifiedEmail())
 { $path = session('url.intended', RouteServiceProvider::HOME);
 $this->redirect($path); return; } $user->sendEmailVerificationNotification();
 Session::flash('status', 'verification-link-sent'); } }; ?>
 
-<section>
-    <header>
-        <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
-            {{ __("Profile Information") }}
-        </h2>
-
-        <p class="mt-1 text-sm text-gray-600 dark:text-gray-400">
-            {{
-                __(
-                    "Update your account's profile information and email address."
-                )
-            }}
-        </p>
-    </header>
-
-    <form wire:submit="updateProfileInformation" class="mt-6 space-y-6">
-        <div>
-            <x-input-label for="firstname" :value="__('First name')" />
-            <x-text-input
-                wire:model="firstname"
-                id="name"
-                name="name"
-                type="text"
-                class="mt-1 block w-full"
-                required
-                autofocus
-                autocomplete="firstname"
-            />
-            <x-input-error class="mt-2" :messages="$errors->get('firstname')" />
-        </div>
-        <div>
-            <x-input-label for="middlename" :value="__('Middle name')" />
-            <x-text-input
-                wire:model="middlename"
-                id="name"
-                name="name"
-                type="text"
-                class="mt-1 block w-full"
-                required
-                autofocus
-                autocomplete="name"
-            />
-        </div>
-        <div>
-            <x-input-label for="lastname" :value="__('Last name')" />
-            <x-text-input
-                wire:model="lastname"
-                id="name"
-                name="name"
-                type="text"
-                class="mt-1 block w-full"
-                required
-                autofocus
-                autocomplete="lastname"
-            />
-            <x-input-error class="mt-2" :messages="$errors->get('lastname')" />
-        </div>
-
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input
-                wire:model="email"
-                id="email"
-                name="email"
-                type="email"
-                class="mt-1 block w-full"
-                required
-                autocomplete="username"
-            />
-            <x-input-error class="mt-2" :messages="$errors->get('email')" />
-
-            @if (auth()->user() instanceof
-            \Illuminate\Contracts\Auth\MustVerifyEmail &&
-            !auth()->user()->hasVerifiedEmail())
-            <div>
-                <p class="mt-2 text-sm text-gray-800 dark:text-gray-200">
-                    {{ __("Your email address is unverified.") }}
-
-                    <button
-                        wire:click.prevent="sendVerification"
-                        class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
-                    >
-                        {{
-                            __("Click here to re-send the verification email.")
-                        }}
-                    </button>
-                </p>
-
-                @if (session('status') === 'verification-link-sent')
-                <p
-                    class="mt-2 text-sm font-medium text-green-600 dark:text-green-400"
-                >
-                    {{
-                        __(
-                            "A new verification link has been sent to your email address."
-                        )
-                    }}
-                </p>
-                @endif
+<div class="w-full rounded-lg bg-blue-600/70 px-6 md:px-10 dark:bg-blue-950/70">
+    <div class="font-bold text-black">
+        <div
+            class="flex flex-row align-center items-center justify-center w-full md:p-4 text-xl"
+        >
+            <div class="mr-2 mb-4 hover:bg-gray-500/30 rounded-md underline">
+                <a>User Information</a>
             </div>
-            @endif
-        </div>
 
-        <div class="flex items-center gap-4">
-            <x-primary-button>{{ __("Save") }}</x-primary-button>
+            <div class="mr-2 mb-4 hover:bg-gray-500/30 rounded-md">
+                <a wire:navigate href="/change-profile">Change Picture</a>
+            </div>
 
-            <x-action-message class="me-3" on="profile-updated">
-                {{ __("Saved.") }}
-            </x-action-message>
+            <div class="mr-2 mb-4 hover:bg-gray-500/30 rounded-md">
+                <a wire:navigate href="/change-password">Change Password</a>
+            </div>
         </div>
-    </form>
-</section>
+        <div class="mt-6 p-4">
+            <div class="text-2xl text-blue-900">
+                <p>Personal Information</p>
+            </div>
+        </div>
+        <form wire:submit="updateProfileInformation" class="mt-6 space-y-6">
+            <div>
+                <div class="flex flex-col lg:flex-row p-4">
+                    <div class="mr-2">
+                        <div>
+                            <x-input-label
+                                for="lastname"
+                                :value="__('Last name')"
+                            />
+                            <x-text-input
+                                wire:model="lastname"
+                                id="lastname"
+                                name="lastname"
+                                type="text"
+                                class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
+                                autofocus
+                                autocomplete="lastname"
+                            />
+                            <x-input-error
+                                class="mt-2"
+                                :messages="$errors->get('lastname')"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="mr-2">
+                        <div>
+                            <x-input-label
+                                for="firstname"
+                                :value="__('First name')"
+                            />
+                            <x-text-input
+                                wire:model="firstname"
+                                id="firstname"
+                                name="firstname"
+                                type="text"
+                                class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
+                                autofocus
+                                autocomplete="firstname"
+                            />
+                            <x-input-error
+                                class="mt-2"
+                                :messages="$errors->get('firstname')"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="mr-2">
+                        <div>
+                            <x-input-label
+                                for="middlename"
+                                :value="__('Middle name(optional)')"
+                            />
+                            <x-text-input
+                                wire:model="middlename"
+                                id="middlename"
+                                name="middlename"
+                                type="text"
+                                class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
+                                autofocus
+                                autocomplete="middlename"
+                            />
+                            <x-input-error
+                                class="mt-2"
+                                :messages="$errors->get('middlename')"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="mr-2">
+                        <div>
+                            <x-input-label
+                                for="suffix"
+                                :value="__('Suffix(optional)')"
+                            />
+                            <x-text-input
+                                wire:model="suffix"
+                                id="suffix"
+                                name="suffix"
+                                type="text"
+                                class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
+                                autofocus
+                                autocomplete="suffix"
+                            />
+                            <x-input-error
+                                class="mt-2"
+                                :messages="$errors->get('suffix')"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col lg:flex-row p-4">
+                    <div class="mr-2">
+                        <div>
+                            <x-input-label for="email" :value="__('Email')" />
+                            <x-text-input
+                                wire:model="email"
+                                id="email"
+                                name="email"
+                                type="email"
+                                class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
+                                autofocus
+                                autocomplete="email"
+                                readonly
+                            />
+                            <x-input-error
+                                class="mt-2"
+                                :messages="$errors->get('email')"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="mr-2">
+                        <div>
+                            <x-input-label
+                                for="birthday"
+                                :value="__('Birthday')"
+                            />
+                            <x-text-input
+                                wire:model="birthday"
+                                id="birthday"
+                                name="birthday"
+                                type="date"
+                                class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
+                                autofocus
+                                autocomplete="birthday"
+                            />
+                            <x-input-error
+                                class="mt-2"
+                                :messages="$errors->get('birthday')"
+                            />
+                        </div>
+                    </div>
+                    <div class="mr-2">
+                        <div>
+                            <x-input-label
+                                for="contact"
+                                :value="__('Contact Number')"
+                            />
+                            <x-text-input
+                                wire:model="contact"
+                                id="contact"
+                                name="contact"
+                                type="text"
+                                class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
+                                autofocus
+                                autocomplete="contact"
+                            />
+                            <x-input-error
+                                class="mt-2"
+                                :messages="$errors->get('contact')"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="mr-2">
+                        <div>
+                            <x-input-label
+                                for="address"
+                                :value="__('Address')"
+                            />
+                            <x-text-input
+                                wire:model="address"
+                                id="address"
+                                name="address"
+                                type="text"
+                                class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
+                                autofocus
+                                autocomplete="address"
+                            />
+                            <x-input-error
+                                class="mt-2"
+                                :messages="$errors->get('address')"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col lg:flex-row p-4">
+                    <div class="mr-2">
+                        <div>
+                            <x-input-label
+                                for="province"
+                                :value="__('Province')"
+                            />
+                            <x-text-input
+                                wire:model="province"
+                                id="province"
+                                name="province"
+                                type="text"
+                                class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
+                                autofocus
+                                autocomplete="province"
+                            />
+                            <x-input-error
+                                class="mt-2"
+                                :messages="$errors->get('province')"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="mr-2">
+                        <div>
+                            <x-input-label
+                                for="city"
+                                :value="__('City/Municipality')"
+                            />
+                            <x-text-input
+                                wire:model="city"
+                                id="city"
+                                name="city"
+                                type="text"
+                                class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
+                                autofocus
+                                autocomplete="city"
+                            />
+                            <x-input-error
+                                class="mt-2"
+                                :messages="$errors->get('city')"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="mr-2">
+                        <div>
+                            <x-input-label
+                                for="baranggay"
+                                :value="__('Baranggay')"
+                            />
+                            <x-text-input
+                                wire:model="baranggay"
+                                id="baranggay"
+                                name="baranggay"
+                                type="text"
+                                class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
+                                autofocus
+                                autocomplete="baranggay"
+                            />
+                            <x-input-error
+                                class="mt-2"
+                                :messages="$errors->get('barrangay')"
+                            />
+                        </div>
+                    </div>
+
+                    <div class="mr-2">
+                        <div>
+                            <x-input-label for="zip" :value="__('Zip Code')" />
+                            <x-text-input
+                                wire:model="zip"
+                                id="zip"
+                                name="zip"
+                                type="text"
+                                class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
+                                autofocus
+                                autocomplete="zip"
+                            />
+                            <x-input-error
+                                class="mt-2"
+                                :messages="$errors->get('zip')"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex p-2">
+                <div class="mr-2 w-32 flex-row rounded text-center text-white">
+                    <x-primary-button>{{ __("Save") }}</x-primary-button>
+                    <button
+                        wire:navigate
+                        href="{{ route('home') }}"
+                        class="block w-full transform rounded-md bg-blue-800 px-2 py-1.5 text-center text-white transition duration-200 ease-in hover:-translate-y-1 hover:border-transparent hover:bg-gray-600 hover:text-white active:translate-y-0 dark:bg-gray-500 dark:text-gray-900"
+                    >
+                        {{ __("Cancel") }}
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

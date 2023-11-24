@@ -29,3 +29,6 @@
         background: #292a75;
     }
 }
+#menu-toggle:checked + #menu {
+    @apply block;
+}
