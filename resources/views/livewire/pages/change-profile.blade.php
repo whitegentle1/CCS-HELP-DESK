@@ -6,17 +6,17 @@
             <div
                 class="flex flex-row align-center items-center justify-center w-full md:p-4 text-xl"
             >
-                <div class="mr-2 mb-4 hover:bg-gray-500/30 rounded-md">
+                <div class="mr-2 mb-4 hover:bg-gray-500/30 rounded-md text-white">
                     <a wire:navigate href="/edit-profile">User Information</a>
                 </div>
 
                 <div
-                    class="mr-2 mb-4 hover:bg-gray-500/30 rounded-md underline"
+                    class="mr-2 mb-4 hover:bg-gray-500/30 rounded-md underline text-white"
                 >
                     <a>Change Picture</a>
                 </div>
 
-                <div class="mr-2 mb-4 hover:bg-gray-500/30 rounded-md">
+                <div class="mr-2 mb-4 hover:bg-gray-500/30 rounded-md text-white">
                     <a wire:navigate href="/change-password">Change Password</a>
                 </div>
             </div>

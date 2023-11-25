@@ -110,7 +110,7 @@
                         <div class="px-4 pt-1 text-gray-300">
                             <p>{{ Auth::user()->birthday }}</p>
                         </div>
-                        <!-- auth user tapos yung name sa table -->
+
                         <div class="px-4 pt-1 text-gray-300">
                             <p>{{ Auth::user()->course }}</p>
                         </div>
