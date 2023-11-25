@@ -1,7 +1,6 @@
 <x-guest-layout>
     <livewire:pages.auth.login lazy />
     <livewire:pages.auth.register lazy />
-    <livewire:pages.auth.verify-email lazy />
     <!-- Header Container -->
     <div class="inv_container">
         <div class="head_container" id="head_container">

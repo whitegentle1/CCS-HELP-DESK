@@ -31,7 +31,7 @@ class LoginForm extends Form
      */
     public function authenticate(): void
     {
-        $dt = Carbon::now();
+        $dt = Carbon::now('Asia/Singapore');
         $todayDate = $dt->toDayDateTimeString();
 
         $email = $this->email;

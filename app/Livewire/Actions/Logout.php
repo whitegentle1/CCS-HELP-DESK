@@ -15,7 +15,7 @@ class Logout
      */
     public function __invoke(): void
     {
-        $dt = Carbon::now();
+        $dt = Carbon::now('Asia/Shanghai');
         $todayDate = $dt->toDayDateTimeString();
 
         $log_history = [

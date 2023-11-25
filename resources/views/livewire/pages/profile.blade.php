@@ -108,35 +108,35 @@
 
                     <div class="w-96">
                         <div class="px-4 pt-1 text-gray-300">
-                            <p>December 25 2001</p>
+                            <p>{{ Auth::user()->birthday }}</p>
                         </div>
-                        <!-- auth user tapos yung name sa table -->
+
                         <div class="px-4 pt-1 text-gray-300">
                             <p>{{ Auth::user()->course }}</p>
                         </div>
 
                         <div class="px-4 pt-1 text-gray-300">
-                            <p>09123456789</p>
+                            <p>{{ Auth::user()->contact }}</p>
                         </div>
 
                         <div class="px-4 pt-1 text-gray-300">
-                            <p>Anywhere</p>
+                            <p>{{ Auth::user()->address }}</p>
                         </div>
 
                         <div class="px-4 pt-1 text-gray-300">
-                            <p>Pampanga</p>
+                            <p>{{ Auth::user()->province }}</p>
                         </div>
 
                         <div class="px-4 pt-1 text-gray-300">
-                            <p>Lubao</p>
+                            <p>{{ Auth::user()->city }}</p>
                         </div>
 
                         <div class="px-4 pt-1 text-gray-300">
-                            <p>Anywhere</p>
+                            <p>{{ Auth::user()->barangay }}</p>
                         </div>
 
                         <div class="px-4 pt-1 text-gray-300">
-                            <p>2023</p>
+                            <p>{{ Auth::user()->zip }}</p>
                         </div>
                     </div>
                 </div>

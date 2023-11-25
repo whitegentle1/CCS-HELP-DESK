@@ -7,34 +7,35 @@ use Illuminate\Support\Facades\Session;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
 
-new #[Layout('layouts.guest')] class extends Component
-{
+new #[Layout('layouts.guest')] class extends Component {
     /**
      * Send an email verification notification to the user.
      */
     public function sendVerification(): void
     {
-        if (Auth::user()->hasVerifiedEmail()) { $this->redirect(
-session('url.intended', RouteServiceProvider::HOME), navigate: true ); return; }
-Auth::user()->sendEmailVerificationNotification(); Session::flash('status',
-'verification-link-sent'); } /** * Log the current user out of the application.
-*/ public function logout(Logout $logout): void { $logout();
-$this->redirect('/', navigate: true); } }; ?>
-
-<x-guest-layout>
-    <x-popup name="verifypassword" :show="true">
-        <div class="p-6 rounded-md bg-slate-50/25 dark:bg-gray-900 w-98">
+        if (Auth::user()->hasVerifiedEmail()) {
+$this->redirect(session('url.intended', RouteServiceProvider::HOME), navigate:
+true); return; } Auth::user()->sendEmailVerificationNotification();
+Session::flash('status', 'verification-link-sent'); } public function
+logout(Logout $logout): void { if (Auth::user()->hasVerifiedEmail()) {
+$logout(); $this->redirect('/', navigate: true); } else {
+Auth::guard('web')->logout(); $this->redirect('/', navigate: true); } } }; ?>
+<div
+    class="flex min-h-screen flex-col items-center pt-6 sm:justify-center sm:pt-0"
+>
+    <div
+        class="mt-6 w-full overflow-hidden bg-white px-6 py-4 shadow-md dark:bg-gray-800 sm:max-w-md sm:rounded-lg"
+    >
+        <div>
             <div class="mb-4 text-sm text-gray-600 dark:text-gray-400">
-                {{
-                    __(
-                        "Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another."
-                    )
-                }}
+                {{ __(
+                    "Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.",
+                ) }}
             </div>
 
             @if (session('status') == 'verification-link-sent')
             <div
-                class="mb-4 font-medium text-sm text-green-600 dark:text-green-400"
+                class="mb-4 text-sm font-medium text-green-600 dark:text-green-400"
             >
                 {{
                     __(
@@ -52,11 +53,11 @@ $this->redirect('/', navigate: true); } }; ?>
                 <button
                     wire:click="logout"
                     type="submit"
-                    class="underline text-sm w-1/2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
+                    class="rounded-md text-sm text-gray-600 underline hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:text-gray-400 dark:hover:text-gray-100 dark:focus:ring-offset-gray-800"
                 >
                     {{ __("Log Out") }}
                 </button>
             </div>
         </div>
-    </x-popup>
-</x-guest-layout>
+    </div>
+</div>

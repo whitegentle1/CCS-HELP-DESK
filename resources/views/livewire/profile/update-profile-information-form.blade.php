@@ -6,12 +6,22 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Validation\Rule;
 use Livewire\Volt\Component;
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 new class extends Component {
     public string $firstname = '';
     public string $middlename = '';
     public string $lastname = '';
     public string $email = '';
+    public string $section = '';
+    public string $birthday = 'dd/mm/yyyy';
+    public string $contact = '';
+    public string $address = '';
+    public string $province = '';
+    public string $city = '';
+    public string $barangay = '';
+    public string $zip = '';
 
     /**
      * Mount the component.
@@ -20,36 +30,55 @@ new class extends Component {
     {
         $this->firstname = Auth::user()->firstname; $this->middlename =
 Auth::user()->middlename; $this->lastname = Auth::user()->lastname; $this->email
-= Auth::user()->email; } /** * Update the profile information for the currently
+= Auth::user()->email; $this->section = Auth::user()->section; $this->birthday =
+Auth::user()->birthday; $this->contact = Auth::user()->contact; $this->address =
+Auth::user()->address; $this->province = Auth::user()->province; $this->city =
+Auth::user()->city; $this->barangay = Auth::user()->barangay; $this->zip =
+Auth::user()->zip; } /** * Update the profile information for the currently
 authenticated user. */ public function updateProfileInformation(): void { $user
 = Auth::user(); $validated = $this->validate(['firstname' => ['required',
 'string', 'max:255'], 'middlename' => ['nullable', 'string', 'max:255'],
 'lastname' => ['required', 'string', 'max:255'], 'email' => ['required',
 'string', 'lowercase', 'email', 'max:255',
-Rule::unique(User::class)->ignore($user->id)]]); $user->fill($validated); if
+Rule::unique(User::class)->ignore($user->id)], 'section' => ['required',
+'string', 'max:255'], 'birthday' => ['nullable', 'date'], 'contact' =>
+['required', 'string', 'max:11'], 'address' => ['required', 'string',
+'max:255'], 'province' => ['required', 'string', 'max:255'], 'city' =>
+['required', 'string', 'max:255'], 'barangay' => ['required', 'string',
+'max:255'], 'zip' => ['required', 'string']]); $user->fill($validated); if
 ($user->isDirty('email')) { $user->email_verified_at = null; } $user->save();
+$dt = Carbon::now('Asia/Manila'); $todayDate = $dt->toDayDateTimeString();
+$email = $user->email; $log_history = [ 'email' => $email, 'activity' => 'Update
+Profile Information', 'ip_address' => request()->ip(), 'user_agent' =>
+request()->userAgent(), 'login_time' => $todayDate, ];
+DB::table('login_history')->insert($log_history);
 $this->dispatch('profile-updated', firstname: $user->firstname, middlename:
-$user->middlename, lastname: $user->lastname); } /** * Send an email
-verification notification to the current user. */ public function
-sendVerification(): void { $user = Auth::user(); if ($user->hasVerifiedEmail())
-{ $path = session('url.intended', RouteServiceProvider::HOME);
-$this->redirect($path); return; } $user->sendEmailVerificationNotification();
-Session::flash('status', 'verification-link-sent'); } }; ?>
+$user->middlename, lastname: $user->lastname, section: $user->section, birthday:
+$user->birthday, contact: $user->contact, address: $user->address, province:
+$user->province, city: $user->city, barangay: $user->barangay, zip: $user->zip);
+} /** * Send an email verification notification to the current user. */ public
+function sendVerification(): void { $user = Auth::user(); if
+($user->hasVerifiedEmail()) { $path = session('url.intended',
+RouteServiceProvider::HOME); $this->redirect($path); return; }
+$user->sendEmailVerificationNotification(); Session::flash('status',
+'verification-link-sent'); } }; ?>
 
 <div class="w-full rounded-lg bg-blue-600/70 px-6 dark:bg-blue-950/70 md:px-10">
     <div class="font-bold text-black">
         <div
             class="align-center flex w-full flex-row items-center justify-center text-xl md:p-4"
         >
-            <div class="mb-4 mr-2 rounded-md underline hover:bg-gray-500/30">
+            <div
+                class="mb-4 mr-2 rounded-md text-white underline hover:bg-gray-500/30"
+            >
                 <a>User Information</a>
             </div>
 
-            <div class="mb-4 mr-2 rounded-md hover:bg-gray-500/30">
+            <div class="mb-4 mr-2 rounded-md text-white hover:bg-gray-500/30">
                 <a wire:navigate href="/change-profile">Change Picture</a>
             </div>
 
-            <div class="mb-4 mr-2 rounded-md hover:bg-gray-500/30">
+            <div class="mb-4 mr-2 rounded-md text-white hover:bg-gray-500/30">
                 <a wire:navigate href="/change-password">Change Password</a>
             </div>
         </div>
@@ -130,21 +159,21 @@ Session::flash('status', 'verification-link-sent'); } }; ?>
                     <div class="mr-2">
                         <div>
                             <x-input-label
-                                for="suffix"
-                                :value="__('Suffix(optional)')"
+                                for="section"
+                                :value="__('Year and Section')"
                             />
                             <x-text-input
-                                wire:model="suffix"
-                                id="suffix"
-                                name="suffix"
+                                wire:model="section"
+                                id="section"
+                                name="section"
                                 type="text"
                                 class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
                                 autofocus
-                                autocomplete="suffix"
+                                autocomplete="section"
                             />
                             <x-input-error
                                 class="mt-2"
-                                :messages="$errors->get('suffix')"
+                                :messages="$errors->get('section')"
                             />
                         </div>
                     </div>
@@ -285,21 +314,21 @@ Session::flash('status', 'verification-link-sent'); } }; ?>
                     <div class="mr-2">
                         <div>
                             <x-input-label
-                                for="baranggay"
-                                :value="__('Baranggay')"
+                                for="barangay"
+                                :value="__('Barangay')"
                             />
                             <x-text-input
-                                wire:model="baranggay"
-                                id="baranggay"
-                                name="baranggay"
+                                wire:model="barangay"
+                                id="barangay"
+                                name="barangay"
                                 type="text"
                                 class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
                                 autofocus
-                                autocomplete="baranggay"
+                                autocomplete="barangay"
                             />
                             <x-input-error
                                 class="mt-2"
-                                :messages="$errors->get('barrangay')"
+                                :messages="$errors->get('barangay')"
                             />
                         </div>
                     </div>
@@ -327,9 +356,12 @@ Session::flash('status', 'verification-link-sent'); } }; ?>
 
             <div class="flex p-2">
                 <div class="mr-2 w-32 flex-row rounded text-center text-white">
-                    <div>
+                    <div class="flex-row justify-between">
                         <x-primary-button>{{ __("Save") }}</x-primary-button>
-                        <x-action-message class="me-3" on="profile-updated">
+                        <x-action-message
+                            class="me-3 flex-1"
+                            on="profile-updated"
+                        >
                             {{ __("Saved.") }}
                         </x-action-message>
                     </div>

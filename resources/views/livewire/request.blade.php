@@ -163,7 +163,7 @@
                     {{ substr(Auth::user()->email, 0, strpos(Auth::user()->email, '@')) }}
                 </p>
                 <!-- pending -->
-                <p>3A</p>
+                <p>{{Auth::user()->section}}</p>
                 <p class="mb-10">{{ $payment_method }}</p>
                 <p>{{ $document }}</p>
                 <p>{{ $no_copy }}</p>
