@@ -121,7 +121,7 @@ new class extends Component {
                 <p>Note: Acceptable File Formats and Size Limit</p>
             </div>
             <div class="text-sm">
-                <p>Please be advised that only image files in <u>JPEG, JPG, and PNG formats</u> will be accepted for attachment. Additionally, the maximum allowable size for attachment is <u>10 MB (megabytes)</u>.</p>
+                <p>Please be advised that only image files in <u>GIF, JPEG, JPG, and PNG formats</u> will be accepted for attachment. Additionally, the maximum allowable size for attachment is <u>10 MB (megabytes)</u>.</p>
             </div>
         </div>
     </div>
