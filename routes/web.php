@@ -47,7 +47,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/user', function () {
         return view('livewire.pages.user');
     })->name('user');
-    
+    // Route for the news update
+    Route::get('/news-update', function () {
+        return view('livewire.pages.news-update');
+    })->name('news-update');
+
     Route::get('/home', function () {
         return view('livewire.pages.home');
     })->name('home');
