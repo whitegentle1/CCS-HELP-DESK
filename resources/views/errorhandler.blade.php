@@ -12,7 +12,7 @@
                     target="_blank"
                     class="text-blue-600"
                 >
-                    You can found us here!!
+                    You can find us here!!
                 </a>
             </span>
 
