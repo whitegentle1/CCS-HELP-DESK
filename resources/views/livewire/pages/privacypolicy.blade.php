@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-tosnpriv>
-        <div class="m-5 text-sm">
+        <div class="m-5 text-sm text-white">
         <p class="text-3xl my-2">Privacy Policy</p>
         <p>Last Update: Nov. 16, 2023</p>
         <p class="ml-3 mb-3">

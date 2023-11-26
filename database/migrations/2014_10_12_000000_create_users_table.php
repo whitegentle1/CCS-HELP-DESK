@@ -28,6 +28,7 @@ return new class extends Migration
             $table->string('city')->nullable()->default('---');
             $table->string('barangay')->nullable()->default('---');
             $table->string('zip')->nullable()->default('---');
+            $table->string('profilepicture')->nullable()->default('assets/imgs/default-picture.jpg');
             $table->rememberToken();
             $table->timestamps();
         });

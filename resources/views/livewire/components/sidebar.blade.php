@@ -13,7 +13,7 @@
                 >
                     <img
                         class="flex h-12 w-12 rounded-full object-cover"
-                        src="{{ Auth::user()->profile_photo_url }}"
+                        src="{{ Auth::user()->profilepicture }}"
                         alt="{{ Auth::user()->firstname . ' ' . Auth::user()->lastname }}"
                     />
                 </button>

@@ -3,12 +3,12 @@
         <div class="w-auto">
             <div class="text-white text-4xl font-bold p-10 flex">
                 <div
-                    class="bg-blue-900 p-1 text-sm text-center rounded-full shadow-md w-44 h-38 mr-2"
+                    class="bg-blue-900 p-1 text-sm text-center rounded-full shadow-md mr-2"
                 >
                     <img
-                        src="image/profile.jpg"
+                        src="{{ Auth::user()->profilepicture }}"
                         alt="Profile Picture"
-                        class="rounded-full w-auto h-auto object-cover"
+                        class="rounded-full object-cover" style="height:200px; width:200px"
                     />
                 </div>
 
