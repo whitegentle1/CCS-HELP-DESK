@@ -43,6 +43,11 @@ Route::post('/email/verification-notification', function (Request $request) {
 require __DIR__ . '/auth.php';
 
 Route::middleware(['auth', 'verified'])->group(function () {
+    // Route for the user page
+    Route::get('/user', function () {
+        return view('livewire.pages.user');
+    })->name('user');
+    
     Route::get('/home', function () {
         return view('livewire.pages.home');
     })->name('home');
