@@ -34,6 +34,10 @@
             type="text/css"
         />
 
+        <link rel="dns-prefetch" href="//unpkg.com" />
+        <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+
+
         <script src="{{ asset('assets/js/map.js') }}"></script>
 
         @vite(['resources/css/app.css', 'resources/js/app.js']) @livewireStyles

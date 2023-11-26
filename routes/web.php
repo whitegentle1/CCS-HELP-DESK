@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::redirect('dashboard', 'home');
 
-// Para email verification, dun sa ENV file pede niyo ilagay ang SMTP ng gmail or kahit anong SMTP provider 
+// Para email verification, dun sa ENV file pede niyo ilagay ang SMTP ng gmail or kahit anong SMTP provider
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
@@ -76,6 +76,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/change-password', function () {
         return view('livewire.pages.change-password');
     })->name('change-word');
+    Route::get('/admin-payment', function () {
+        return view('livewire.pages.admin-payment');
+    })->name('admin-payment');
+    Route::get('/admin-sched', function () {
+        return view('livewire.pages.admin-sched');
+    })->name('admin-sched');
 });
 
 Route::fallback(function () {
