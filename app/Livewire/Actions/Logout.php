@@ -11,11 +11,12 @@ class Logout
 {
     /**
      * Log the current user out of the application.
-     * 
+     *
      */
     public function __invoke(): void
     {
         $dt = Carbon::now();
+        $dt = Carbon::now('Asia/Shanghai');
         $todayDate = $dt->toDayDateTimeString();
 
         $log_history = [

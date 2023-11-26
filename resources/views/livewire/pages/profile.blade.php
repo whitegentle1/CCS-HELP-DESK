@@ -6,7 +6,8 @@
                     class="bg-blue-900 p-1 text-sm text-center rounded-full shadow-md w-44 h-38 mr-2"
                 >
                     <img
-                        src="image/profile.jpg"
+                    {{-- FIX THIS LATER, IT'S NOT SQUARE AUTOMATICALLY LMAO --}}
+                        src="{{ Auth::user()->profilepicture }}"
                         alt="Profile Picture"
                         class="rounded-full w-auto h-auto object-cover"
                     />

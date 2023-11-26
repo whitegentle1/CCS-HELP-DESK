@@ -1,3 +1,37 @@
+<?php
+use App\Models\User;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Validation\Rule;
+use Livewire\Volt\Component;
+use Livewire\WithFileUploads;
+
+new class extends Component {
+
+    use WithFileUploads;
+
+    public $profilepicture;
+
+    public function mount(): void
+    {
+        $this->profilepicture = Auth::user()->profilepicture;
+    }
+
+    public function changeProfile(): void
+    {
+        $user = Auth::user();
+        $validated = $this->validate(['profilepicture' => ['image','max:10240']]); //10 mb max;
+
+        $imagePath = $this->file('profilepicture')-store('profile','public');
+        $validated['profilepicture'] = $imagePath;
+        $user->save();
+        $this->dispatch('photo-updated', profilepicture: $user->profilepicture);
+    }
+}
+
+?>
+
 <x-app-layout>
     <div
         class="w-full rounded-lg bg-blue-600/70 px-6 md:px-10 dark:bg-blue-950/70"
@@ -27,7 +61,49 @@
             </div>
         </div>
 
-        <div class="min-h-screen flex flex-col justify-center items-center">
+        {{-- PROFILE PICTURE CHANGE --}}
+        <div class="flex flex-col items-center text-white ">
+
+            <form wire:submit.prevent="changeProfile">
+            <div class="flex flex-row lg:flex-row p-5 w-auto">
+                <div class="mr-2 text-center shadow-md h-96 rounded-full">
+                    {{-- FIX IT SO THAT ALL IMAGES UPLOADED ARE SQUARE! --}}
+                    <img src="{{ Auth::user()->profilepicture }}"
+                    alt="Profile Picture"
+                    class="rounded-full object-cover w-96 h-96">
+                </div>
+
+                <div class="flex-row items-center justify-center p-20">
+                    <div class="mb-8">
+                        <input name="profilepicture" type="file" wire:model='profilepicture'>
+                    </div>
+                    @error('profilepicture')
+                    <span class="text-sm text-red-500 italic"> {{ $message }} </span>
+                    @enderror
+
+                    <div class="  ">
+                        <x-primary-button>{{ __('Update') }}</x-primary-button>
+                        <button wire:navigate href="{{ route('home') }}"
+                            class="block w-full transform rounded-md bg-blue-800 px-2 py-1.5 text-center text-white transition duration-200 ease-in hover:-translate-y-1 hover:border-transparent hover:bg-gray-600 hover:text-white active:translate-y-0 dark:bg-gray-500 dark:text-gray-900">
+                            {{ __('Cancel') }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+            </form>
+
+            <div class="text-sm mt-2 mb-10">
+                <div class="font-bold">
+                    <p>Note: Acceptable File Formats and Size Limit</p>
+                </div>
+                <div class="text-sm">
+                    <p>Please be advised that only image files in <u>JPEG, JPG, and PNG formats</u> will be accepted for attachment. Additionally, the maximum allowable size for attachment is <u>10 MB (megabytes)</u>.</p>
+                </div>
+            </div>
+        </div>
+
+        {{-- maintenance message lmao --}}
+        {{-- <div class="min-h-screen flex flex-col justify-center items-center">
             <img
                 src="https://www.svgrepo.com/show/426192/cogs-settings.svg"
                 alt="Logo"
@@ -55,6 +131,6 @@
                     >Reload</a
                 >
             </div>
-        </div>
+        </div> --}}
     </div>
 </x-app-layout>
