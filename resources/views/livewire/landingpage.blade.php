@@ -58,7 +58,7 @@
     </div>
 
     <div class="absolute bottom-0 text-white">
-        <p>www.csshelpdesksite.com | @csshelpdesksite</p>
+        <p>www.ccshelpdesksite.com | @ccshelpdesksite</p>
     </div>
     @livewireScripts
 </x-guest-layout>
