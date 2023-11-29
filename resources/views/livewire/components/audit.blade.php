@@ -28,6 +28,5 @@
             @endforeach
         </tbody>
     </table>
-
     {{ $activityLog->links() }}
 </div>

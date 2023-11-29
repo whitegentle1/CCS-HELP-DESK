@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('student_requests', function (Blueprint $table) {
             $table->id();
+            $table->string('payment_session_id')->nullable;
+            $table->string('user_session_id')->nullable;
             $table->string('fullname');
             $table->string('email');
             $table->string('student_id');
@@ -22,7 +24,7 @@ return new class extends Migration
             $table->string('payment_method');
             $table->string('amount');
             $table->string('activity')->nullable();
-            $table->enum('status', [1, 2, 3])->default(1);
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

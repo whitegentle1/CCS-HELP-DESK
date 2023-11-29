@@ -3,11 +3,12 @@ use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-use Illuminate\Validation\Rule;
+use Illuminate\Validation\ValidationException;
 use Livewire\Volt\Component;
 use Livewire\WithFileUploads;
 use Livewire\Attributes\Validate;
-
+use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 new class extends Component {
 
@@ -29,20 +30,45 @@ new class extends Component {
             throw $e;
         }
 
-        Auth::user()->update([
-            'profilepicture' => $validated['profilepicture'],
-        ]);
         $user = Auth::user();
 
-        if($this->profilepicture)
-        {
+        $oldProfilePicture = $user->profilepicture;
+
+        $user->update([
+            'profilepicture' => $validated['profilepicture'],
+        ]);
+
+        if($this->profilepicture) {
             $user->profilepicture = url('storage/'.$this->profilepicture->store('profile-photos','public'));
+            $user->save();
         }
 
-        $user->save();
+        $this->logProfilePictureChange($oldProfilePicture, $user->profilepicture);
+
         $this->dispatch('profile-updated', profilepicture: $user->profilepicture);
     }
+
+    private function logProfilePictureChange($oldProfilePicture, $newProfilePicture)
+    {
+        $dt = Carbon::now('Asia/Singapore');
+        $todayDate = $dt->toDayDateTimeString();
+
+        $email = Auth::user()->email;
+
+        $log_history = [
+            'email' => $email,
+            'activity' => 'Update Profile Picture',
+            'ip_address' => request()->ip(),
+            'user_agent' => request()->userAgent(),
+            'login_time' => $todayDate,
+            'old_profile_picture' => $oldProfilePicture,
+            'new_profile_picture' => $newProfilePicture,
+        ];
+
+        DB::table('login_history')->insert($log_history);
+    }
 }
+
 
 ?>
 

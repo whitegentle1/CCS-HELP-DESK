@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\PaymentController;
+use App\Livewire\Pages\Transactionhistory;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -55,9 +58,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/request', function () {
         return view('livewire.pages.request');
     })->name('request');
-    Route::get('/transactionhistory', function () {
-        return view('livewire.pages.transactionhistory');
-    })->name('transactionhistory');
+    Route::get('/transactionhistory', Transactionhistory::class)->name('transactionhistory');
     Route::get('/termsandconditions', function () {
         return view('livewire.pages.termsandconditions');
     })->name('termsandconditions');
@@ -76,8 +77,12 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/change-password', function () {
         return view('livewire.pages.change-password');
     })->name('change-word');
+    //payMongo --pending--
+    Route::get('pay', [PaymentController::class, 'pay']);
+    Route::get('success', [PaymentController::class, 'success']);
 });
 
+// 404 error handler
 Route::fallback(function () {
     return view('errorhandler');
 })->name('404');
