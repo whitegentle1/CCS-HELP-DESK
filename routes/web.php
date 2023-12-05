@@ -42,6 +42,13 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
+Route::get('/termsandconditions&landing', function () {
+    return view('livewire.pages.auth.tap.termsandconditions_landing');
+})->name('tac&landing');
+
+Route::get('/privacypolicy&landing', function () {
+    return view('livewire.pages.auth.tap.privacypolicy_landing');
+})->name('pp&landing');
 
 require __DIR__ . '/auth.php';
 
