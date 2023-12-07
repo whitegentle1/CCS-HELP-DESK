@@ -62,5 +62,4 @@
             </tr>
         </tbody>
     </table>
-    </div>
 </x-app-layout>
