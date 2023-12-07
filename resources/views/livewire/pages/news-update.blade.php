@@ -1,5 +1,4 @@
 <x-app-layout>
-    <div class="">
     <table class="w-full border-collapse bg-blue-300 text-left text-lg text-gray-500">
         <thead class="bg-blue-300">
             <tr>
