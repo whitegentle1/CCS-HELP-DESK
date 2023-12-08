@@ -92,10 +92,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('/admin', function () {
     return view('livewire.pages.admin.dashboard');
 })->name('admin');
+
 Route::get('/users', function () {
     return view('livewire.pages.admin.pages.users');
 })->name('users');
-
 
 Route::redirect('/success', '/transactionhistory');
 Route::redirect('/cancel', '/transactionhistory');
