@@ -21,5 +21,14 @@
         <a href="#" class="block py-2 px-8 text-white hover:bg-gray-700"
             >News Update</a
         >
+        <a href="#" class="block py-2 px-8 text-white hover:bg-gray-700"
+            >Button1</a
+        >
+        <a href="#" class="block py-2 px-8 text-white hover:bg-gray-700"
+            >BNutton2</a
+        >
+        <a href="#" class="block py-2 px-8 text-white hover:bg-gray-700"
+            >Button3</a
+        >
     </nav>
 </div>
