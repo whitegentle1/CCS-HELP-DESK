@@ -21,8 +21,13 @@
         @livewireStyles
     </head>
     <body>
-        {{ $slot }}
-
+        <div class="flex h-screen gap-1">
+            <livewire:pages.Admin.components.sidebar1 />
+            <div class="flex-1 flex flex-col gap-1">
+                <livewire:pages.Admin.components.header />
+                {{ $slot }}
+            </div>
+        </div>
         @livewireScripts
     </body>
 </html>
