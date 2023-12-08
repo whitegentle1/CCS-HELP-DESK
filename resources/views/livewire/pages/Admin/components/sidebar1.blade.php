@@ -12,7 +12,10 @@
         <hr class="w-full" />
 
         <p class="mt-3 px-4 text-gray-500">MENU</p>
-        <a href="#" class="block pb-2 px-8 text-white hover:bg-gray-700"
+        <a
+            wire:navigate
+            href="/users"
+            class="block pb-2 px-8 text-white hover:bg-gray-700"
             >Users</a
         >
         <a href="#" class="block py-2 px-8 text-white hover:bg-gray-700"
