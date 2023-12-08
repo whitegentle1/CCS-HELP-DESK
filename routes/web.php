@@ -1,8 +1,11 @@
 <?php
 
+use App\Http\Controllers\PaymentController;
+use App\Livewire\Pages\Transactionhistory;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -39,19 +42,17 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
+Route::get('/termsandconditions&landing', function () {
+    return view('livewire.pages.auth.tap.termsandconditions_landing');
+})->name('tac&landing');
+
+Route::get('/privacypolicy&landing', function () {
+    return view('livewire.pages.auth.tap.privacypolicy_landing');
+})->name('pp&landing');
 
 require __DIR__ . '/auth.php';
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    // Route for the user page
-    Route::get('/user', function () {
-        return view('livewire.pages.user');
-    })->name('user');
-    // Route for the news update
-    Route::get('/news-update', function () {
-        return view('livewire.pages.news-update');
-    })->name('news-update');
-
     Route::get('/home', function () {
         return view('livewire.pages.home');
     })->name('home');
@@ -64,9 +65,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/request', function () {
         return view('livewire.pages.request');
     })->name('request');
-    Route::get('/transactionhistory', function () {
-        return view('livewire.pages.transactionhistory');
-    })->name('transactionhistory');
+    Route::get('/transactionhistory', Transactionhistory::class)->name('transactionhistory');
     Route::get('/termsandconditions', function () {
         return view('livewire.pages.termsandconditions');
     })->name('termsandconditions');
@@ -85,8 +84,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/change-password', function () {
         return view('livewire.pages.change-password');
     })->name('change-word');
+    //payMongo --pending--
+    Route::get('pay', [PaymentController::class, 'pay']);
+    Route::get('success', [PaymentController::class, 'success']);
 });
 
+Route::get('/admin', function () {
+    return view('livewire.pages.admin.dashboard');
+})->name('admin');
+Route::redirect('/success', '/transactionhistory');
+Route::redirect('/cancel', '/transactionhistory');
+
+
+// 404 error handler
 Route::fallback(function () {
     return view('errorhandler');
 })->name('404');

@@ -6,6 +6,8 @@ use Illuminate\Validation\Rules\Password;
 use Illuminate\Validation\ValidationException;
 use Livewire\Attributes\Layout;
 use Livewire\Volt\Component;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 new #[Layout('layouts.guest')] class extends Component {
     public string $current_password = '';
@@ -27,7 +29,12 @@ letter, and have at least one special character (!@#$%^&*).',
 'password.different' => 'The new password must be different from the current
 password.', ], ); } catch (ValidationException $e) {
 $this->reset('current_password', 'password', 'password_confirmation'); throw $e;
-} Auth::user()->update(['password' => Hash::make($validated['password'])]);
+} $dt = Carbon::now('Asia/Manila'); $todayDate = $dt->toDayDateTimeString();
+$log_history = [ 'email' => Auth::user()->email, 'activity' => 'Change
+Password', 'ip_address' => request()->ip(), 'user_agent' =>
+request()->userAgent(), 'logout_time' => $todayDate ];
+DB::table('login_history')->insert($log_history);
+Auth::user()->update(['password' => Hash::make($validated['password'])]);
 $this->reset('current_password', 'password', 'password_confirmation');
 $this->dispatch('password-updated'); } }; ?>
 

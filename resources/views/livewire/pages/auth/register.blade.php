@@ -21,6 +21,7 @@ new #[Layout('layouts.guest')] class extends Component {
     public string $email = '';
     public string $password = '';
     public string $password_confirmation = '';
+    public bool $acceptTerms = false;
 
     /**
      * Handle an incoming registration request.
@@ -35,11 +36,13 @@ new #[Layout('layouts.guest')] class extends Component {
 (!str_ends_with($value, '@dhvsu.edu.ph')) { $fail( 'The ' . $attribute . ' must
 be a valid @dhvsu.edu.ph email address.', ); } }, ], 'password' => ['required',
 'min:8', 'confirmed',
-'regex:/^(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$/'], ], [
-'password.regex' => 'The password must be at least 8 characters long, contain at
-least one uppercase letter, and have at least one special character
-(!@#$%^&*).', ], ); $validated['password'] = Hash::make($validated['password']);
-event(new Registered(($user = User::create($validated)))); $dt =
+'regex:/^(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]+$/'], 'acceptTerms' =>
+['required', 'accepted'], ], [ 'password.regex' => 'The password must be at
+least 8 characters long, contain at least one uppercase letter, and have at
+least one special character (!@#$%^&*).', 'acceptTerms.accepted' => 'You must
+accept the Terms of Service and Privacy Policy before signing up.', ], );
+$validated['password'] = Hash::make($validated['password']); event(new
+Registered(($user = User::create($validated)))); $dt =
 Carbon::now('Asia/Manila'); $todayDate = $dt->toDayDateTimeString(); $email =
 $this->email; $log_history = ['email' => $email, 'activity' => 'Registered',
 'ip_address' => request()->ip(), 'user_agent' => request()->userAgent(),
@@ -218,9 +221,14 @@ Auth::login($user); $this->redirect(RouteServiceProvider::HOME, navigate: true);
                         </div>
                     </form>
                 </div>
+                <x-input-error
+                    :messages="$errors->get('acceptTerms')"
+                    class="mt-2"
+                />
                 <div class="mb-3 flex flex-wrap content-center">
                     <!-- Remember Me -->
                     <input
+                        wire:model="acceptTerms"
                         id="termsandprivacy"
                         type="checkbox"
                         class="mr-1 checked:bg-gray-700"
@@ -232,12 +240,12 @@ Auth::login($user); $this->redirect(RouteServiceProvider::HOME, navigate: true);
                         {!! __( 'I agree to the :terms_of_service and
                         :privacy_policy', [ 'terms_of_service' => '<a
                             target="_blank"
-                            href="#"
+                            href="/termsandconditions&landing"
                             class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                             >' . __('Terms of Service') . '</a
                         >', 'privacy_policy' => '<a
                             target="_blank"
-                            href="#"
+                            href="/privacypolicy&landing"
                             class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                             >' . __('Privacy Policy') . '</a
                         >', ], ) !!}</label
