@@ -1,5 +1,6 @@
 <x-admin-layout>
     <div class="flex h-screen gap-1">
+        {{-- Sidebar --}}
         <div class="h-screen w-[18%] bg-gray-900">
             <nav class="space-y-2">
                 <div class="my-7 flex flex-row justify-center items-center">
@@ -14,7 +15,7 @@
                 <hr class="w-full" />
 
                 <p class="mt-3 px-4 text-gray-500">MENU</p>
-                <a href="#" class="block pb-2 px-8 text-white hover:bg-gray-700"
+                <a href="/user" class="block pb-2 px-8 text-white hover:bg-gray-700"
                     >Users</a
                 >
                 <a href="#" class="block py-2 px-8 text-white hover:bg-gray-700"
