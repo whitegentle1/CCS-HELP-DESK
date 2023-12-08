@@ -89,6 +89,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('success', [PaymentController::class, 'success']);
 });
 
+Route::get('/admin', function () {
+    return view('livewire.pages.admin.dashboard');
+})->name('admin');
+Route::redirect('/success', '/transactionhistory');
+Route::redirect('/cancel', '/transactionhistory');
+
+
 // 404 error handler
 Route::fallback(function () {
     return view('errorhandler');

@@ -28,8 +28,8 @@ class PaymentController extends Controller
                     'payment_method_types' => [
                         $paycode
                     ],
-                    'success_url' => 'http://localhost:8000/success',
-                    'cancel_url' => 'http://localhost:8000/cancel',
+                    'success_url' => 'http://localhost:8000/transactionhistory',
+                    'cancel_url' => 'http://localhost:8000/transactionhistory',
                     'description' => $document . ' * ' . $no_copy,
                 ]
             ]
