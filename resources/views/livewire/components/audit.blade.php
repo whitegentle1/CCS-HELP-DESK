@@ -1,4 +1,6 @@
-<div class="min-h-auto flex flex-col text-xs items-center justify-center">
+<div
+    class="min-h-auto flex flex-col text-xs items-center justify-center dark:text-white text-black"
+>
     Activity Log
     <table class="mt-4 border-collapse border border-gray-400">
         <thead>

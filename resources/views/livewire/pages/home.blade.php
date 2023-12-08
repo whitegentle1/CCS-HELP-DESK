@@ -5,7 +5,7 @@
         <div class="flex flex-col flex-1 order-2">
             <div class="flex flex-row h-1/2">
                 <div
-                    class="w-full mx-2 my-1 p-1 bg-blue-100 border border-blue-800 rounded-lg"
+                    class="w-full mx-2 my-1 p-1 bg-blue-400 dark:bg-blue-950 border-blue-800 rounded-lg"
                 >
                     <livewire:components.schedule lazy />
                 </div>
@@ -13,7 +13,7 @@
             </div>
 
             <div
-                class="flex flex-col sm:flex-row h-auto mx-2 my-1 p-1 bg-blue-100 border border-blue-800 rounded-lg"
+                class="flex flex-col sm:flex-row h-auto mx-2 my-1 p-1 bg-blue-400 dark:bg-blue-950 border border-blue-800 rounded-lg"
             >
                 <livewire:components.audit lazy />
             </div>
