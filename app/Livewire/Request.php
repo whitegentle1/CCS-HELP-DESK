@@ -19,6 +19,7 @@ class Request extends Component
         $user = auth()->user();
         $this->fullname = $user->firstname . ' ' . ($user->middlename ? $user->middlename . ' ' : '') . $user->lastname;
         $this->student_id = substr($user->email, 0, strpos($user->email, '@'));
+        $this->year_section = $user->section;
         $this->no_copy = 1;
     }
 

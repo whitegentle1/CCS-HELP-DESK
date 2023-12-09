@@ -67,7 +67,7 @@
             </div>
 
             <div class="mt-4 p-10">
-                <div class="text-blue-900 font-bold text-xl px-4">
+                <div class="text-blue-500 font-bold text-xl px-4">
                     <p>Personal Information</p>
                 </div>
 

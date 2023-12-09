@@ -1,12 +1,12 @@
 <div class="w-full rounded-lg bg-blue-600/70 px-6 md:px-10 dark:bg-blue-950/70">
-    <div class="ml-10 my-9 text-3xl font-bold text-blue-800">
+    <div class="ml-10 my-9 text-3xl font-bold text-blue-700">
         <h1>TRANSACTION HISTORY</h1>
     </div>
     <div class="flex columns-2 ml-20 text-xl">
         <div>
-            <p>NAME OF STUDENT</p>
-            <p>STUDENT NUMBER</p>
-            <p>YEAR AND SECTION</p>
+            <p class="text-blue-500">NAME OF STUDENT</p>
+            <p class="text-blue-500">STUDENT NUMBER</p>
+            <p class="text-blue-500">YEAR AND SECTION</p>
         </div>
         <div class="font-bold">
             <p class="text-white">
@@ -43,7 +43,7 @@
                     </tr>
                 </table>
             </span>
-            <p>{{ Auth::user()->section }}</p>
+            <p class="text-white">{{ Auth::user()->section }}</p>
         </div>
     </div>
 

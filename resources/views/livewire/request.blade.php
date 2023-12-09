@@ -111,10 +111,11 @@
             </div>
         </div>
 
+        {{-- invoice --}}
         <div class="flex-grow border-t-2 border-dashed border-blue-500"></div>
         <div class="ml-10 mt-9 mb-3">
             <h1 class="text-3xl font-bold text-blue-800">PAYMENT RECEIPT</h1>
-            <h2 class="text-2xl font-bold mt-3 ml-5">INVOICE TO:</h2>
+            <h2 class="text-2xl font-bold mt-3 ml-5 text-blue-500">INVOICE TO:</h2>
         </div>
         <div class="flex columns-2">
             <div class="ml-20 text-xl leading-relaxed text-white">

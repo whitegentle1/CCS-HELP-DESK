@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="mt-6 p-4">
-                <div class="text-2xl text-blue-900">
+                <div class="text-2xl text-blue-700">
                     <p>Change Password</p>
                 </div>
             </div>
