@@ -40,7 +40,7 @@ class Invoice extends Component {
 
     public function getInvoice()
     {
-        return StudentRequest::where('email', $this->user->email)->first();
+        return StudentRequest::where('email', $this->user->email)->paginate(1);
     }
 
     public function render()

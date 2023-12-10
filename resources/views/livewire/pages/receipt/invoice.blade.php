@@ -1,4 +1,6 @@
 <div class="w-full rounded-lg bg-blue-600/70 px-6 md:px-10 dark:bg-blue-950/70">
+    @foreach ($invoice as $item)
+
     {{-- invoice --}}
     <div class="ml-10 mt-9 mb-3">
         <h1 class="text-3xl font-bold text-blue-800">PAYMENT RECEIPT</h1>
@@ -40,11 +42,13 @@
             </p>
 
             <p>{{ Auth::user()->section }}</p>
-            <p>{{ $invoice->transaction_date }}</p>
-            <p class="mb-10">{{ $invoice->payment_method }}</p>
-            <p>{{ $invoice->document }}</p>
-            <p>{{ $invoice->no_copy }}</p>
-            <p class="mb-10">{{ $invoice->amount }}</p>
+            <p>{{ $item->transaction_date }}</p>
+            <p class="mb-10">{{ $item->payment_method }}</p>
+            <p>{{ $item->document }}</p>
+            <p>{{ $item->no_copy }}</p>
+            <p class="mb-10">{{ $item->amount }}</p>
         </div>
     </div>
+    @endforeach
+    {{-- {{ $invoice->links() }} --}}
 </div>

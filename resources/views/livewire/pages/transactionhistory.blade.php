@@ -47,10 +47,11 @@
         </div>
     </div>
 
-    <table class="mt-12 w-[91%] ml-20 h-10 text-2xl text-white">
+    <table class="mt-12 w-[91%] ml-20 h-10 text-2xl text-white mb-10">
         <!-- Table header -->
         <thead>
             <tr class="border-4 border-black">
+                <th class="p-10 text-center border-4 border-black">#</th>
                 <th class="p-10 text-center border-4 border-black">DATE</th>
                 <th class="p-10 text-center border-4 border-black">DOCUMENT</th>
                 <th class="p-10 text-center border-4 border-black">AMOUNT</th>
@@ -61,6 +62,10 @@
         <tbody>
             @foreach ($transactionHistory as $item)
             <tr class="border-4 border-black">
+                {{-- ID --}}
+                <td class="p-10 text-center border-4 border-black">
+                    {{ $item->id }}
+                </td>
                 {{-- DATE --}}
                 <td class="p-10 text-center border-4 border-black">
                     {{ $item->transaction_date }}
@@ -79,7 +84,7 @@
                 </td>
                 {{-- RECEIPT --}}
                 <td class="p-10 text-center text-blue-700">
-                    <a href="{{ route('invoice') }}" class="cursor-pointer"><u>VIEW RECEIPT</u></a>
+                    <a wire:navigate href="/invoice?page={{$item->id}}" class="cursor-pointer"><u>VIEW RECEIPT</u></a>
                 </td>
             </tr>
             @endforeach
@@ -87,13 +92,4 @@
     </table>
 
     {{ $transactionHistory->links() }}
-
-    <div class="mt-10 ml-[80%]">
-        <button
-            type="button"
-            class="text-white text-xl font-bold rounded-full py-2 px-12 cursor-pointer bg-indigo-900 hover:bg-indigo-950"
-        >
-            CONTINUE
-        </button>
-    </div>
 </div>
