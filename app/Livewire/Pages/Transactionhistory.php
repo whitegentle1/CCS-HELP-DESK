@@ -31,6 +31,7 @@ class Transactionhistory extends Component
 
 class Invoice extends Component {
     public $user;
+    public $student_request;
 
     public function mount()
     {
@@ -39,7 +40,7 @@ class Invoice extends Component {
 
     public function getInvoice()
     {
-        return StudentRequest::where('transaction_date', $this->user->email)->first();
+        return StudentRequest::where('email', $this->user->email)->first();
     }
 
     public function render()
