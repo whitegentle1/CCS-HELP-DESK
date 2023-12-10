@@ -1,4 +1,4 @@
-<x-app-layout>
+{{-- <x-app-layout> --}}
     <div class="w-full rounded-lg bg-blue-600/70 px-6 md:px-10 dark:bg-blue-950/70">
         {{-- invoice --}}
         <div class="ml-10 mt-9 mb-3">
@@ -10,6 +10,7 @@
                 <p>NAME OF STUDENT</p>
                 <p>STUDENT NUMBER</p>
                 <p>YEAR AND SECTION</p>
+                <p>DATE OF TRANSACTION</p>
                 <p class="mb-10">PAYMENT METHOD</p>
                 <p>REQUESTED DOCUMENT</p>
                 <p>NUMBER OF COPIES</p>
@@ -38,14 +39,15 @@
                 <p>
                     {{ substr(Auth::user()->email, 0, strpos(Auth::user()->email, '@')) }}
                 </p>
-                <!-- pending -->
+
                 <p>{{ Auth::user()->section }}</p>
-                {{-- <p class="mb-10">{{ $payment_method }}</p>
-                <p>{{ $document }}</p>
-                <p>{{ $no_copy }}</p>
-                <p>{{ $amount }}</p> --}}
+                <p>{{ $invoice->transaction_date }}</p>
+                <p class="mb-10">{{ $invoice->payment_method }}</p>
+                <p>{{ $invoice->document }}</p>
+                <p>{{ $invoice->no_copy }}</p>
+                <p class="mb-10">{{ $invoice->amount }}</p>
             </div>
         </div>
     </div>
-
-</x-app-layout>
+{{--
+</x-app-layout> --}}

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PaymentController;
+use App\Livewire\Pages\Invoice;
 use App\Livewire\Pages\Transactionhistory;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -89,9 +90,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('success', [PaymentController::class, 'success']);
 
     //Receipt | Invoice
-    Route::get('/view-invoice', function () {
-        return view('livewire.pages.receipt.invoice');
-    })->name('view-invoice');
+    // Route::get('/invoice', function () {
+    //     return view('livewire.pages.receipt.invoice');
+    // })->name('invoice');
+    Route::get('/invoice', Invoice::class)->name('invoice');
 });
 
 Route::get('/admin', function () {

@@ -61,20 +61,25 @@
         <tbody>
             @foreach ($transactionHistory as $item)
             <tr class="border-4 border-black">
+                {{-- DATE --}}
                 <td class="p-10 text-center border-4 border-black">
-                    {{ $item->created_at }}
+                    {{ $item->transaction_date }}
                 </td>
+                {{-- DOCUMENT --}}
                 <td class="p-10 text-center border-4 border-black">
                     {{ $item->document }}
                 </td>
+                {{-- AMOUNT --}}
                 <td class="p-10 text-center border-4 border-black">
                     {{ $item->amount }}
                 </td>
+                {{-- STATUS --}}
                 <td class="p-10 text-center border-4 border-black">
                     {{ $item->status }}
                 </td>
+                {{-- RECEIPT --}}
                 <td class="p-10 text-center text-blue-700">
-                    <a href="{{ route('view-invoice') }}" class="cursor-pointer">VIEW RECEIPT</a>
+                    <a href="{{ route('invoice') }}" class="cursor-pointer"><u>VIEW RECEIPT</u></a>
                 </td>
             </tr>
             @endforeach

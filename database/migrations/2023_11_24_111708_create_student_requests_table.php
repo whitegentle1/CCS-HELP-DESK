@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('amount');
             $table->string('activity')->nullable();
             $table->string('status')->default('pending');
+            $table->timestamp('transaction_date');
             $table->timestamps();
         });
     }

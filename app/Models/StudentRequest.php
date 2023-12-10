@@ -16,6 +16,9 @@ class StudentRequest extends Model
         'year_section',
         'document',
         'no_copy',
+        'payment_method',
+        'amount',
         'status',
+        'transaction_date',
     ];
 }

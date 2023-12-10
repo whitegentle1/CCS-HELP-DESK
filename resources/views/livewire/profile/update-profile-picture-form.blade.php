@@ -31,7 +31,7 @@ new class extends Component {
         $oldProfilePicture = $user->profilepicture;
         $imagePath;
         if ($this->profilepicture) {
-            $user->profilepicture = url('storage/' . $this->profilepicture->storeAs('profile-photos','profile-picture','public'));
+            $user->profilepicture = url('storage/' . $this->profilepicture->storeAs('profile-photos','profile-picture.jpg','public'));
             $user->save();
         }
         $this->logProfilePictureChange($oldProfilePicture, $user->profilepicture);

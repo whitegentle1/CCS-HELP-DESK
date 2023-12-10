@@ -28,3 +28,24 @@ class Transactionhistory extends Component
         return view('livewire.pages.transactionhistory', ['transactionHistory' => $transactionHistory]);
     }
 }
+
+class Invoice extends Component {
+    public $user;
+
+    public function mount()
+    {
+        $this->user = Auth::user();
+    }
+
+    public function getInvoice()
+    {
+        return StudentRequest::where('transaction_date', $this->user->email)->first();
+    }
+
+    public function render()
+    {
+        $invoice = $this->getInvoice();
+        return view('livewire.pages.receipt.invoice', ['invoice' => $invoice]);
+    }
+
+}
