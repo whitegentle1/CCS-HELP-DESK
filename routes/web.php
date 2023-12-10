@@ -89,10 +89,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('pay', [PaymentController::class, 'pay']);
     Route::get('success', [PaymentController::class, 'success']);
 
-    //Receipt | Invoice
-    // Route::get('/invoice', function () {
-    //     return view('livewire.pages.receipt.invoice');
-    // })->name('invoice');
+    //Receipt / Invoice
     Route::get('/invoice', Invoice::class)->name('invoice');
 });
 
@@ -103,6 +100,18 @@ Route::get('/admin', function () {
 Route::get('/users', function () {
     return view('livewire.pages.admin.pages.users');
 })->name('users');
+
+Route::get('/news-update', function () {
+    return view('livewire.pages.admin.pages.news-update');
+})->name('news-update');
+
+Route::get('/payment', function () {
+    return view('livewire.pages.admin.pages.payment');
+})->name('payment');
+
+Route::get('/schedule', function () {
+    return view('livewire.pages.admin.pages.schedule');
+})->name('schedule');
 
 Route::redirect('/success', '/transactionhistory');
 Route::redirect('/cancel', '/transactionhistory');
