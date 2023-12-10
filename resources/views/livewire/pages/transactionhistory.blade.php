@@ -74,7 +74,7 @@
                     {{ $item->status }}
                 </td>
                 <td class="p-10 text-center text-blue-700">
-                    <u href="#" class="cursor-pointer">VIEW RECEIPT</u>
+                    <a href="{{ route('view-invoice') }}" class="cursor-pointer">VIEW RECEIPT</a>
                 </td>
             </tr>
             @endforeach

@@ -26,7 +26,7 @@ Route::get('/', function () {
 
 Route::redirect('dashboard', 'home');
 
-// Para email verification, dun sa ENV file pede niyo ilagay ang SMTP ng gmail or kahit anong SMTP provider 
+// Para email verification, dun sa ENV file pede niyo ilagay ang SMTP ng gmail or kahit anong SMTP provider
 Route::get('/email/verify', function () {
     return view('auth.verify-email');
 })->middleware('auth')->name('verification.notice');
@@ -87,6 +87,11 @@ Route::middleware(['auth', 'verified'])->group(function () {
     //payMongo --pending--
     Route::get('pay', [PaymentController::class, 'pay']);
     Route::get('success', [PaymentController::class, 'success']);
+
+    //Receipt | Invoice
+    Route::get('/view-invoice', function () {
+        return view('livewire.pages.receipt.invoice');
+    })->name('view-invoice');
 });
 
 Route::get('/admin', function () {
