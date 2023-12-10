@@ -93,9 +93,21 @@ Route::get('/admin', function () {
     return view('livewire.pages.admin.dashboard');
 })->name('admin');
 
-// Route::get('/user', function () {
-//     return view('livewire.pages.page.user.php');
-// })->name('user');
+Route::get('/users', function () {
+    return view('livewire.pages.admin.pages.users');
+})->name('users');
+
+Route::get('/news-update', function () {
+    return view('livewire.pages.admin.pages.news-update');
+})->name('news-update');
+
+Route::get('/payment', function () {
+    return view('livewire.pages.admin.pages.payment');
+})->name('payment');
+
+Route::get('/schedule', function () {
+    return view('livewire.pages.admin.pages.schedule');
+})->name('schedule');
 
 Route::redirect('/success', '/transactionhistory');
 Route::redirect('/cancel', '/transactionhistory');
