@@ -24,7 +24,7 @@ new #[Layout('layouts.guest')] class extends Component {
         <div class="flex shadow-md">
             <!-- Login form -->
             <div
-                class="flex h-[32rem] w-[24rem] flex-wrap content-center justify-center rounded-l-md bg-white dark:bg-gray-700">
+                class="flex h-[32rem] w-[24rem] flex-wrap content-center justify-center rounded-l-md bg-white dark:bg-gray-600">
                 <div class="w-72">
                     <!-- Heading -->
                     <h1 class="text-xl font-semibold dark:text-gray-800">Login to continue</h1>
@@ -75,7 +75,7 @@ new #[Layout('layouts.guest')] class extends Component {
                             >
                             <span
                             wire:loading.remove
-                            
+
                         >
                             {{ __("Login") }}
                         </span>
