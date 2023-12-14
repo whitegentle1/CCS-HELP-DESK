@@ -1,11 +1,11 @@
-<div>
+<div class=" w-[22.6rem] lg:w-[83rem] 3xl:w-[103rem]">
     <form wire:submit="submitRequest">
-        <div class="ml-10 my-9 text-[3vmin] font-bold text-blue-800">
+        <div class="ml-3 my-5 lg:my-10 w-auto lg:text-[40px] 3xl:text-[45px] text-[1.7rem] font-bold text-blue-800">
             <h1>REQUEST AND PAYMENT INFORMATION</h1>
         </div>
 
-        <div class="flex justify-center mt-3 mb-10 text-xl font-bold">
-            <div class="mr-2">
+        <div class="flex justify-center mb-10 leading-[3rem] w-auto lg:w-[83rem] 3xl:w-[100rem] font-bold">
+            <div>
                 <div>
                     <x-input-label for="firstname" :value="__('Full name')" />
                     <x-text-input
@@ -13,7 +13,7 @@
                         id="fullname"
                         name="fullname"
                         type="text"
-                        class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
+                        class="w-[11rem] lg:w-[25rem] 3xl:w-[30rem] mr-[1rem] text-[1rem] lg:text-[1.5rem] 3xl:text-[2rem] rounded-md border py-2 pl-3 focus:border-blue-500 focus:outline-none"
                         readonly
                         :value="auth()->user()->firstname . ' ' . (auth()->user()->middlename ? auth()->user()->middlename . ' ' : '') . auth()->user()->lastname"
                     />
@@ -29,7 +29,7 @@
                         id="student_id"
                         name="student_id"
                         type="text"
-                        class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
+                        class="w-[11rem] lg:w-[25rem] 3xl:w-[30rem] text-[1rem] lg:text-[1.5rem] 3xl:text-[2rem] rounded-md border py-2 pl-3 focus:border-blue-500 focus:outline-none"
                         readonly
                         :value="substr(Auth::user()->email, 0, strpos(Auth::user()->email, '@'))"
                     />
@@ -45,7 +45,7 @@
                         id="year_section"
                         name=""
                         type="text"
-                        class="w-96 rounded-md border py-2 pl-10 pr-4 focus:border-blue-500 focus:outline-none"
+                        class="w-[11rem] lg:w-[25rem] 3xl:w-[30rem] text-[1rem] lg:text-[1.5rem] 3xl:text-[2rem] rounded-md border py-2 pl-3 focus:border-blue-500 focus:outline-none"
                         readonly
                     />
                 </div>
@@ -60,7 +60,7 @@
                     <select
                         wire:model="document"
                         name="document"
-                        class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
+                        class="text-[0.8rem] lg:text-[1.41rem] 3xl:text-[1.4rem] w-[13rem] lg:w-[30rem] 3xl:w-[30rem] ml-[-0.7rem] py-[0.51rem] lg:py-[0.67rem] 3xl:py-[0.95rem] pl-3 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                         wire:change="updateFormValues"
                     >
                         @foreach($doctype as $doctypeOptions)
@@ -79,7 +79,7 @@
                     <select
                         wire:model="no_copy"
                         name="no_copy"
-                        class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
+                        class="text-[1rem] lg:text-[1.5rem] 3xl:text-[1.4rem] w-[13rem] lg:w-[30rem] 3xl:w-[30rem] ml-[-0.7rem] py-[0.51rem] lg:py-[0.67rem] 3xl:py-[0.95rem] pl-3 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                         wire:change="updateFormValues"
                     >
                         @foreach($copy as $copyOptions)
@@ -98,7 +98,7 @@
                     <select
                         wire:model="payment_method"
                         name="payment_method"
-                        class="border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
+                        class="text-[1rem] lg:text-[1.5rem] 3xl:text-[1.4rem] w-[13rem] lg:w-[30rem] 3xl:w-[30rem] ml-[-0.7rem] py-[0.51rem] lg:py-[0.67rem] 3xl:py-[0.95rem] pl-3 border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm"
                         wire:change="updateFormValues"
                     >
                         @foreach($method as $methodOptions)
@@ -113,12 +113,12 @@
 
         {{-- invoice --}}
         <div class="flex-grow border-t-2 border-dashed border-blue-500"></div>
-        <div class="ml-10 mt-9 mb-3">
-            <h1 class="text-3xl font-bold text-blue-800">PAYMENT RECEIPT</h1>
-            <h2 class="text-2xl font-bold mt-3 ml-5 text-blue-500">INVOICE TO:</h2>
+        <div class="ml-3 mt-5 mb-2">
+            <h1 class="text-[1.7rem] lg:text-[2rem] 3xl:text-[2.1rem] font-bold text-blue-800">PAYMENT RECEIPT</h1>
+            <h2 class="text-[1.5rem] lg:text-[1.7rem] 3xl:text-[1.8rem] font-bold mt-1 text-blue-500">INVOICE TO:</h2>
         </div>
-        <div class="flex columns-2">
-            <div class="ml-20 text-xl leading-relaxed text-white">
+        <div class="flex columns-auto gap-">
+            <div class=" text-xl lg:text-2xl 3xl:text-3xl leading-relaxed text-white">
                 <p>NAME OF STUDENT</p>
                 <p>STUDENT NUMBER</p>
                 <p>YEAR AND SECTION</p>
@@ -128,14 +128,14 @@
                 <p class="font-bold">AMOUNT</p>
             </div>
             <div
-                class="ml-96 text-xl font-bold leading-relaxed text-left text-white"
+                class=" text-center lg:text-left lg:ml-80 3xl:ml-96 text-xl lg:text-2xl 3xl:text-3xl font-bold leading-relaxed text-white"
             >
                 <span
                     class="text-white"
                     x-data="{ capitalize: function(value) { return value.charAt(0).toUpperCase() + value.slice(1); } }"
                 >
-                    <table>
-                        <tr>
+                    <table class="text-center">
+                        <tr class="text-center">
                             <td
                                 class="text-xl text-gray-800 dark:text-gray-200"
                                 x-data="{ firstname: '{{ ucfirst(auth()->user()->firstname) }}' }"
@@ -171,10 +171,10 @@
                 <p>{{ $amount }}</p>
             </div>
         </div>
-        <div class="mt-5 ml-[80%]">
+        <div class="mt-5 lg:ml-[80%] 3xl:[80%]">
             <div class="flex justify-center">
                 <x-primary-button
-                    class="text-white text-xl font-bold rounded-full py-2 px-12 cursor-pointer bg-indigo-900 hover:bg-indigo-950"
+                    class="mb-5 h-14 lg:h-14 3xl:h-14 text-white text-xl font-bold rounded-full px-5 cursor-pointer bg-indigo-900 hover:bg-indigo-950"
                 >
                     PROCEED
                 </x-primary-button>

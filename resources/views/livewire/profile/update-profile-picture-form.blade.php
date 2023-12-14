@@ -78,19 +78,19 @@ new class extends Component {
     {{-- PROFILE PICTURE CHANGE --}}
     <div class="flex flex-col items-center">
         <form wire:submit="changeProfile">
-            <div class="flex flex-row lg:flex-row p-5 w-auto">
+            <div class="lg:flex lg:flex-row p-5 w-auto">
                 {{-- Profile Picture Preview --}}
                 @if ($profilepicture)
                     <img src="{{ $profilepicture->temporaryUrl() }}" alt="Profile Picture"
-                        class="mr-2 rounded-full object-cover" style="height: 275px; width: 275px" />
+                        class="mr-2 rounded-full object-cover mx-[6.5rem] h-[200px] lg:h-[275px]" />
                 @else
                     <img src="{{ Auth::user()->profilepicture }}" alt="Profile Picture"
-                        class="rounded-full object-cover" style="height: 275px; width: 275px" />
+                        class="rounded-full object-cover mx-[6.5rem] h-[200px] lg:h-[275px]" />
                 @endif
 
                 {{-- Profile Picture Upload --}}
-                <div class="flex-row items-center justify-center p-20">
-                    <div class="mb-8 text-white">
+                <div class="flex-row items-center justify-center ml-10 mt-5 lg:ml-0 lg:mt-0 lg:p-20">
+                    <div class="mb-5 lg:mb-8 text-white">
                         <input name="profilepicture" accept="image/png, image/jpeg, image/jpg" type="file"
                             wire:model="profilepicture" id="profilepicture" />
                     </div>
@@ -103,7 +103,7 @@ new class extends Component {
                         </span>
                     @enderror
 
-                    <div class="  ">
+                    <div class="ml-[-1rem] w-[24.5rem]">
                         <x-primary-button>{{ __('Update') }}</x-primary-button>
                         <button wire:navigate href="{{ route('home') }}"
                             class="block w-full transform rounded-md bg-blue-800 px-2 py-1.5 text-center text-white transition duration-200 ease-in hover:-translate-y-1 hover:border-transparent hover:bg-gray-600 hover:text-white active:translate-y-0 dark:bg-gray-500 dark:text-gray-900">

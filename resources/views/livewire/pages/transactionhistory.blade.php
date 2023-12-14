@@ -1,8 +1,8 @@
-<div class="w-full rounded-lg bg-blue-600/70 px-6 md:px-10 dark:bg-blue-950/70">
-    <div class="ml-10 my-9 text-3xl font-bold text-blue-700">
+<div class=" w-auto lg:w-[82.5rem] 3xl:w-[107rem] rounded-lg bg-blue-600/70 px-6 md:px-10 dark:bg-blue-950/70">
+    <div class="ml-3 my-9 text-3xl lg:text-[40px] 3xl:text-[45px] font-bold text-blue-700">
         <h1>TRANSACTION HISTORY</h1>
     </div>
-    <div class="flex columns-2 ml-20 text-xl">
+    <div class="flex columns-2 ml-5 text-[18px] lg:text-[25px] lg:leading-[30px] 3xl:text-[30px] 3xl:leading-[40px]">
         <div>
             <p class="text-blue-500">NAME OF STUDENT</p>
             <p class="text-blue-500">STUDENT NUMBER</p>
@@ -19,7 +19,7 @@
                 <table>
                     <tr>
                         <td
-                            class="text-2xl text-gray-800 dark:text-gray-200"
+                        class=" text-gray-800 dark:text-gray-200 text-[20px] w-auto lg:text-[25px] lg:leading-[30px] 3xl:text-[30px] 3xl:leading-[40px]"
                             x-data="{ firstname: '{{ ucfirst(auth()->user()->firstname) }}' }"
                             x-text="capitalize(firstname)"
                             x-on:profile-updated.window="firstname = capitalize($event.detail.firstname)"
@@ -27,7 +27,7 @@
                         @if (Auth::user()->middlename)
                         <td>&nbsp;</td>
                         <td
-                            class="text-2xl text-gray-800 dark:text-gray-200"
+                        class=" text-gray-800 dark:text-gray-200 text-[20px] w-auto lg:text-[25px] lg:leading-[30px] 3xl:text-[30px] 3xl:leading-[40px]"
                             x-data="{ middlename: '{{ ucfirst(substr(auth()->user()->middlename, 0, 1)) }}.' }"
                             x-text="middlename"
                             x-on:profile-updated.window="middlename = $event.detail.middlename ? capitalize($event.detail.middlename[0]) + '.' : ''"
@@ -35,7 +35,7 @@
                         @endif
                         <td>&nbsp;</td>
                         <td
-                            class="text-2xl text-gray-800 dark:text-gray-200"
+                        class=" text-gray-800 dark:text-gray-200  text-[20px] w-auto lg:text-[25px] lg:leading-[30px] 3xl:text-[30px] 3xl:leading-[40px]"
                             x-data="{ lastname: '{{ ucfirst(auth()->user()->lastname) }}' }"
                             x-text="capitalize(lastname)"
                             x-on:profile-updated.window="lastname = capitalize($event.detail.lastname)"
@@ -47,16 +47,16 @@
         </div>
     </div>
 
-    <table class="mt-12 w-[91%] ml-20 h-10 text-2xl text-white mb-10">
+    <table class="mt-10 mb-10 w-auto text-[14px] text-white lg:w-[78rem] lg:text-[25px] 3xl:w-[102rem] 3xl:text-[30px]">
         <!-- Table header -->
         <thead>
-            <tr class="border-4 border-black">
-                <th class="p-10 text-center border-4 border-black">#</th>
-                <th class="p-10 text-center border-4 border-black">DATE</th>
-                <th class="p-10 text-center border-4 border-black">DOCUMENT</th>
-                <th class="p-10 text-center border-4 border-black">AMOUNT</th>
-                <th class="p-10 text-center border-4 border-black">STATUS</th>
-                <th class="p-10 text-center border">RECEIPT</th>
+            <tr class="border-2 border-black">
+                <th class="p-2 border-2 lg:p-4 3xl:p-5 lg:border-4 3xl:border-4 text-center border-black">#</th>
+                <th class="p-2 border-2 lg:p-4 3xl:p-5 lg:border-4 3xl:border-4 text-center border-black">DATE</th>
+                <th class="p-2 border-2 lg:p-4 3xl:p-5 lg:border-4 3xl:border-4 text-center border-black">DOCUMENT</th>
+                <th class="p-2 border-2 lg:p-4 3xl:p-5 lg:border-4 3xl:border-4 text-center border-black">AMOUNT</th>
+                <th class="p-2 border-2 lg:p-4 3xl:p-5 lg:border-4 3xl:border-4 text-center border-black">STATUS</th>
+                <th class="p-2 border-2 lg:p-4 3xl:p-5 lg:border-4 3xl:border-4 text-center border-black">RECEIPT</th>
             </tr>
         </thead>
         <tbody>

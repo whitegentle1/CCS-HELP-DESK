@@ -20,6 +20,9 @@ export default {
                 "light-mode": "url('/public/assets/imgs/BG.jpg')",
                 "dark-mode": "url('/public/assets/imgs/BG_DHVSU_DARKMODE.jpg')",
             },
+            screens: {
+                "3xl": "1900px",
+            },
         },
         variants: {
             extend: {
