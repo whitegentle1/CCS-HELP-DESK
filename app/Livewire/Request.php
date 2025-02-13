@@ -52,7 +52,7 @@ class Request extends Component
             case 'GCash':
                 $paycode = 'gcash';
                 break;
-            case 'Paymaya':
+            case 'Maya':
                 $paycode = 'paymaya';
                 break;
             case 'Online Banking':

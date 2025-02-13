@@ -28,8 +28,9 @@ class PaymentController extends Controller
                     'payment_method_types' => [
                         $paycode
                     ],
-                    'success_url' => 'http://localhost:8000/transactionhistory',
-                    'cancel_url' => 'http://localhost:8000/transactionhistory',
+                    'success_url' => 'http://localhost/transactionhistory',
+                    // failed payment --WIP--
+                    'cancel_url' => 'http://localhost/transactionhistory', 
                     'description' => $document . ' * ' . $no_copy,
                 ]
             ]
@@ -41,7 +42,6 @@ class PaymentController extends Controller
             ->withData($data)
             ->asJson()
             ->post();
-
 
         \Session::put('session_id', $response->data->id);
         $userSessionId = \Session::getId();

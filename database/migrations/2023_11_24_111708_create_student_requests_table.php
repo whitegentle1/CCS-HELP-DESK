@@ -25,17 +25,16 @@ return new class extends Migration
             $table->string('amount');
             $table->string('activity')->nullable();
             $table->string('status')->default('pending');
-            $table->timestamp('transaction_date');
+            $table->timestamp('transaction_date')->useCurrent(); // Set default value for transaction_date
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('student_request');
+        Schema::dropIfExists('student_requests'); // Fixed table name here
     }
 };
